@@ -1,0 +1,4 @@
+model,time_s,throughput_tokens_per_s
+Qwen/Qwen3-1.7B,1.9577,261.54
+Qwen/Qwen3-8B,2.5335,202.09
+allenai/OLMo-7B-0724-hf,1.5475,330.85

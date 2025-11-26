@@ -1,0 +1,13 @@
+{
+  "model": "meta-llama/Llama-3.2-1B",
+  "prompt": "Once upon a time,",
+  "tau": 3.0,
+  "temperature": 0.9,
+  "learning_rate": 0.1,
+  "sequence_len": 598,
+  "mean_token_ppl": 75.13995789277779,
+  "median_token_ppl": 2.980542749855164,
+  "std_token_ppl": 275.66731629297993,
+  "sequence_ppl": 6.171339310545953,
+  "num_steps": 122
+}

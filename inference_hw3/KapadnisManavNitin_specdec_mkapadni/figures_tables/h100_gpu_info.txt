@@ -1,0 +1,7 @@
+GPU 0: NVIDIA H100 PCIe
+  VRAM: 85.0 GB
+  Compute Capability: 9.0
+  Multiprocessors: 114
+  Details via nvidia-smi:
+name, memory.total [MiB], compute_cap
+NVIDIA H100 PCIe, 81559, 9.0

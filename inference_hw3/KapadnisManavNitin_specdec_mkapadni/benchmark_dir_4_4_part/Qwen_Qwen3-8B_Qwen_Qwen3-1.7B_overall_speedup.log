@@ -1,0 +1,11 @@
+
+---(Benchmark Summary) ---
+Processed 20 / 20 prompts successfully.
+Averaged over 2 runs per prompt.
+Generation params: max_new_tokens=50, lookahead=7, temp=0.1
+---------------------------------
+Average AR Time: 1.8285s
+Average SD Time: 3.4762s
+Average Acceptance Rate: 53.65%
+Average Empirical Speedup: 0.53x
+---------------------------------

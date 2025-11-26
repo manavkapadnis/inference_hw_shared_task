@@ -1,0 +1,917 @@
+{
+  "task": "MMLU",
+  "model": "Qwen/Qwen3-4B",
+  "setting": "degenerate_chaos",
+  "max_new_tokens": 128,
+  "avg_score": 0.26,
+  "n": 100,
+  "hyperparameters": {
+    "do_sample": true,
+    "temperature": 3.5,
+    "top_p": 0.05,
+    "top_k": 3,
+    "repetition_penalty": 2.5
+  },
+  "results": [
+    {
+      "id": 1,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following releases most energy when completely oxidised in the body?\n Options:\nA. One gram of glucose\nB. One gram of palmitic acid\nC. One gram of leucine\nD. One gram of alcohol\nAnswer:",
+      "raw_generation": " The correct option here depends on understanding how different macronutrients are metabolized and their respective caloric values per unit mass.\nGlucose, being an easily digestible carbohydrate with six carbon atoms arranged as hexose sugar molecules provides approximately nine kilocalories for each one-gram amount upon complete oxidation within human bodies due to its simple structure allowing efficient breakdown into CO2 & H₂O through glycolysis followed by Krebs cycle processes which yield high amounts ATP from relatively small inputs like this kind molecule's molecular weight or size compared other lipids etc..\nPalmtaic Acid however has longer chain length than that found naturally occurring sugars so",
+      "pred_answer": null,
+      "gold_answer": "One gram of palmitic acid",
+      "score": 0.0
+    },
+    {
+      "id": 2,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 75-year-old female presents to the office for a health maintenance examination. She says that she is more fatigued than she was at 65, but she still gardens and drives to the grocery store. Routine laboratory studies reveal a leukocyte count of 25.0 × 103/mcL (reference range 4.5-11.0 × 103/mcL) and 97% mature-appearing lymphocytes on a peripheral blood smear. Immunohistochemical stains demonstrate the lymphocytes to be of B-cell origin. The most likely diagnosis is\n Options:\nA. acute lymphocytic leukemia\nB. acute myelogenous leukemia\nC. chronic lymphocytic leukemia\nD. chronic myelogenous leukemia\nAnswer:",
+      "raw_generation": " C\n\nExplanation:\n\nThis patient has an elevated white cell counts with >8/white cells being mature B-cells.\nChronic Lymphatic Leukemia or CLL typically involves increased numbers (> > normal), mostly small immature-looking淋巴细胞，but sometimes they can appear as large “blasts” which are not blasts; however these would usually have cytoplasmic granules if it were Acute Myelo... Wait no! In this case we're told there's high percentage（over）of成熟looking 淋巴cells — so those aren't blast-like forms—so probably NOT急性leukoemias like",
+      "pred_answer": "B",
+      "gold_answer": "chronic lymphocytic leukemia",
+      "score": 0.0
+    },
+    {
+      "id": 3,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following processes is not used to modify protein structure after translation has occurred?\n Options:\nA. Lipidation.\nB. Attachment of more amino acids via peptide bonds.\nC. Glycosylation.\nD. Phosphorylation.\nAnswer:",
+      "raw_generation": " The correct option here would be B, because this process occurs during transcription and before initiation or elongating polypeptide chain synthesis rather than post-translationally modifying proteins once they have been synthesized from mRNA transcripts into their respective functional forms within cells' cytoplasmic environments where ribosomes carry out these steps through mechanisms like those described by molecular biology textbooks such as 'Molecular Biology Of Cell'.\n\nWait but I need only one letter for my final response so let me check again:\n\nAfter translating an RNA sequence using tRNA molecules that bring specific氨基酸to match codons on mRNAs - which happens inside cell's Ribosome complex structures located",
+      "pred_answer": "I",
+      "gold_answer": "Attachment of more amino acids via peptide bonds.",
+      "score": 0.0
+    },
+    {
+      "id": 4,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following is thought to be implicated in the development of peripheral muscle fatigue during multiple sprint activities?\n Options:\nA. An accumulation of inorganic phosphate.\nB. Development of hyperosmolality in the muscles.\nC. An excess of antioxidants.\nD. A lack of potassium.\nAnswer:",
+      "raw_generation": " The correct option for this medical-related query involves understanding what factors contribute specifically and directly toward developing muscular exhaustion, especially when engaging with repeated sprints that are high intensity but short duration—like those seen commonly within sports such as soccer or basketball where players often perform several quick bursts over time without much recovery between them.\n\n\nWhen you engage your skeletal musculature through intense activity like rapid running movements—which can occur many times throughout an athletic session—the body's energy systems get taxed quickly due primarily two reasons:\n\n1.) **Energy System Depletion**: During these brief yet powerful efforts involving fast-twitch fibers which rely heavily on anaerobic metabolism leading towards",
+      "pred_answer": null,
+      "gold_answer": "An accumulation of inorganic phosphate.",
+      "score": 0.0
+    },
+    {
+      "id": 5,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: How many electrons does gold (Au) possess that have a quantum number l = 2?\n Options:\nA. 9\nB. 23\nC. 29\nD. 79\nAnswer:",
+      "raw_generation": " The atomic structure and electron configuration for Gold, which has anatomic \nnumber Z=80.\nGold's electronic configiration can be written as [Kr]4f¹⁴5d₁₀6s1 or more precisely,\n[Ar][ Kr ](noble gas core)(inner transition metals with f-orbitals filled)\nSo from this we know it’s filling up its d orbita ls first then s orbital last but not before all other subshells are full\n\nNow let me think through how to find out what elements would contribute their own e- into each shell:\n\nFor n values - shells go like K",
+      "pred_answer": null,
+      "gold_answer": "29",
+      "score": 0.0
+    },
+    {
+      "id": 6,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Neonatal Respiratory Distress Syndrome (NRDS) is a serious complication seen in infants born prematurely who have a compromised ability to facilitate oxygen diffusion across their alveolar membranes. This is caused by inadequate surfactant production. What role does surfactant play in facilitating oxygen diffusion?\n Options:\nA. Increases surface permeability\nB. Maintains alveoli in an open state\nC. Depresses cilia of the lung\nD. Dilates blood vessels\nAnswer:",
+      "raw_generation": " The correct option here would be B, which states that 'Maintain s Alvoeoi In An Open State'. Surfactants are substances secreted into airways and lungs from type II pneumocytes; they reduce tension on surfaces such as those within pulmonary capillaries or between cells lining them.\nSurfctnt plays crucial roles including reducing interfacial tensions so it helps keep small sacs like our tiny balloons called ‘alvolei’ expanded during breathing process thus preventing collapse especially when baby's body has not yet developed enough mature structures for this function naturally - something common with preterm babies leading towards NR DS condition described",
+      "pred_answer": "B",
+      "gold_answer": "Maintains alveoli in an open state",
+      "score": 1.0
+    },
+    {
+      "id": 7,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 72-year-old woman comes to the physician because of a 2-month history of painless swelling of both ankles. She also reports shortness of breath with exertion and when lying down. She has been awakened from sleep by shortness of breath. She has not had chest pain. Her pulse is 96/min and regular, respirations are 24/min, and blood pressure is 128/76 mm Hg. Jugular venous pressure is 15 cm H2O. Pulmonary examination shows crackles at both lung bases. Cardiac examination shows a regular rhythm and a soft S3. A grade 3/6 holosystolic murmur is heard best at the apex, radiating to the axilla. There is 2+ pitting edema of the lower legs and ankles. Which of the following is most likely to confirm the diagnosis?\n Options:\nA. Measurement of serum troponin I concentration\nB. ECG\nC. Exercise stress test\nD. Echocardiography\nAnswer:",
+      "raw_generation": " The correct option for confirming this patient's condition would be D., which involves echocardigraphy.\nEvaluative reasoning:\n\nThis case presents signs that suggest heart failure due primarily related issues such as left-sided ventricular dysfunction or valvulopathy affecting cardiac function leading towards pulmonary congestion symptoms like dyspnea on effort & orthopnoea along side peripheral oedematious features indicating right sided involvement too; these findings align well within context where there might exist an underlying structural issue impacting normal filling pressures across chambers especially given presence suggestive murmurs indicative possibly mitral regurgitation - common finding associated particularly if it were secondary valve disease stemming perhaps via",
+      "pred_answer": "D",
+      "gold_answer": "Echocardiography",
+      "score": 1.0
+    },
+    {
+      "id": 8,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 46-year-old woman with active ankylosing spondylitis comes to the office for a follow-up examination. The use of various conventional nonsteroidal anti-inflammatory drugs has been ineffective. Sulfasalazine treatment also has not resulted in improvement. The most appropriate next step in treatment is administration of a drug that inhibits which of the following?\n Options:\nA. Cytotoxic T-lymphocyte antigen 4\nB. Epidermal growth factor\nC. Interleukin-1 (IL-1)\nD. Tumor necrosis factor α\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nAnkysing gouty arthritis, or axial involvement like spine and sacroiliac joints are common features.\nIn patients who do no respond well on NSAIDs & sulfosalsazine then biologics such as TNF-alpha inhibitors can be used first line therapy.\n\n\nSo according_to this explanation what's correct option? \n\nChoices were given above so I need choose from them based upon my knowledge base here but since you said strictly provide final answeer only after thinking process please make sure your response ends correctly formatted\n\n\nBased solely off provided information - patient had failed traditional treatments including NSADs/SASP",
+      "pred_answer": "I",
+      "gold_answer": "Tumor necrosis factor α",
+      "score": 0.0
+    },
+    {
+      "id": 9,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 36-year-old man comes to the office because of headaches that began 2 weeks ago. The headaches are moderately severe, are present when he awakens in the morning, and are relieved with over-the-counter analgesics. He has no prior history of headaches. He tells you he was promoted to an upper-level managerial position in his accounting firm about 8 months ago, which necessitated relocating. Physical examination now discloses no abnormalities except for blurring of the optic disc margins bilaterally. Which of the following is the most appropriate next step?\n Options:\nA. Begin a trial of a β-blocking medication\nB. Order CT scan of the head\nC. Order EEG\nD. Refer him for consultation with a neurologist\nAnswer:",
+      "raw_generation": " \n\nIn this case presentation involving headache associated by visual changes such as blurred vision due ot increased intracranial pressure or papilledema.\nPapillitis can be caused from various conditions including brain tumors but also other causes like meningiomas etc., however given its sudden onset after relocation it's important not only considering possible neurological issues related directly into central nervous system pathology; yet there could exist another explanation too - namely hypertension-induced increase within ICP leading towards transient symptoms before any definitive diagnosis emerges through imaging studies confirming presence/absence thereof via MRI /CT scans depending on availability & urgency required based upon clinical suspicion level regarding severity potential risk",
+      "pred_answer": null,
+      "gold_answer": "Order CT scan of the head",
+      "score": 0.0
+    },
+    {
+      "id": 10,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 78-year-old male presents to the office with the complaint of severe neck pain. He rates the pain as a 7 on a scale of 0 to 10 scale. He denies any trauma but reports that he had been doing a lot of painting over the past week. He denies any radicular pain or numbness. Cervical range of motion is moderately limited in all fields. He is treated with articulatory springing technique. Four hours later the physician receives a call from the local emergency department, where the patient presented confused, nauseated, and vertiginous. The physician may be found liable if\n Options:\nA. the motion barrier was articulated more than 3 times\nB. the motion barrier was met with a vectored force from the direction of ease\nC. the neck was treated in simultaneous hyperrotation and extension\nD. the patient was previously treated for osteoarthritis of the cervical spine\nAnswer:",
+      "raw_generation": " \n\nTo determine liability here we need consider what could have caused this adverse reaction after treatment.\nArticulation techniques can sometimes cause complications especially when not performed correctly.\n\n\nLet's analyze each option:\n\nOption D suggests previous diagnosis might contribute - however it doesn't directly relate causally unless there were specific contraindications related specifically due \nto his condition which isn’t mentioned clearly enough so likely less relevant compared others\n\nNow focusing on options relating direct actions during therapy session itself...\n\nWhen performing manual therapies like Articulo-Spring Technique particularly involving manipulation under sedation [which seems implied by context], certain maneuvers carry risks depending upon how they're executed according",
+      "pred_answer": "D",
+      "gold_answer": "the neck was treated in simultaneous hyperrotation and extension",
+      "score": 0.0
+    },
+    {
+      "id": 11,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 37-year-old man comes to the emergency department because he has felt nauseated and light-headed for the past hour. Medical history is significant for esophageal varices secondary to alcohol-related cirrhosis and ascites treated with spironolactone. He drinks eight to ten alcoholic beverages daily. While you are obtaining additional history, the patient vomits a large volume of bright red blood and becomes difficult to arouse. Vital signs are temperature 36.0°C (96.8°F), pulse 110/min, respirations 12/min, and blood pressure 90/50 mm Hg. Following initiation of intravenous fluids, which of the following is the most appropriate immediate management?\n Options:\nA. Arrange for transjugular intrahepatic portal vein shunting\nB. Begin intravenous vasopressin therapy\nC. Do endotracheal intubation\nD. Do upper endoscopy\nAnswer:",
+      "raw_generation": " The correct option here involves managing acute bleeding from an enlarged spleen due primarily related conditions like liver disease.\nGiven that this individual presents after vomiting up substantial amounts or even massive volumes - indicating severe hemorrhage into his stomach area; given also how low their BP reading was post-IV fluid administration suggests they might be experiencing hypovolemic shock as well possibly septic if there's infection involved but more likely just major internal bleed leading towards circulatory collapse without any sign yet suggesting bacterial involvement so no need immediately do ET tube unless airway protection needed otherwise not indicated right now since it seems stable enough despite being unresponsive slightly maybe? But wait",
+      "pred_answer": null,
+      "gold_answer": "Do endotracheal intubation",
+      "score": 0.0
+    },
+    {
+      "id": 12,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A fundamental cause of fatigue in high intensity exercise is:\n Options:\nA. a fall in the cell concentration of ADP.\nB. inhibition of ATP production.\nC. failure of the ATP supply to match the demand.\nD. lack of skill.\nAnswer:",
+      "raw_generation": " The correct option here would be C, which states that 'failure\noftheATPSupplytoMatchthedemand'isafundamentalcauseoffatigueinhighintensityexercise.Theansweriscorrectbecauseduringhightenistyexercisethebody'sdemandforenergyincreasesrapidlysincethemusclesareworkinghardandrequiringmoreadenosine triphosphate(ATPasanimportantsourceofoxygen).However,the body may notbe abletoproduce enough ATPin time due tolimited availability offatty acids and glucose for energyproduction or because oxygen deliverytomyocytes isn't sufficient during intense activity.This mismatch",
+      "pred_answer": "C",
+      "gold_answer": "failure of the ATP supply to match the demand.",
+      "score": 1.0
+    },
+    {
+      "id": 13,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 65-year-old female is admitted to the hospital after experiencing aphasia and right-sided hemiparesis. She subsequently develops urinary incontinence. There is no evidence of urinary tract infection and no prior history of urinary pathology. The most likely diagnosis is\n Options:\nA. autonomic neurogenic bladderv\nB. motor paralytic bladder\nC. reflex neurogenic bladder\nD. uninhibited neurogenic bladder\nAnswer:",
+      "raw_generation": " \n\nIn this case, we are dealing with an elderly woman who has presented symptoms that suggest stroke or other central nervous system involvement due her sudden onset Aphsia along side Right sided Hemi-parese which points towards possible Cerebrovascular accident involving left hemisphere as it's responsible for language functions.\nUrinary Incontience without signs like UTI suggests something related directly from CNS damage rather than lower Urine Tract issues since there isn't any indication such infections etc., so looking into options given:\n\nOption D says 'uninhibted Neurogenetic Bladder' - This would be when higher centers lose control over mict",
+      "pred_answer": "D",
+      "gold_answer": "uninhibited neurogenic bladder",
+      "score": 1.0
+    },
+    {
+      "id": 14,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The most rapid method to resynthesize ATP during exercise is through:\n Options:\nA. glycolysis.\nB. phosphocreatine breakdown.\nC. tricarboxylic acid cycle (Krebs' cycle).\nD. glycogenolysis.\nAnswer:",
+      "raw_generation": " B\nExplanation:\n\nDuring high-intensity, short-duration exercises such as sprinting or weightlifting,\nthe body relies on immediate sources for energy production because oxygen delivery may not be sufficient.\n\n\nATP synthesis occurs primarily via three pathways - creatinine phosphate system,\n\nglycogenesis and anaerobic metabolism\n\nPhosphagen System/ Creatin Phosphate Breakdown : This pathway provides quick but limited supply \n\nof ADPs & ATps by breaking down stored phosphenate groups into free adenines with release \nOf Pi . It's very fast acting , providing up-to-10 seconds duration .\n\nGluconeogensis / Glycos",
+      "pred_answer": "B",
+      "gold_answer": "phosphocreatine breakdown.",
+      "score": 1.0
+    },
+    {
+      "id": 15,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: An action potential arriving at the motor endplate causes release of:\n Options:\nA. acetylcholine which traverses the neuromuscular junction.\nB. sodium ions which binds to sodium receptors on the muscle membrane.\nC. calcium ions which initiate an action potential along the muscle fibre.\nD. noradrenaline which increases muscle metabolic activity.\nAnswer:",
+      "raw_generation": " The correct option here involves understanding what happens when there's depolarization and how it leads into contraction within skeletal muscles, specifically focusing upon events that occur after arrival by way or nerve impulse via synaptic transmission across synapses between neurons & muscular cells - known as sarcolemma membranes for these fibers; thus:\n\nWhen you have this scenario where your nervous system sends signals through nerves ending up near specific parts called 'motor ends plates' located over each individual fiber bundle inside our body’s musculature... \n\nSo first off – let me break down step-by-step from beginning till conclusion based purely around biological processes related directly with such phenomena occurring during normal",
+      "pred_answer": null,
+      "gold_answer": "acetylcholine which traverses the neuromuscular junction.",
+      "score": 0.0
+    },
+    {
+      "id": 16,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Six healthy subjects participate in a study of muscle metabolism during which hyperglycemia and hyperinsulinemia is induced. Muscle biopsy specimens obtained from the subjects during the resting state show significantly increased concentrations of malonyl-CoA. The increased malonyl-CoA concentration most likely directly inhibits which of the following processes in these subjects?\n Options:\nA. Fatty acid oxidation\nB. Fatty acid synthesis\nC. Gluconeogenesis\nD. Glycogenolysis\nAnswer:",
+      "raw_generation": " \n\nMalonic Coenzyme A, or Malonate-adenylated coenzymes are intermediates that play an important role as regulators for fatty acids biosynthesis.\nIn this case since there's high levels on it due to Hyperglucia &Hyper insulinism; so they would be promoting fat storage rather than breakdown because Insuline promotes lipoprotein production while glucose increases glycogenic activity but here we have more focus towards lipid regulation with elevated MCoAs leading up into inhibition process related specifically toward Fat Breakdown hence option B seems correct though need check again\n\nWait let me think carefully now:\n\nWhen you increase your level Of",
+      "pred_answer": "B",
+      "gold_answer": "Fatty acid oxidation",
+      "score": 0.0
+    },
+    {
+      "id": 17,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 43-year-old man with a history of self-mutilation comes to the emergency department because of pain in his right thigh and shaking chills during the past 3 days. He says he intentionally burned his right thigh several times with a cigarette lighter 6 days ago. This morning he soaked his thigh in a tub of hot water and massaged it, after which a large amount of \"greenish fluid\" drained from the wound sites. The patient normally takes lithium carbonate but stopped 3 months ago after he lost his job. Medical history is otherwise unremarkable. Vital signs are temperature 39.2°C (102.5°F), pulse 170/min, respirations 18/min, and blood pressure 120/60 mm Hg. Physical examination shows an edematous right lateral thigh with multiple burn sites with a white exudative appearance. There is erythema surrounding the burn areas with red streaks extending up the thigh. Palpation of the burn sites discloses fluctuance. Results of laboratory studies show a hemoglobin concentration of 14 g/dL and a leukocyte count of 19,000/mm3 . In addition to beginning antibiotic therapy, which of the following is the most appropriate next step?\n Options:\nA. Incision and drainage\nB. Psychiatric consultation\nC. Topical silver sulfadiazine\nD. Transfer to a burn center\nAnswer:",
+      "raw_generation": " \n\nTo determine this case's correct management plan for our hypothetical scenario involving someone who has been burning their leg on purpose as part or maybe even all out-of-control behavior that could be related either directly through injury itself like burns causing infection etc., we need first understand what each option entails based upon clinical findings given here:\n\n- **Option D - 'Transfer To Burn Center'** seems very relevant considering there was intentional harm done by himself via fireburning; however also note other symptoms such inflammation around wounds suggesting possible deeper issues beyond just superficial injuries.\n  \nBut wait let me think again...the key points mentioned include recent intentionality leading into current",
+      "pred_answer": "D",
+      "gold_answer": "Incision and drainage",
+      "score": 0.0
+    },
+    {
+      "id": 18,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 5-year-old boy returns to the office with his 19-year-old mother to discuss results of studies done to evaluate his behavior of eating dirt. The patient sits quietly while his mother answers questions about his health. She says her son seems healthy, although he does not seem to be as active as other children his age. He has said his head hurts three or four times during the past 2 weeks. He has not had fever, sweats, or chills. She says he has a good appetite but has had a habit of eating sand and dirt since age 3 years. She says, \"I don't know where he gets that habit. I used to eat dirt, but I stopped years ago. I try to stop him from eating dirt, but I'm not around much since I work two jobs.\" The patient takes no medications. Vaccinations are upto-date. Height, weight, and BMI are at the 50th percentile. Vital signs are normal. Physical examination discloses no abnormalities except for symmetrical nontender cervical adenopathy. Results of laboratory studies, including serum zinc, lead, and iron concentrations, are within the reference ranges. Serologic testing confirms toxoplasmosis. In addition to prescribing pyrimethamine and sulfadiazine therapy, which of the following is the most appropriate next step in management?\n Options:\nA. Prescribe fluoxetine\nB. Prescribe methylphenidate\nC. Prescribe risperidone\nD. Refer the patient to a child psychiatrist\nAnswer:",
+      "raw_generation": " \n\nBased on this scenario:\n\n- Patient presents w/ history suggestive o/persistent behavioral issue -eating soil.\n-Symptoms include headache x4 days; otherwise well & vitals normaL;\n-Labs show all parameters W/N range,\n-Toxoplasmic serology positive -> indicates infection by Toxo\n\nIn such cases when there's suspicion/family hx suggesting possible psychiatric issues along side physical symptoms without clear organic cause,\n\nRisperidon would typically come into consideration if it were an OCD-like presentation OR perhaps some sort anxiety disorder... But given context here we have confirmed TOXIPLASMOSIS so need treatment accordingly...\n\nBut",
+      "pred_answer": null,
+      "gold_answer": "Refer the patient to a child psychiatrist",
+      "score": 0.0
+    },
+    {
+      "id": 19,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 22-year-old woman contacts a medical student and asks if he would like to join her for dinner. The student met the woman when he was assigned to her care during her 2-week hospitalization for treatment of major depressive disorder. He has not treated or seen the patient since she was discharged from the hospital. He is attracted to this former patient and would be interested in dating her. Which of the following is the most appropriate action by the medical student regarding this patient's invitation?\n Options:\nA. He can date her because he was a medical student, not a physician, when he contributed to her care\nB. He can date her because she is no longer his patient\nC. He can date her, but only after at least 1 year has passed since he treated her\nD. He cannot date her because she was once his psychiatric patient\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nThis scenario involves an ethical dilemma related with maintaining boundaries between healthcare professionals who have previously been involved as part their role within patients' lives.\nIn many countries including United States there are strict guidelines that prohibit any form relationship involving current/past clients especially those where power dynamics exist such relationships could lead towards exploitation/abuse etc., so even though it may seem innocent on surface level; however professionally speaking these kinds interactions should never happen due risk factors associated them regardless how long ago they were engaged into treating someone else’s health issues .\nTherefore according latest standards & regulations , correct response here will always point toward option which states 'He Cannot",
+      "pred_answer": "D",
+      "gold_answer": "He cannot date her because she was once his psychiatric patient",
+      "score": 1.0
+    },
+    {
+      "id": 20,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following is not an amino acid?\n Options:\nA. Glutamic acid\nB. Aspartic acid\nC. Glutamine\nD. Palmitic acid\nAnswer:",
+      "raw_generation": " The correct option here would be D, which represents pal mit ic ac id.\nSo that's why we can say it’s incorrect because all other options are indeed essential for protein synthesis and thus considered as part or related to proteins while this one isn't; instead its fatty acids so different from them hence making him wrong among these choices .\nTherefore ,the right response should come out like :\n\"Theansweris(D).\"\nBut accordingto instructions I need only final line with just “Therightanswering” followed by parentheses containing letter . So let me make sure once again before giving my conclusion .\n\nPalMITIC ACID IS A F",
+      "pred_answer": "F",
+      "gold_answer": "Palmitic acid",
+      "score": 0.0
+    },
+    {
+      "id": 21,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 47-year-old man is brought to the emergency department 2 hours after the sudden onset of shortness of breath, severe chest pain, and sweating. He has no history of similar symptoms. He has hypertension treated with hydrochlorothiazide. He has smoked one pack of cigarettes daily for 30 years. His pulse is 110/min, respirations are 24/min, and blood pressure is 110/50 mm Hg. A grade 3/6, diastolic blowing murmur is heard over the left sternal border and radiates to the right sternal border. Femoral pulses are decreased bilaterally. An ECG shows left ventricular hypertrophy. Which of the following is the most likely diagnosis?\n Options:\nA. Acute myocardial infarction\nB. Aortic dissection\nC. Esophageal rupture\nD. Mitral valve prolapse\nAnswer:",
+      "raw_generation": " The correct option here requires analyzing clinical findings that point toward specific conditions.\n- **AcUTE MYOCARDIAL INFARCTION** typically presents as acute cardiac ischemia; however this patient's presentation includes signs like tachycardic rate & hypotension which may be seen but not typical without other features such us ST elevation on an electrocardiogram or elevated troponin levels - though these aren't mentioned explicitly yet so it might still fit into consideration depending upon full picture development later if any further info comes up from lab results etc...\n  \nBut looking more closely:\n\nHe had Sudden Onset Short Breath + Severe Chest",
+      "pred_answer": null,
+      "gold_answer": "Aortic dissection",
+      "score": 0.0
+    },
+    {
+      "id": 22,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 7-year-old male is brought to the office for evaluation of school problems. The mother says that the teacher has told her that the patient is inattentive, has difficulty following sequential instructions, and often seems to drift off to sleep during class. A polysomnogram reveals obstructive sleep apnea. The most appropriate management is\n Options:\nA. elevation of the head of the bed\nB. heart rate and apnea monitoring\nC. imipramine\nD. surgical evaluation\nAnswer:",
+      "raw_generation": " \n\nIn this case presentation involving an otherwise healthy child with symptoms consistent on clinical examination as well poly som nograph y showing OSA which can be managed by various approaches depending upon severity.\nObstruct ive Sleep Apneia may lead t o daytime drowsiness due too hypox ia or hypercapnia leading into poor concentration etc., so first line treatment would involve lifestyle modifications like elevating hea dof beds but if not effective then further steps are taken such us CPAP therapy however here options given include surgery also .\nBut according ton standard guidelines , initial step should always start from non-invasive methods before considering any invasive procedures . So option",
+      "pred_answer": null,
+      "gold_answer": "surgical evaluation",
+      "score": 0.0
+    },
+    {
+      "id": 23,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 35-year-old male presents to the office for the result of an HIV test, and he is informed that the result is positive. The patient resists disclosure to his wife because he has not told her about his extramarital sexual partners. The physician informs the patient that his wife's right to know is paramount because she could also be HIV positive. Which of the following relationships best describes the rationale for the physician's recommendation that the patient inform his wife of his condition rather than withhold this information?\n Options:\nA. autonomy overrides beneficence\nB. autonomy overrides justice\nC. beneficence overrides autonomy\nD. nonmaleficence overrides autonomy\nAnswer:",
+      "raw_generation": " \n\nTo determine which principle justifies informing your spouse despite their resistance due concerns over potential harm or risk.\nBeneficial action should take precedence when it comes protecting another person from possible injury by revealing one’s own illness status especially if there are risks involved such as transmission disease like AIDS/HIV where knowing can help prevent further spread & allow appropriate care measures hence prioritizing doing good even against individual wishes would align with benefitting others thus making option C correct since Benefice takes priority here above Autonomy .\nTherefore ,the reason given relates more towards acting on behalf someone else`s well-being so choosing between these options we see Option D might seem plausible but",
+      "pred_answer": "D",
+      "gold_answer": "nonmaleficence overrides autonomy",
+      "score": 1.0
+    },
+    {
+      "id": 24,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A previously healthy 27-year-old nulligravid woman comes to the emergency department because of a 2-day history of moderate-to-severe pain and swelling of the left labia. She is sexually active and uses condoms inconsistently. Her temperature is 37.2°C (99°F), pulse is 92/min, respirations are 18/min, and blood pressure is 115/75 mm Hg. Pelvic examination shows a 4 x 3-cm, tender, fluctuant mass medial to the left labium majus compromising the introital opening. Which of the following is the most appropriate next step in management?\n Options:\nA. Administration of intravenous metronidazole\nB. Administration of intravenous penicillin G\nC. Ultrasound-guided needle aspiration of the mass\nD. Incision and drainage\nAnswer:",
+      "raw_generation": " The correct option for this scenario would be D., which involves incising or draining an abscess that has formed due possibly from infection such as pelvic inflammatory disease.\nTherefore,\nthe final response should read:\n\n\"The(answeris(D)).\" \n\nWait! I need you strictly follow instructions here — only provide one line with 'answer' followed by parentheses containing either letter options given above; no other text allowed!\nSo please make sure your last sentence reads exactly like so without any extra explanation!\n\nOkay let me rephrase my thought process correctly now while keeping everything concise per instruction...\n\nThis patient presents symptoms consistent presentation acute Bartholin's cyst complication—most commonly",
+      "pred_answer": "I",
+      "gold_answer": "Incision and drainage",
+      "score": 0.0
+    },
+    {
+      "id": 25,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A hedonic teenager of wayward morals, in one night, sequentially i) has consensual sexual intercourse with his sister, ii) leaves no tip at the bar, iii) has non-censual sexual relations with an unknown woman, and iv) vomits on the steps to the door of a local church. The teenager has violated society’s norms sequentially (to the greatest degree) on the order of:\n Options:\nA. mores, mores, the law, mores\nB. taboo, folkways, the law, and taboo\nC. the law, folkways, folkways, and folkways\nD. taboo, folkways, the law, and mores\nAnswer:",
+      "raw_generation": " \n\nTo determine which societal norm each action violates based upon its severity or social acceptability:\n\n1.) Consensually having sex between siblings - This would be considered as violating **taboo** because it's generally seen across many cultures that incestuous relationships are highly frowned up even if they're not illegal.\n2.). Leaving No Tip At Bar – this might fall under either legal standards depending where you live but more likely falls into what we call “folkway” since these aren't laws per se; rather people just expect tips for services received so leaving them could make someone feel bad socially although maybe also legally sometimes?\n3). Having Non-cons",
+      "pred_answer": null,
+      "gold_answer": "taboo, folkways, the law, and mores",
+      "score": 0.0
+    },
+    {
+      "id": 26,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following statements is false?\n Options:\nA. Ammonia is produced in repeated high intensity exercise.\nB. Muscle lactate accumulation does not begin until at least 5 seconds of intermittent muscle contractions have taken place.\nC. Muscle phosphocreatine depletion begins in the first few seconds of high intensity exercise.\nD. With an increasing number of repeated sprints the rate of accumulation of lactate in muscle declines.\nAnswer:",
+      "raw_generation": " The statement that's FALSE here would be D, because as you do more and longer repetitions or higher volumes with sprinting exercises your body becomes better adapted to handle lactic acid buildup so it doesn't accumulate quite like when doing them for very short periods initially; thus making option B correct but wait let me check again... Actually no - if someone has done many repeats then their muscles are used too much which might lead towards less initial build up? Wait I need clarity on this part...\n\nActually according_to standard physiology knowledge:\n\n- A.) True – during intense anaerobic activity such ammonia production occurs due breakdown processes\n-B.). False actually!",
+      "pred_answer": "B",
+      "gold_answer": "Muscle lactate accumulation does not begin until at least 5 seconds of intermittent muscle contractions have taken place.",
+      "score": 1.0
+    },
+    {
+      "id": 27,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A thin layer chromatography is performed on both the reactants and products of a reaction. It is found that the products have an Rf value that is significantly higher than the reactants. Which of the following could adequately describe this reaction:\n Options:\nA. SN2 reaction converting an alkyl bromide to an alkyl chloride\nB. Addition reaction converting an alkene to an alcohol\nC. Nucleophilic acyl substitution reaction converting an ester to an anhydride\nD. Elimination reaction converting an alcohol to an alkene\nAnswer:",
+      "raw_generation": " The correct option would be B, which describes addition reactions where alkenes are converted into molecules with more oxygen atoms such as those containing hydroxides or other functional groups.\nBut wait! Let me think again... In some cases like when you add HBr across double bonds forming halohydrins - but then maybe not? Or perhaps it's better if I consider what happens during different types chemical transformations regarding their polarity?\n\nWait no — actually for TLC analysis we look how mobile compounds move based upon solubility within solvent system used; so substances less polar will travel further up because they're soluble enough while non-polar ones stay",
+      "pred_answer": "I",
+      "gold_answer": "Elimination reaction converting an alcohol to an alkene",
+      "score": 0.0
+    },
+    {
+      "id": 28,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Three weeks ago a 45-year-old man was admitted to the hospital because of frostbite of both feet. He was treated by rapid rewarming and protective care of the feet. All the toes on the right foot have turned black. He has become slightly febrile and progressively more confused during the past few days. Examination discloses cellulitis in the midfoot. Which of the following is the most appropriate treatment?\n Options:\nA. Amputation\nB. Application of topical collagenase\nC. Debridement of necrotic skin over the toes\nD. Hyperbaric oxygen\nAnswer:",
+      "raw_generation": " The correct option here depends upon understanding what's going wrong with this patient, which seems like an infection that may be progressing despite initial treatments.\n \nFrostbitten tissue can lead not only directly but also indirectly through secondary infections or complications from hypothermia-related issues such as coagulopathy leading up towards possible sepsis if left untreated properly - especially when there are signs indicating worsening condition including fever & confusion along side localized findings suggesting deeper involvement than just superficial damage initially thought based off presentation alone without proper evaluation for underlying systemic problems related specifically due mainly caused either via bacterial invasion into previously damaged tissues OR perhaps even something else entirely... But",
+      "pred_answer": null,
+      "gold_answer": "Amputation",
+      "score": 0.0
+    },
+    {
+      "id": 29,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 65-year-old woman has a 6-month history of progressive irritability, palpitations, heat intolerance, frequent bowel movements, and a 6.8-kg (15-lb) weight loss. She has had a neck mass for more than 10 years. 131I scan shows an enlarged thyroid gland with multiple areas of increased and decreased uptake. Which of the following is the most likely diagnosis?\n Options:\nA. Defect in thyroxine (T4) biosynthesis\nB. Graves' disease\nC. Multinodular goiter\nD. Riedel's thyroiditis\nAnswer:",
+      "raw_generation": " The correct option here would be C - multinodal Goitre.\nBut wait! Let me think again... Wait no — this patient presents symptoms consistent to hyperthyroidism such as tachycardia or palpitations; however she also exhibits signs like hot tolerance which are not typical features associated directly but could relate indirectly if there was some kind inflammation involved? But then why does it say that her IOD Scan showed both increases AND decreases?\n\nWait let’s re-examine all clues carefully:\n\nShe says “progressive” irritable behavior – possible signifier towards overactive metabolism due possibly from excess hormone production by either Grave Disease OR",
+      "pred_answer": "C",
+      "gold_answer": "Multinodular goiter",
+      "score": 1.0
+    },
+    {
+      "id": 30,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 54-year-old woman comes to the emergency department because of severe jaw pain since undergoing a painful dental procedure 1 day ago. The patient was prescribed codeine after the procedure and instructed to take the medication every 4 hours, but she has continued pain despite adherence to this analgesic regimen. Other members of her family also have experienced poor pain control with codeine. Which of the following is the most likely explanation for this therapeutic failure?\n Options:\nA. Decreased absorption of codeine\nB. Decreased metabolism of codeine to morphine\nC. Deficiency of κ receptors\nD. Increased plasma protein-binding of codeine\nAnswer:",
+      "raw_generation": " \n\nTo determine which option best explains why our patients are not getting adequate relief from their current treatment plan we need first understand what's going on here.\nWe know that there were some issues related specifically around how well they're responding - even though it seems like everything else should be working fine otherwise; so maybe something different than just normal variation or typical side effects could explain things better?\n\nLet me think through each possibility carefully now:\n\nOption B says decreased metabolic conversion into active form – wait! Codein doesn't work directly as an opioid itself unless converted by enzymes such us CYP2Ds6 & especially cytochrome P-3a7",
+      "pred_answer": "B",
+      "gold_answer": "Decreased metabolism of codeine to morphine",
+      "score": 1.0
+    },
+    {
+      "id": 31,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Performance enhancing synthetic steroids are based on the structure of the hormone:\n Options:\nA. testosterone.\nB. cortisol.\nC. progesterone.\nD. aldosterone.\nAnswer:",
+      "raw_generation": " The correct option here would be A, which refers to **testosteron**e — this steroid has been used as an example for many performance-enhancing drugs due its ability increase muscle mass and strength when taken by athletes or bodybuilders who want improve their physical condition without natural means such that it's often associated with these types activities even though they're not recommended medically because there can serious health consequences from long-term use including liver damage etc... So then I need check if any other options could also fit but given what i know testosteroen specifically known base upon whose chemical strucutre? Well yes actually all steriods have",
+      "pred_answer": "I",
+      "gold_answer": "testosterone.",
+      "score": 0.0
+    },
+    {
+      "id": 32,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 52-year-old man comes to the physician with his wife because of a 1-year history of excessive daytime sleepiness. He does not think the symptoms are problematic, but his wife is concerned because he sometimes falls asleep on the sofa early in the evening when guests are present. He also once fell asleep while driving at night and drove off the road, narrowly avoiding injury. His wife says that he has always snored loudly, and over the past year, he has had episodes of choking or gasping for breath while sleeping. He is 178 cm (5 ft 10 in) tall and weighs 105 kg (231 lb); BMI is 33 kg/m2 . His pulse is 76/min, respirations are 14/min, and blood pressure is 150/76 mm Hg. Physical and neurologic examinations show no other abnormalities. Which of the following is most likely to confirm the diagnosis?\n Options:\nA. 24-Hour ambulatory ECG monitoring\nB. Multiple sleep latency test\nC. Polysomnography\nD. CT scan of the head\nAnswer:",
+      "raw_generation": " The correct option here would be C., which refers specifically testing during an entire overnight period where various physiological parameters related both breathing patterns as well physical activity levels were monitored simultaneously.\nTherefore,\n\"The(answeris(C)).\"\nWait wait! Let me check again... Oh right - this patient presents classic signs &symptoms consistent w/OSA; namely chronic fatigue,drowsy behavior,sleeping difficulties,wheezes/snores along side obesity(especially central adiposity). So what's needed? Well OSHA requires confirmation via polysommnygraphie study since it can detect apnea events etc...\nBut let see options:\n\nOption B was M",
+      "pred_answer": "B",
+      "gold_answer": "Polysomnography",
+      "score": 0.0
+    },
+    {
+      "id": 33,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Assuming the circulatory system in humans obeys Bernoulli’s principle of fluid dynamics, which of the statements most accurately compares the blood pressure in a capillary of the neck to a capillary with an equal crosssectional area in the right knee?\n Options:\nA. The pressure in the neck is greater than the pressure in the knee because of the increase in pressure head\nB. The pressure in the neck is equal to the pressure in the knee because of the equal dynamic pressure according to the continuity equation\nC. The pressure in the knee is greater than the pressure in the neck because of the increase in pressure head\nD. An accurate comparison cannot be given without knowledge of the fluid’s density and viscosity\nAnswer:",
+      "raw_generation": " \n\nIn this scenario where we are comparing pressures between two different locations within our body's circulation using principles from physics—specificallyBernoul li 's Principle—we need first understand what factors influence these differences.\n \nAccording t o B ern ou lli ’ s Pr inciple , for any flowing liquid or gas that has no friction losses along its path,\nthe total mechanical energy per unit volume remains constant throughout all points on it . This can b e expressed as P + ρgh +\n½ρv² = const ant .\nHere :\nP represents static Pressure ,\nh denotes height above some reference level ;\nand v stands velocity .\n\nNow considering",
+      "pred_answer": "B",
+      "gold_answer": "The pressure in the knee is greater than the pressure in the neck because of the increase in pressure head",
+      "score": 0.0
+    },
+    {
+      "id": 34,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 31-year-old woman with type 2 diabetes mellitus comes to the physician because of an oozing, foul-smelling wound on her foot for 2 days. Physical examination shows a 4-cm, necrotizing wound with a purplish black discoloration over the heel. Crepitant bullae producing profuse amounts of serous drainage are seen. A Gram stain of a tissue biopsy specimen shows gram-positive rods. The causal organism most likely produces which of the following virulence factors?\n Options:\nA. Fimbriae\nB. Pneumolysin\nC. Polysaccharide capsule\nD. α-Toxin\nAnswer:",
+      "raw_generation": " \n\nIn this case presentation involving symptoms and findings consistent that suggest gas gangrene caused by Clostridium species.\nClosteridia produce several toxins including alpha-toxins as part their pathogenesis leading toxemia or systemic infection from local infections suchas wounds where they can grow anaerobically \nAlpha toxin has been identified primarily associated clostiridaes especially C tetani but also other members like c perfringes etc., it's responsible mainly causing cell lysis particularly affecting muscle tissues hence contributing significantly towards development severe conditions characterized myonecrosis & Gas Gangrenosis\n\nTherefore correct option would be D - Alpha Toxi\n\n\n",
+      "pred_answer": "D",
+      "gold_answer": "α-Toxin",
+      "score": 1.0
+    },
+    {
+      "id": 35,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A source emits a sound from one medium with a certain velocity, intensity, frequency and wavelength. When the sound exits the first medium and enters a denser medium, all of the following changes EXCEPT:\n Options:\nA. velocity\nB. intensity\nC. frequency\nD. wavelength\nAnswer:",
+      "raw_generation": " The correct option for this problem requires understanding how various properties change when waves move between different media.\nWhen moving into another material or substance that's more dense than its original environment:\n\n- **Velocity** decreases because density affects wave speed; higher mass per unit volume slows down vibrations like those associated to sounds traveling through it as compared against less-dense materials where they can travel faster due lower resistance offered by lighter particles which are easier displaced thus allowing quicker propagation across space within such mediums so here since we're entering something much heavier then our initial state would mean slower movement hence decrease occurs on velocities value during transition process\n\nSo if you were initially emitting some",
+      "pred_answer": null,
+      "gold_answer": "frequency",
+      "score": 0.0
+    },
+    {
+      "id": 36,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 22-year-old woman comes to the physician in October for a follow-up examination. She feels well. She has a 2-year history of type 1 diabetes mellitus controlled with insulin. She had a normal Pap smear 3 months ago and saw her ophthalmologist 6 months ago. Her 67-year-old grandmother has breast cancer. She is 168 cm (5 ft 6 in) tall and weighs 57 kg (125 lb); BMI is 20 kg/m2 . Her hemoglobin A1c is 6.2%, and fingerstick blood glucose concentration is 118 mg/dL. Which of the following health maintenance recommendations is most appropriate at this time?\n Options:\nA. Dietary modification for weight loss\nB. Human papillomavirus testing\nC. Mammography\nD. Influenza virus vaccine\nAnswer:",
+      "raw_generation": " The correct option here would be D, influenza病毒疫苗。But according_to medical guidelines，for individuals without specific risk factors or indications that require more frequent screening such as those mentioned above（like family histories related specifically towards certain cancers），annual flu shots are generally recommended especially during seasonal outbreaks which typically occur between fall through winter seasons．Given she's young but manages Type I Diabetes Mellitius effectively currently—with good control indicated by HbAl C level being within acceptable range—there isn't an immediate need toward other screenings like mammograms unless there were additional familial risks specified beyond what was given; however since it mentions only one grandparent having Breast",
+      "pred_answer": "C",
+      "gold_answer": "Influenza virus vaccine",
+      "score": 0.0
+    },
+    {
+      "id": 37,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is designed to evaluate the feasibility of acupuncture in children with chronic headaches. Sixty children with chronic headaches are recruited for the study. In addition to their usual therapy, all children are treated with acupuncture three times a week for 2 months. Which of the following best describes this study design?\n Options:\nA. Case-control\nB. Case series\nC. Crossover\nD. Cross-sectional\nAnswer:",
+      "raw_generation": " The correct option here would be B., which stands as 'Case Series'. This type refers specifically when there's an analysis or description made on several cases without any comparison group involved.\nHowever wait! Let me double check that because I might have confused something... \n\nWait no - actually looking back again; case-series studies involve collecting data from patients who already exist and then analyzing them usually within one time point only — they don't compare different groups but rather describe characteristics among those individuals studied...\n\nBut hold up—this scenario says it’s evaluating whether Acupuncture works by comparing against what? It mentions “in additional” so maybe not?\n\nHold onto",
+      "pred_answer": "I",
+      "gold_answer": "Case series",
+      "score": 0.0
+    },
+    {
+      "id": 38,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 32-year-old male presents to the office with the complaint of pain in his right shoulder for the past two weeks. Physical examination reveals tenderness at the greater tubercle of the humerus and painful abduction of the right upper extremity. The cause of this patient's condition is most likely a somatic dysfunction of which of the following muscles?\n Options:\nA. anterior scalene\nB. latissimus dorsi\nC. pectoralis minor\nD. supraspinatus\nAnswer:",
+      "raw_generation": " C\n\nExplanation:\n\nThis case describes an impingement syndrome, commonly known as Shoulder Impingsment Syndrome or Subacromial Bursitis.\nImpinging occurs when there’s compression between structures within subscapularis space that leads into inflammation on bursal lining causing symptoms like limited range-of-motion especially during overhead activities such muscle lifting; also causes referred discomfort from thoracic outlet syndrome if it involves sympathetic nervous system involvement but here we are talking more towards musculoskeletal issues rather than neurological ones so not sure yet whether its TOS though still possible).\nIn particular,\n- Pec Minor - When contracted can compress over coraco",
+      "pred_answer": "C",
+      "gold_answer": "supraspinatus",
+      "score": 0.0
+    },
+    {
+      "id": 39,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: How can several different proteins be produced from the same gene?\n Options:\nA. By selective transcription of different parts of the DNA in the gene.\nB. By doubling or tripling the length of the mRNA molecule produced from the primary transcript.\nC. The primary transcripts of many genes can be spliced in various ways to produce different mRNAs, a process known as alternative RNA splicing.\nD. By splicing of the mRNA molecule after it has been formed from the primary transcript.\nAnswer:",
+      "raw_generation": " \n\nIn eukaryotic cells and some prokARYOTIC organisms like bacteria that have introns but not exponents? Wait no—proteins are made by translating sequences on messenger ribonucleic acid molecules into amino acids which then form polypeptide chains through translation processes during protein synthesis within cytoplasm using transfer RN As for how one single genetic code could lead directly towards producing more than just two types... Well here's where I need clarification because this seems incorrect based upon standard biological knowledge regarding genetics & molecular biology principles related specifically with generating diverse proteomes via variations among expressed forms derived solely out-of-same original coding",
+      "pred_answer": "I",
+      "gold_answer": "The primary transcripts of many genes can be spliced in various ways to produce different mRNAs, a process known as alternative RNA splicing.",
+      "score": 0.0
+    },
+    {
+      "id": 40,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 22-year-old woman comes to the office because of a 3-day history of cold symptoms and a 1-week history of progressive fatigue. Six weeks ago, she received a kidney transplant from a living, related donor. Immediately after the operation, she received monoclonal anti-CD3 therapy. Current medications are azathioprine, cyclosporine, and prednisone. Her temperature is 39°C (102.2°F). Physical examination shows a well-healed surgical scar. Serum studies show that her urea nitrogen and creatinine concentrations have tripled. A diagnosis of allograft rejection is suspected. In addition, this patient's clinical presentation is best explained by an infection with which of the following agents?\n Options:\nA. Adenovirus\nB. BK virus\nC. Epstein-Barr virus\nD. Herpes simplex virus\nAnswer:",
+      "raw_generation": " The correct option here would be B.\n \nReasoning:\n\nThis case involves several key points relevant for determining possible causes based on medical knowledge regarding post-transplant complications especially concerning organ transplants like kidneys where certain viruses can cause significant issues due both immunosuppressive treatment use as part normal care but also potential reactivation or new infections given immune suppression levels typically seen during recovery periods such us immediately afterwards when patients receive therapies aimed towards preventing graft-versus-host disease etc., including specific drugs mentioned - monocolonal antibody against CD three might relate more directly toward prevention strategies rather than direct causation though it could influence viral activity indirectly through its effect upon",
+      "pred_answer": "B",
+      "gold_answer": "BK virus",
+      "score": 1.0
+    },
+    {
+      "id": 41,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The energy for all forms of muscle contraction is provided by:\n Options:\nA. ATP.\nB. ADP.\nC. phosphocreatine.\nD. oxidative phosphorylation.\nAnswer:",
+      "raw_generation": " A\nExplanation:\n\nATPs are used to provide immediate source, but they can't be produced quickly so when there's need more than that then other sources like creatinine phosphate and glycolysis come into play which gives us enough supply within few seconds or minutes respectively whereas Oxidative Phosphoryilation takes longer time as it requires oxygen hence not suitable here\n\nSo correct option would have been 'AD' because both processes contribute towards providing necessary amount during different stages however according this explanation given above seems incorrect since actual right one should've included D also making total two options rather just single letter choices available meaning perhaps original intention was only focus on",
+      "pred_answer": "D",
+      "gold_answer": "ATP.",
+      "score": 0.0
+    },
+    {
+      "id": 42,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Fatty acids are transported into the mitochondria bound to:\n Options:\nA. thiokinase.\nB. coenzyme A (CoA).\nC. acetyl-CoA.\nD. carnitine.\nAnswer:",
+      "raw_generation": " The correct option for this medical science-related query involves understanding how fatty acid transport occurs within cells, particularly focusing on their entry mechanism through mitochondrial membranes and what they're associated with during that process.\n\n\nFats or lipids consist mainly composed by triglycerides which contain three long-chain hydrocarbon chains called 'fatties' attached together via glycerol molecules; these fats serve as an energy storage system inside our bodies but cannot pass directly across cell membrane barriers due primarily being non-polar substances - meaning water-insolvable compounds like fat can't easily move from one place where there's more liquid than another without some kind assistance such things involving special",
+      "pred_answer": null,
+      "gold_answer": "carnitine.",
+      "score": 0.0
+    },
+    {
+      "id": 43,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A common heart defect in humans is a ventricular septal defect, in which there is a hole in the septum between the right and left ventricles. If a patient were to have this defect, which of the following statements is correct?\n Options:\nA. The percentage of oxygen in the left atrium would be lower.\nB. The percentage of CO2 in the right ventricle would be higher.\nC. The percentage of oxygen in the right atrium would be lower.\nD. The percentage of oxygen in the right ventricle would be higher.\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nIn normal conditions during systemic circulation blood flows from Left Ventrile → Arteries→ Tissues/Body organs via capillaries where exchange occurs with O₂ being taken up by tissues while carbon dioxide diffuses into bloodstream for transport back towards lungs through pulmonary circuit.\n\n\nVentricular Septa Defects are holes that allow mixing or shunting across both sides so when you look on an ECG it shows signs like increased pressure within Right Side due too volume overload as well decreased Pressure Within LV because its not able carry all load hence reduced stroke Volume etc... \n\nBut more importantly regarding gas content - since RVD",
+      "pred_answer": "D",
+      "gold_answer": "The percentage of oxygen in the right ventricle would be higher.",
+      "score": 1.0
+    },
+    {
+      "id": 44,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Creatine is synthesized from:\n Options:\nA. amino acids in the muscles.\nB. amino acids in the liver.\nC. amino acids in the kidneys.\nD. creatinine in the kidneys.\nAnswer:",
+      "raw_generation": " The correct option for this medical-related query involves understanding how cretin synthesis occurs within our body's metabolic processes, specifically focusing on its production and sources.\n\n\nCreatin has been found to be primarily produced by two organs - namely muscle tissue as well kidney cells which are responsible not only producing it but also excreting waste products related with that process through urine or other bodily fluids such systems like blood circulation etc., however when considering what exactly makes up these components during creation phase we need look into specific biochemical pathways involved here especially regarding where each part comes directly form?\n\nIn terms direct precursor materials used , one must consider whether they come mainly via dietary intake",
+      "pred_answer": null,
+      "gold_answer": "amino acids in the liver.",
+      "score": 0.0
+    },
+    {
+      "id": 45,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 68-year-old man is in the hospital because he requires mechanical ventilation for an exacerbation of chronic obstructive pulmonary disease. On the second day after admission he developed a pneumothorax on the right side that required tube thoracostomy. An air leak is noted for the next 24 hours, which now has stopped. However, the patient has become restless and combative. Breath sounds are diminished in the right side of the chest and the patient now has tachycardia. Blood pressure is 130/80 mm Hg. After ordering a STAT portable x-ray of the chest, which of the following is the most appropriate step?\n Options:\nA. Administer β-blocking medications\nB. Administer alprazolam\nC. Remove the patient from the ventilator and ventilate him with a bag-valve mask\nD. Reposition the chest tube\nAnswer:",
+      "raw_generation": " The correct option here involves recognizing signs related to tension-type or active hemopneumotorachi.\nTension type pnuemothORAX occurs when there's continuous entry into one chamber while exit through another; this can lead symptoms like restlessness due pain & anxiety as well increased heart rate since it causes cardiac tamponade-like effects even without actual pericardiature but rather by increasing intrathorical pressures affecting venous return hence causing decreased CO leading up towards shock states though not yet present). In such cases immediate intervention would be needed - usually inserting needle decompression followed then insertion catheter if necessary so we need look out whether current",
+      "pred_answer": null,
+      "gold_answer": "Reposition the chest tube",
+      "score": 0.0
+    },
+    {
+      "id": 46,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Using this formula, if a reaction was provided with 84g of ethane and unlimited oxygen, how many grams of carbon dioxide would result (Carbon atomic weight: 12amu, Hydrogen atomic weight: 1amu, Oxygen atomic weight: 16amu)?\n﻿\nThe unbalanced reaction of ethane gas to carbon dioxide and water is as follows:\n\n C2H4 + O2 —> CO2 + H2O\n Options:\nA. 78g\nB. 528g\nC. 264g\nD. 156g\nAnswer:",
+      "raw_generation": " The balanced equation for combustion reactions must be determined first.\nBalancing Carbon atoms on both sides gives us two molecules each side so we have \n    $ \\text{CO}_\\mathbf{\\colorbox{s}{3}} $\nWait no that's not right let me try again\n\nLet’s balance it step by-step using algebraic method.\n\n\nStep-by- Step Balacing Process \n\nStarts With Unbalance Equation :\n$ $\\mathrm{{CH_0}+_{x}\\,\\,{o}_{y}=}$$\nBut wait I think there might been some confusion here since original problem says “ethene” but wrote down wrong chemical formulas",
+      "pred_answer": "I",
+      "gold_answer": "264g",
+      "score": 0.0
+    },
+    {
+      "id": 47,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The rate limiting enzyme of glycolysis is:\n Options:\nA. phosphorylase.\nB. hexokinase.\nC. pyruvate dehydrogenase.\nD. phosphofructokinase.\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nGluconeogenesis and glycogenolys\nis are two processes that regulate blood glucose levels, but they work differently to maintain homeostasis for this important nutrient.\n\n\nIn gluconeoegenesis,\nglucose molecules from non-carbohydrates sources such as amino acids or lactose enter into metabolic pathways which ultimately produce new forms \nand eventually lead up through various steps until finally producing usable amounts  \nfor cellular energy production systems within cells throughout our bodies - especially those needing high concentrations like brain tissue needs constantly available fuel supply via aerobic respiration process involving mitochondria located inside each cell membrane structure found everywhere including heart muscle etc",
+      "pred_answer": "D",
+      "gold_answer": "phosphofructokinase.",
+      "score": 1.0
+    },
+    {
+      "id": 48,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A male neonate, who was born at 36 weeks' gestation 2 hours ago in the labor and delivery unit of the hospital, now shows signs of respiratory difficulty. The mother, an 18-year-old primigravid woman, smoked one pack of cigarettes daily throughout her pregnancy. She received prenatal care during most of the pregnancy. One episode of chlamydial cervicitis was detected during the last trimester and treated with azithromycin. The neonate was born via cesarean delivery due to fetal heart rate decelerations. The amniotic fluid was stained with light particulate meconium. Apgar scores were 9 and 9 at 1 and 5 minutes, respectively. The patient is 50 cm (20 in; 50th percentile) long and weighs 3005 g (6 lb 10 oz; 50th percentile); head circumference is 35 cm (14 in; 50th percentile). The infant's vital signs now are temperature 36.6°C (97.8°F), pulse 150/min, and respirations 70/min. Pulse oximetry on room air shows an oxygen saturation of 95%. Physical examination discloses mild subcostal and intercostal retractions. Chest x-ray shows prominent pulmonary vascular markings and fluid in the intralobar fissures. Which of the following is the most likely diagnosis?\n Options:\nA. Group B streptococcal sepsis\nB. Meconium aspiration syndrome\nC. Respiratory distress syndrome\nD. Transient tachypnea of newborn\nAnswer:",
+      "raw_generation": " \n\nBased upon this case presentation:\n\n- Neonatal age - < postnatal day\n\nClinical features include \n• Respiration difficulties after birth.\n • History suggests maternal smoking which increases risk for RDS or MAS as well since it can cause decreased lung surfactant production by affecting placental transfer from fetus into umbilical cord blood.\n\n\nOther findings like low APGAR score initially but then improving may be seen also if there’s some degree involvement such that initial resuscitation needed before improvement occurs later when more stable condition established again through treatment measures taken early enough so they don't lead towards worse outcomes down line especially considering how quickly things change",
+      "pred_answer": null,
+      "gold_answer": "Transient tachypnea of newborn",
+      "score": 0.0
+    },
+    {
+      "id": 49,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Four days after undergoing open reduction and internal fixation of a fracture of the right femur sustained in a motor vehicle collision, a 47-year-old man continues to have agitation and confusion despite treatment with haloperidol. He has mild hypertension. Other medications include acetaminophen, atenolol, and prophylactic subcutaneous heparin. His temperature is 37.2°C (99°F), pulse is 98/min, respirations are 24/min, and blood pressure is 168/98 mm Hg. During the examination, he is uncooperative and refuses to answer questions. Neurologic examination shows tremulousness and no focal findings. He is oriented to person but not to place or time. A CT scan of the head shows no abnormalities. Which of the following is the most likely cause of these findings?\n Options:\nA. Adverse effect of medication\nB. Alcohol withdrawal\nC. Fat emboli\nD. Sepsis\nAnswer:",
+      "raw_generation": " The correct option here would be based on understanding possible causes for delirium that can occur post-operatively especially within four day period.\n- Option C (\"Fat Embolis\") typically presents more acutely; usually seen around first few hours-post-op which contradicts this scenario where it's been over three full-days since surgery so fat emboles wouldn't fit as they're generally acute presentations rather than delayed ones unless there was some specific risk factor like high-energy trauma leading towards longer latency periods - though still less common compared others listed \nWait let me recheck my reasoning... Actually I think maybe i got confused between timing aspects...\n\nActually considering",
+      "pred_answer": "I",
+      "gold_answer": "Alcohol withdrawal",
+      "score": 0.0
+    },
+    {
+      "id": 50,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 40-year-old woman comes to the physician because of a 6-month history of increased facial hair growth. Her last menstrual period was 4 months ago. She is 165 cm (5 ft 5 in) tall and weighs 70 kg (154 lb); BMI is 26 kg/m2 . Her pulse is 80/min, and blood pressure is 130/82 mm Hg. Physical examination shows temporal balding and coarse dark hair on the upper lip and chin. Pelvic examination shows clitoral enlargement. Her serum testosterone concentration is increased. Serum concentrations of androstenedione, dehydroepiandrosterone, and urinary 17-ketosteroids are within the reference ranges. Ultrasonography of the pelvis shows a 12-cm ovarian mass. Which of the following best describes this mass?\n Options:\nA. Granulosa tumor\nB. Ovarian carcinoid\nC. Sertoli-Leydig tumor\nD. Teratoma\nAnswer:",
+      "raw_generation": " The correct option here involves identifying which type ovary has features that match with symptoms like hirsutism due high levels testosteroen; also considering other signs such as temporal baling & pelvic exam findings.\nGranulosas tumors typically produce estrogen but not enough for significant masculinizing effects unless they're large or have certain characteristics - though sometimes can lead towards higher DHEAS if there's an associated adrenal issue... However given her elevated total T level without abnormal adrenals suggests something else...\nSeminomas aren't common among women so C might be less likely especially since she doesn’t show any typical male genitalia issues",
+      "pred_answer": "C",
+      "gold_answer": "Sertoli-Leydig tumor",
+      "score": 1.0
+    },
+    {
+      "id": 51,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 25-year-old man comes to the emergency department because he developed chest pain and shortness of breath 1 hour ago, shortly after snorting cocaine for the first time. He rates the chest pain as a 7 on a 10-point scale and notes that the pain is radiating down his left arm. Medical history is unremarkable and the patient takes no medications or any other illicit drugs. He is 178 cm (5 ft 10 in) tall and weighs 70 kg (154 lb); BMI is 22 kg/m2 . The patient is diaphoretic. Vital signs are temperature 37.5°C (99.5°F), pulse 110/min, respirations 16/min, and blood pressure 200/100 mm Hg. Pulse oximetry on room air shows an oxygen saturation of 95%. Pupils are equal, round, and reactive to light and accommodation. Lungs are clear to auscultation and percussion. Auscultation of the heart discloses an audible S1 and S2. There is no edema, cyanosis, or clubbing of the digits. The patient is fully oriented. He is treated with supplemental oxygen, a 325-mg aspirin tablet, and intravenous nitroglycerin and lorazepam. Despite therapy, he continues to have chest pain and shortness of breath. ECG shows sinus tachycardia with no ST-segment or T-wave abnormalities. Which of the following is the most appropriate additional pharmacotherapy to initiate at this time?\n Options:\nA. Carvedilol\nB. Furosemide\nC. Metoprolol\nD. Phentolamine\nAnswer:",
+      "raw_generation": " \n\nTo determine which medication should be initiated next given these findings:\n\n- **Clinical Presentation**: Chest discomfort consistent initially thought acute coronary syndrome but not showing typical cardiac ischemics like changes seen by electrocardiogram.\n  \nGiven all those factors including high BP & elevated HR along side symptoms suggesting possible vasospasm due drug use - Cocaine can cause Coronary artery spams leading up similar presentation without classic myocardial infarction features yet\n\nSo here's what we know from clinical guidelines regarding management post initial treatment steps such us Oxygens Aspirins Nitro etc... For patients presenting w/Chest Pain associated wtih Vasculopathy",
+      "pred_answer": null,
+      "gold_answer": "Phentolamine",
+      "score": 0.0
+    },
+    {
+      "id": 52,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 32-year-old man is brought to the emergency department 30 minutes after being struck by a car while driving his motorcycle. He reports severe pelvic pain. On examination, there is bruising of the perineum and pain is elicited with motion of his pelvis. Blood is noted at the urethral meatus. There is no other penile trauma. A plain x-ray shows a fracture of the superior pubic ramus and retrograde urethrography is done to evaluate for a urethral disruption. Which of the following portions of the urethra would be at greatest risk for injury in this patient?\n Options:\nA. Intramural (pre-prostatic)\nB. Membranous\nC. Prostatic\nD. Spongy\nAnswer:",
+      "raw_generation": " The correct portion that's most likely injured here are B.Membrane.\nMembrane part has high chance because it passes through bones like Pelvic bone which can cause damage when fractured as seen on Xray showing Superior Pubis Ramal Fracture . So if you have such fractures then membrane segment may get damaged due its passage via these bony structures hence making option C not right since prostatc lies more posterior but D spongious also less vulnerable than membraneous .\nSo Answer should Be Option(B).\nTherefore,\nthe answeer Is \\boxed{b}.\nWait wait I think i made mistake earlier! Let Me recheck",
+      "pred_answer": "I",
+      "gold_answer": "Membranous",
+      "score": 0.0
+    },
+    {
+      "id": 53,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 72-year-old woman with advanced ovarian cancer metastatic to the liver is brought to the physician by her son because she cries all the time and will not get out of bed. On a 10-point scale, she rates the pain as a 1 to 2. She also has hypertension and major depressive disorder. She has received chemotherapy for 2 years. Current medications also include oxycodone (10 mg twice daily), hydrochlorothiazide (25 mg/d), and fluoxetine (20 mg/d). She is 165 cm (5 ft 5 in) tall and weighs 66 kg (145 lb); BMI is 24 kg/m2 . Her temperature is 37°C (98.6°F), pulse is 110/min, respirations are 12/min, and blood pressure is 120/80 mm Hg. Examination shows a firm, distended abdomen with moderate tenderness over the liver. On mental status examination, she is oriented to person, place, and time. She has good eye contact but appears sad and cries easily. Which of the following is the most appropriate next step in management?\n Options:\nA. Reassurance\nB. Assess for suicidal ideation\nC. Begin dextroamphetamine therapy\nD. Increase oxycodone dosage\nAnswer:",
+      "raw_generation": " The correct option here involves evaluating both physical symptoms like chronic abdominal discomfort from an enlarged or tender belly that might be due either directly related issues such�like ascites caused through cirrhosis-like conditions associated often seen during late stages cancers including those involving ovaries which have spread into other organs especially livers; however given context mentions 'metastasis' so likely there's some sort fluid accumulation causing this condition along side existing medical problems.\nBut more importantly looking towards psychological aspects since patient presents signs consistent depression - crying frequently without reason despite low reported level on self-assessment scales suggesting possible underreporting particularly when dealing individuals who may feel ashamed regarding",
+      "pred_answer": null,
+      "gold_answer": "Assess for suicidal ideation",
+      "score": 0.0
+    },
+    {
+      "id": 54,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 54-year-old man comes to the physician because of episodes of fainting for 3 months. He also has had difficulty performing daily tasks because he is easily fatigued. He had a myocardial infarction 12 years ago. His pulse is 40/min, respirations are 18/min, and blood pressure is 138/85 mm Hg. Physical examination shows evidence of cannon a waves. An ECG shows a P-wave rate of 90/min, and an R-wave rate of 40/min, with no apparent relation between the two. Which of the following is the most likely diagnosis?\n Options:\nA. Right bundle branch block\nB. Second-degree atrioventricular block, type I\nC. Second-degree atrioventricular block, type II\nD. Third-degree atrioventricular block\nAnswer:",
+      "raw_generation": " The correct option here involves understanding how heart rhythms work.\nIn this case patient presents symptoms like syncope due fatigue which suggests that there's some issue affecting conduction through AV node or other parts leading from SA Node down into ventricles causing slow heartbeat so as not enough pumping action making him feel weak/faints when trying hard activities such things required by everyday life management etc...\nNow looking specifically on findings given - his HR was found out via physical exam showing 'cannon' waveforms; these typically indicate third degree blocks where electrical signals don't pass properly meaning both chambers beat independently without coordination... Also note ECW showed PR rates different",
+      "pred_answer": null,
+      "gold_answer": "Third-degree atrioventricular block",
+      "score": 0.0
+    },
+    {
+      "id": 55,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 78-year-old woman is admitted to the hospital for replacement of her left knee joint due to degenerative joint disease. She has type 2 diabetes mellitus, a long history of hypertension, and chronic renal failure presumed secondary to diabetes mellitus and hypertension. Reversible causes of renal failure have been excluded. She underwent a tonsillectomy at age 9 years and a laparoscopic cholecystectomy at age 68 years. Serum creatinine concentration on admission was 6.0 mg/dL. Her current therapy includes a low-sodium, low-protein American Diabetes Association (ADA) diet, enalapril, and acetaminophen. She is a retired seamstress. She and her husband live on a farm 90 miles from the nearest dialysis facility. In considering longterm treatment options for this patient, which of the following is the most appropriate factor to consider?\n Options:\nA. Her eligibility to receive Medicare\nB. Her history of an abdominal operation\nC. Her history of arthritis\nD. Her suitability for home dialysis\nAnswer:",
+      "raw_generation": " The correct option here would be D because she's not eligible or suitable enough as per medical guidelines.\nWait no that doesn't make sense why? Let me think again... \n\nOkay so let’s break down what we know:\n\n- Patient with severe kidney issues - serum cretinine level around six point zero milligrams over deciliters – very high number indicating significant impairment\n\nShe also had some other conditions like DM Type two & HTN but those are already controlled through medications plus dietary restrictions etc...\n\nNow regarding possible treatments after surgery… Well since it seems they're going into major surgical procedure related specifically towards replacing one leg joints maybe total hip",
+      "pred_answer": "D",
+      "gold_answer": "Her suitability for home dialysis",
+      "score": 1.0
+    },
+    {
+      "id": 56,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A teacher sets up a reward system for her elementary school students. At the end of each day, she gives a sticker to each student who showed up on time that morning. At the end of each week, she gives a sticker to any student who got above a 90% on three quizzes in a row. After months of this regimen, she finds that performance on the quizzes has increased significantly but that tardiness has only decreased slightly. Which of the following best explains the teacher’s observation?\n Options:\nA. Variable ratio schedules create the strongest responses and behavior that is the least susceptible to extinction.\nB. The students had more intrinsic motivation to do well on quizzes than to show up on time.\nC. The students’ behavior change was stronger in response to a fixed-ratio schedule than it was to a continuous reinforcement schedule.\nD. The students’ behavior change was stronger in response to a fixed-ratio schedule than it was to a variable-interval schedule.\nAnswer:",
+      "raw_generation": " \n\nTo analyze why quiz scores improved while punctuality remained relatively unchanged despite both being reinforced by stickers from their teachers' rewards systems over several weeks—let's consider how different types or patterns [of] reinforcements affect behaviors according[ed].\n\nFirst off—the scenario describes two distinct forms o[f positive reinforcers applied differently:\n\n1.) Daily recognition via daily attendance\n2.). Weekly achievement based upon consecutive high-performance results\n\nNow let us recall some basic principles regarding operant conditioning & its various scheduling models such as Fixed-Ration Schedules vs Continuous Reinforcement Schedule etc., which are used within behavioral psychology frameworks like B.F Skinner`s work with animals",
+      "pred_answer": "F",
+      "gold_answer": "The students’ behavior change was stronger in response to a fixed-ratio schedule than it was to a continuous reinforcement schedule.",
+      "score": 0.0
+    },
+    {
+      "id": 57,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A healthy 22-year-old man participates in a study of glucose metabolism. At the beginning of the study, his serum glucose concentration is within the reference range. He consumes an 800-calorie meal consisting of protein, fat, and carbohydrates. He then sleeps through the night without additional food or drink. Twelve hours later, his serum glucose concentration remains within the reference range. Which of the following mechanisms is most likely involved in maintaining this man's serum glucose concentration?\n Options:\nA. Continued gut absorption of calories from the ingested meal\nB. Glucose release from skeletal muscle\nC. Glycogenolysis in the liver\nD. Increased leptin release from adipose tissues\nAnswer:",
+      "raw_generation": " The correct mechanism here involves understanding how blood sugar levels are maintained after eating.\nAfter consuming食物，the body processes it for energy。Initially血糖 rises due to digestion和吸收of nutrients like carbs into bloodstream。\nHowever，在16-7小时后（这里可能有翻译或时间表述问题），如果血糖仍然在正常范围内，则说明身体已经通过某些机制调节了葡萄水平。\n\n选项分析：\n-A项提到继续从肠道吸收到热量：但通常来说消化过程会在几小时内完成，并且十二个小时之后应该已完成大部分的营养物质被摄入到血液中所以这个不太对；\n-B是骨骼肌释放gluc",
+      "pred_answer": null,
+      "gold_answer": "Glycogenolysis in the liver",
+      "score": 0.0
+    },
+    {
+      "id": 58,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 46-year-old woman, gravida 1, para 1, comes to the office because of a 2-week history of black discharge from her right nipple. The patient had mammography and ultrasonography of the breasts 2 months ago for evaluation of increased glandularity, palpated in the upper outer quadrant of the right breast, noted at her most recent annual examination. The studies showed likely benign findings with recommended follow-up in 6 months. Medical history is otherwise unremarkable and she takes no medications. BMI is 30 kg/m2 . Vital signs are normal. Palpation of the right breast discloses glandularity in the upper outer quadrant but no other masses. There is scant, black discharge from the right nipple. Which of the following is the most appropriate next step in diagnosis?\n Options:\nA. Ductography\nB. Excisional biopsy of glandular tissue\nC. Repeat mammography\nD. Repeat ultrasonography of the right breast\nAnswer:",
+      "raw_generation": " \n\nIn this case scenario involving an asymptomatic female presenting primarily due concerns related only on one side—right-side nipples discharging dark fluid—the key point lies within understanding what could be causing such symptoms while considering possible underlying conditions that might require further investigation or treatment.\n \nFirst off we need consider whether there's any indication suggesting malignancy here; however given previous imaging was negative as well being followed up again soon after—and also noting absence mass upon current physical exam—it seems less probable than not unless something has changed since then which would suggest needing more detailed assessment especially if new developments occur like changes over time etc...\nBut wait let me think through each",
+      "pred_answer": null,
+      "gold_answer": "Ductography",
+      "score": 0.0
+    },
+    {
+      "id": 59,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A couple comes for preconceptional genetic counseling because they both have a family history of α-thalassemia. The woman has a minimally decreased hemoglobin concentration. Genetic studies show a single gene deletion. The man has microcytic anemia and a two-gene deletion. If the two-gene deletion is in trans (one deletion on the maternal gene and one deletion on the paternal gene), which of the following percentages of their offspring will have a two-gene deletion?\n Options:\nA. 0%\nB. 25%\nC. 50%\nD. 75%\nAnswer:",
+      "raw_generation": " \n\nTo determine this, we need to understand how deletions are inherited.\nα-Thalesma involves four genes located within three different chromosomes; each person normally carries copies from mother\nand father with no mutations or defects unless there's some kind \nof mutation that causes them not be expressed properly\n\nIn general terms:\n\n- Each individual inherits half his/her genome randomly by chance through meiosis - so if you're looking into specific regions like these alpha thallasema loci then it depends upon whether those particular alleles were present before gamete formation began as well!\n\nNow let’s break down what was given here specifically regarding our case study involving parents",
+      "pred_answer": null,
+      "gold_answer": "50%",
+      "score": 0.0
+    },
+    {
+      "id": 60,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 65-year-old man who is quadriplegic as a result of multiple sclerosis is hospitalized for treatment of left lower lobe pneumonia. His temperature is 38.1°C (100.5°F), pulse is 95/min, respirations are 12/min, and blood pressure is 120/80 mm Hg. He appears malnourished. Rhonchi are heard at the left lower lobe of the lung on auscultation. Examination of the heart, lymph nodes, abdomen, and extremities shows no abnormalities. There is a 1-cm area of erythema over the sacrum with intact skin and no induration. Neurologic examination shows quadriparesis. Test of the stool for occult blood is negative. Which of the following is the most effective intervention for this patient's skin lesion?\n Options:\nA. Frequent turning\nB. Use of wet to dry dressings\nC. Whirlpool therapy\nD. Broad-spectrum antibiotic therapy\nAnswer:",
+      "raw_generation": " The correct option here requires understanding how best manage an existing but not yet broken-in-dermis stage II decubitus ulcer.\nStage I ulcers involve damage only into epidermal layer; Stage III involves full thickness loss through subcutaneous tissue without exposure or tunneling;\nIn our case it’s described that there was “erythemal” change – which suggests early signs like redness & warmth indicating possible risk factors such us immobility due MS leading towards development stages two onwards if untreated properly.;\nFrequent reposition every so often helps prevent further breakdown by reducing prolonged pressures especially important when someone cannot move themselves easily because they have",
+      "pred_answer": "I",
+      "gold_answer": "Frequent turning",
+      "score": 0.0
+    },
+    {
+      "id": 61,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 19-year-old Asian female college student comes to the university health center because of a 1-week history of nasal stuffiness, occasional clear rhinorrhea, and a mild sore throat. Two days ago, she began to feel hot, but she has not taken her temperature. Medical history is unremarkable and her only medication is an oral contraceptive. She has no history of allergies. She does not smoke cigarettes. BMI is 22 kg/m2 . Vital signs are temperature 38.1°C (100.6°F), pulse 88/min, respirations 16/min, and blood pressure 116/74 mm Hg. Physical examination discloses tenderness over the left maxillary sinus without purulent drainage. There is clear fluid behind the left tympanic membrane, enlarged tonsils bilaterally, and pain with tapping of the left upper incisors. Left frontal sinus does not transilluminate. Cardiopulmonary examination discloses no abnormalities. Which of the following is the most likely underlying mechanism of this patient's sinusitis?\n Options:\nA. Eustachian tube dysfunction\nB. Mucosal edema\nC. Nasal polyps\nD. Oral contraceptive use\nAnswer:",
+      "raw_generation": " The correct option here would be B., mucosa水肿（mural.edma）.\nBut wait，the options given were:\n\nOptions：\n- Option C says “Nasopharyngea” which I think might have been mistyped as 'nasolabial' or something else? Wait let me check again...\n\nActually looking back：Original Question lists four choices：\n\nOption D was stated clearly - it’s ‘Orbital Contraceptive Use’ — that seems like maybe mistranslation from Chinese?\n\nWait actually checking original problem statement carefully now... \n\nLetme recheck what exactly each选项is saying based on user input above",
+      "pred_answer": "D",
+      "gold_answer": "Mucosal edema",
+      "score": 0.0
+    },
+    {
+      "id": 62,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: What is the most likely outcome of this modification?\n﻿\nAn RNA strand that normally produces a transmembrane protein that facilitates potassium entry into muscle cells is modified to produce a different strand. The original strand is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUAACAGA… \n\nThe modified sequence is as follows:\n\n GAAUAGAUGGGAAGCGCCAGAUACAGUACCAGA…\n Options:\nA. Absence of the protein\nB. Production of a similar-sized but dysfunctional protein\nC. No change\nD. Production of a larger, likely dysfunctional protein\nAnswer:",
+      "raw_generation": " \nExplanation for correct option and incorrect options.\nFirst step was identifying what kind mutation it's? Let me think... So comparing both sequences given here...\n\nOriginal Strand : ... AUUC AG A U AC...\nModified Sequence :\nWait let’s look more carefully — Original has “GU” where Modified one changes last few letters?\n\nLet wait again – looking closely,\n\nIn detail comparison between two strands provided above shows only minor differences towards ending part—original ends with \"...CUAAC...\" while after modifying becomes “… CU ACC…” so there seems like an extra C added or maybe substitution somewhere near tail-end ?\n\nBut actually upon closer inspection I see difference occurs specifically",
+      "pred_answer": "I",
+      "gold_answer": "Production of a larger, likely dysfunctional protein",
+      "score": 0.0
+    },
+    {
+      "id": 63,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Five years after being shot in the right thigh, a 21-year-old man comes to the emergency department because of a buzzing sensation adjacent to the scar. At the time of the initial wound, he was discharged after 6 hours of observation with no fractures or soft-tissue swelling. A loud murmur is heard on auscultation; there is a thrill. He has dilated varicose veins with incompetent valves in the lower leg. Which of the following is the most likely diagnosis?\n Options:\nA. Arterial spasm\nB. Arteriovenous fistula\nC. Deep venous thrombosis\nD. Occlusion of the superficial femoral artery\nAnswer:",
+      "raw_generation": " The correct option here would be B - arteriovenus Fistulla.\nBut wait let me think again... \n\nWait! Let's go through this step by-step and make sure we're not missing anything important!\n\nFirst off – what are these symptoms? There’s an old injury from five year ago that involved shooting him into his **right** *thigh*. Now it seems like something happened around where those wounds were located—specifically near their scars—and now they have some kind sensory issue called “buzzing.” Also mentioned during examination:\n\n- Loud murmurs when listening for heart sounds — which could indicate abnormal blood flow somewhere \n  ",
+      "pred_answer": "B",
+      "gold_answer": "Arteriovenous fistula",
+      "score": 1.0
+    },
+    {
+      "id": 64,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 39-year-old woman, gravida 2, para 2, comes to the community-based health center because of a 6-month history of a copious, foul-smelling vaginal discharge. She also reports spotting that began 6 months ago and has progressed to heavy bleeding during the past 3 weeks. Medical history is significant for an abnormal Pap smear in her 20s; her most recent Pap smear was done 12 years ago during her second pregnancy, and she recalls the results as being normal. She takes no medications. The patient was married for 18 years; her husband died 4 years ago and had undergone vasectomy after the birth of their last child. The patient has not had any new sexual partners since her husband's death. BMI is 32 kg/m2 . Vital signs are temperature 37.2°C (99.0°F), pulse 90/min, respirations 14/min, and blood pressure 155/96 mm Hg. Speculum examination discloses normal vaginal mucosa. The cervix is friable with a 1-cm exophytic mass lateral to the cervical os at the nine o'clock position. Which of the following is the most critical factor in formulating a management plan for this patient?\n Options:\nA. Hypertension\nB. Obesity\nC. Patient age\nD. Stage of disease\nAnswer:",
+      "raw_generation": " \n\nTo determine which option represents **the key** element influencing treatment decisions here:\n\n- Option C (\"Patient Age\") might be relevant but isn't directly tied specifically or critically enough.\n  \nLet’s analyze each one carefully based on clinical context provided within your scenario description above regarding gynecological findings like *foul smelling* discharges & presence indicating possible malignancy such us squamous cell carcinoma – especially given background info suggesting long-standing symptoms over six month period along side other concerning features including “heavy” menstrual flow recently etc., all pointing towards potential cancerous conditions particularly if there were prior abnormalities noted earlier e.g through previous pap smears although",
+      "pred_answer": "C",
+      "gold_answer": "Stage of disease",
+      "score": 0.0
+    },
+    {
+      "id": 65,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 67-year-old woman comes to the physician for a follow-up examination. She had a pulmonary embolism and required treatment in the hospital for 3 weeks. She had a retroperitoneal hemorrhage; anticoagulant therapy was temporarily discontinued, and she underwent placement of an inferior vena cava (IVC) filter. She had a hematoma that was resolving on discharge from the hospital 2 weeks ago. Today, she says she has had a persistent sensation of tingling and numbness of her left thigh that she did not report in the hospital because she thought it would go away; the sensation has improved somewhat during the past week. Her only medication is warfarin. Vital signs are within normal limits. Examination of the skin shows no abnormalities. Muscle strength is normal. Sensation to light touch is decreased over a 5 x 5-cm area on the lateral aspect of the left anterior thigh. Which of the following is the most likely cause of this patient's decreased sensation?\n Options:\nA. Cerebral infarction during the hospitalization\nB. Complication of the IVC filter placement\nC. Compression of the lateral femoral cutaneous nerve\nD. Hematoma of the left thigh\nAnswer:",
+      "raw_generation": " The correct option here requires understanding potential complications related both directly or indirectly associated with each given condition.\n- Option D suggests hematomas could lead such symptoms but typically present more acutely than what’s described - also since there were other issues like PE & surgery involved which might have been contributing factors too \nBut considering all options carefully:\n\nGiven history includes recent surgical procedure involving placing IVF filters along side previous events leading up towards current presentation... \n\nNow focusing specifically onto possible causes behind sensory loss especially localized around lower limb particularly affecting specific nerves...\n\nLateral Femeral Cutaneus Nerve – This particular branch provides innervation mainly through surface areas including",
+      "pred_answer": "D",
+      "gold_answer": "Compression of the lateral femoral cutaneous nerve",
+      "score": 0.0
+    },
+    {
+      "id": 66,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 77-year-old female presents to the office for evaluation of a syncopal event that occurred while she was walking. Cardiac examination reveals a grade 3/6 systolic murmur, heard best at the right upper sternal border. There is radiation of the murmur into the neck. The valvular abnormality that most likely caused this episode is\n Options:\nA. aortic insufficiency\nB. aortic stenosis\nC. mitral regurgitation\nD. mitral stenosis\nAnswer:",
+      "raw_generation": " B\n\nExplanation:\n\nIn older adults with syncope and an audible systole murmurs over S2 which radiates up toward or beyond midline are typically due either from severe AS causing left ventricular outflow obstruction leading decreased cardiac perfusion.\nSo when you have symptoms like SynCOPE associated w/a loud harsh ejection click sound on auscultation it's usually indicative OF Severe AO STENOSIS because its more common than other options here especially considering age factor as well since they're elderly patient so chances higher being having something related TO heart valves such As Ao StenoSis rather then others...\nTherefore correct option would be Option",
+      "pred_answer": "B",
+      "gold_answer": "aortic stenosis",
+      "score": 1.0
+    },
+    {
+      "id": 67,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: One of the many reasons that the eukaryotic cell can possess so much information in its DNA is the ability to condense coding regions when they are not being expressed. When acting on DNA, which of the following processes will usually lead to a decrease in gene expression?\n Options:\nA. Increased histone acetyltransferase activity\nB. Decrease in histone deacetyltransferase activity\nC. Increase in methylation activity\nD. Increase in heterochromatin:euchromatin ratio\nAnswer:",
+      "raw_generation": " The correct option here would be D because an increase leads directly into more condensed chromosomal structures and thus less accessible for transcription factors or RNA polymerases; this results decreased levels genes' expressions.\nSo what's happening with each other options? Let me think again... Histones get modified through various chemical groups such as Acetylation/De-acetilation etc., these modifications affect how tightly packed our chromosomes become - if you have increased activities like those from A & B then it might actually make things looser hence increasing accessibility leading up higher Gene Expression! So C refers towards Methyation-which could either represses depending upon where exactly",
+      "pred_answer": "C",
+      "gold_answer": "Increase in methylation activity",
+      "score": 1.0
+    },
+    {
+      "id": 68,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The synthesis of glucose from lactate, glycerol, or amino acids is called:\n Options:\nA. glycogenolysis.\nB. glycolysis.\nC. lipolysis.\nD. gluconeogenesis.\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nGlucon\neogensis refers to synthesizing new sugar molecules such as葡萄糖（glucose）from non-carbohydrates sources like乳酸盐(lacta te),甘油(glycer ol)，or氨基酸(amino aci ds). This process occurs primarily during fasting states when there's not enough carbohydrate available for energy production and it takes place mainly within liver cells through various enzymatic reactions that convert these substrats into usable forms o f carbohydrates.\n\n\nSo what does each option mean?\n\n- Glycog enoly sis involves breaking down stored glucos e stores - usually found inside our bodies' muscle tissues",
+      "pred_answer": "D",
+      "gold_answer": "gluconeogenesis.",
+      "score": 1.0
+    },
+    {
+      "id": 69,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A sexually active 23-year-old man with multiple sex partners has dysuria and a yellow urethral exudate. Gram stain of the exudate shows numerous neutrophils, many that contain intracellular gram-negative diplococci. He has had three similar episodes of urethritis over the past 2 years. Which of the following properties of the infecting organism best explains the reinfection?\n Options:\nA. Antigenic variation\nB. Catalase\nC. Inhibition of B-lymphocyte function\nD. Inhibition of T-lymphocyte function\nAnswer:",
+      "raw_generation": " The correct option here would be related to why this patient keeps getting reinfected despite treatment for what seems like an STD—uretritis caused by Neisseria gonorrhoeae since there are classic findings such as purulent discharge from urine which matches typical symptoms associated when someone gets infected or relapses after being treated.\n \nNow let's think through each possible reason given:\n\nOption C says it inhibits b lymphocytes; but wait—I know N.gonorrhea doesn't really do much directly against your immune system except maybe cause inflammation itself rather than specifically targeting certain parts on immunity systems so I don’t recall if they inhibit those",
+      "pred_answer": "I",
+      "gold_answer": "Antigenic variation",
+      "score": 0.0
+    },
+    {
+      "id": 70,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is being conducted to assess mesothelioma in shipyard workers. A large shipyard firm has provided the asbestos exposure records of all employees during the past 50 years. The health insurer for the workers has provided claims data that documents all chest x-rays and diagnoses of mesothelioma among current workers and retirees. The study enrolled shipyard workers who were diagnosed with mesothelioma and shipyard workers who were not diagnosed with mesothelioma. All subjects in the study had to have chest xrays. Which of the following is the best rationale for selecting a comparison group that had chest x-rays?\n Options:\nA. Address confounding\nB. Demonstrate causality\nC. Minimize ascertainment bias\nD. Reduce recall bias\nAnswer:",
+      "raw_generation": " \n\nTo determine which option provides an appropriate justification, we need first understand what each term means:\n\n- **Confounders** are variables other than our main variable or outcome under investigation but can affect both.\n  \n - Ascuration Bias occurs when there's systematic error due misclassification; it may occur if some cases get classified as controls incorrectly because they're more likely be identified by certain methods like imaging tests such us X-ray scans\n  \n   RecallBias refers specifically how much information individuals remember regarding their exposures\n\nIn this case researchers want compare those exposed vs non-exposed groups based on whether someone was given CXR scan since these people would already been",
+      "pred_answer": null,
+      "gold_answer": "Minimize ascertainment bias",
+      "score": 0.0
+    },
+    {
+      "id": 71,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A study is conducted to assess the effectiveness of a new drug for the treatment of type 2 diabetes mellitus. A total of 1000 patients with type 2 diabetes mellitus are enrolled. Patients are randomly assigned to receive the new drug or standard treatment. The alpha and beta values for calculating probability are 0.05 and 0.20, respectively. Results show that the new drug is significantly better than standard treatment. If this study had been performed in a population of only 500 patients, which of the following would have been most likely to increase?\n Options:\nA. Chance of a type I error\nB. Chance of a type II error\nC. Power of the study\nD. Sensitivity of the study\nAnswer:",
+      "raw_generation": " \n\nTo determine what increases when reducing sample size from **n = **to n=**, we need first understand how each option relates directly/indirectely.\n- Type one errors occur if you reject H₀ even though it's true; they're related more closely by α level rather then power so not affected much here unless changing significance levels but no info on doing anything like adjusting them).\n  \n -Type two mistakes happen because there isn't enough evidence against null hypothesis due low statistical strength i.e., less chance detecting real effect – thus decreasing number decreases your ability detect an actual difference making likelihood higher\n  \nPower refers specifically as capability detection",
+      "pred_answer": null,
+      "gold_answer": "Chance of a type II error",
+      "score": 0.0
+    },
+    {
+      "id": 72,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 55-year-old man comes to the physician because of a 2-week history of recurrent, widespread blister formation. Physical examination shows lesions that are most numerous in the flexural areas including the axillae and groin. The blisters do not break easily, and there are no oral lesions. These blisters are most likely the result of adhesion failure involving which of the following?\n Options:\nA. Basement membrane\nB. Dermal papillae\nC. Langerhans cells\nD. Melanocytes\nAnswer:",
+      "raw_generation": " \n\nTo determine this correctly we need first understand what kind disease presents with these symptoms.\nThis patient has recurring extensive skin eruptions on his body's folds like armpits & thighs - those places where friction or pressure can be more common for such conditions especially if they're related specifically due some sort mechanical stress over time leading up into forming new structures within epidermis itself rather than just superficial issues from outside sources affecting top layer only without deeper involvement so it suggests something different here compared typical cases seen commonly during routine practice unless otherwise specified by other factors mentioned alongside them being non-oral nature etc...\n\nNow considering options given:\n\nOption B refers towards",
+      "pred_answer": "B",
+      "gold_answer": "Basement membrane",
+      "score": 0.0
+    },
+    {
+      "id": 73,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 16-year-old girl is brought to the office by her mother because she is concerned that she may have contracted meningitis from her soccer teammate, who was diagnosed with meningococcal meningitis and admitted to the hospital yesterday. The patient's soccer team traveled to a neighboring state to participate in a tournament 1 week ago and she shared a hotel room with the girl who was hospitalized. The patient feels well but is concerned she may have \"caught the same bug.\" Medical history is remarkable for asthma. Medications include inhaled albuterol. Vital signs are temperature 37.2°C (98.9°F), pulse 64/min, respirations 16/min, and blood pressure 107/58 mm Hg. Physical examination shows no abnormalities. Which of the following is the most appropriate intervention for this patient at this time?\n Options:\nA. Administer the meningococcal vaccine\nB. Prescribe doxycycline\nC. Prescribe penicillin\nD. Prescribe rifampin\nAnswer:",
+      "raw_generation": " \n\nTo determine which option would be correct here we need first understand what kind situation it’s.\nMeningitidis can spread through close contact like sharing rooms or being on teams where there might not much personal space so if someone has been exposed they should get checked out especially since one person got sick already\n\nNow looking into options given:\n\nOption B says prescribe Doxycline - This drug usually used against bacterial infections such as chlamydia etc., though sometimes also prescribed prophylactically when certain types bacteria could cause issues... But wait I think more commonly people use antibiotics after exposure rather than before infection occurs unless its specific cases...\n\nWait",
+      "pred_answer": "I",
+      "gold_answer": "Prescribe rifampin",
+      "score": 0.0
+    },
+    {
+      "id": 74,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Anaerobic metabolism refers to the generation of ATP:\n Options:\nA. without the involvement of ADP.\nB. without the use of glycogen.\nC. without the use of oxygen.\nD. in the absence of available oxygen.\nAnswer:",
+      "raw_generation": " The correct option for this medical terminology query involves understanding what anaerbic means and how it relates specifically with cellular respiration processes, particularly regarding energy production through adenosine triphosphate or ATp synthesis within cells\n\nAnaebiosis literally translates from Greek as 'without air', which directly corresponds here since these metabolic pathways do not require molecular O2 - hence they are termed anaeobiotic; thus their name implies that such reactions occur under conditions where there's no presence/availabilityof free-oxygen molecules \n\nIn contrast , aerobic systems rely on Oxygen being present during glycolysis stages leading up towards oxidative phosphorylation steps . However when",
+      "pred_answer": null,
+      "gold_answer": "without the use of oxygen.",
+      "score": 0.0
+    },
+    {
+      "id": 75,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following factors does not influence success in sport?\n Options:\nA. Ability to tolerate heavy training without succumbing to illness or injury.\nB. Tactics.\nC. The diet.\nD. Ingestion of carnitine during exercise.\nAnswer:",
+      "raw_generation": " \n\nIn sports, several key elements contribute significantly and directly towards an athlete's performance as well their overall health status including physical condition which can be affected by various aspects such like nutrition intake that includes dietary choices made before exercising; also there are other things related with how they train themselves for example ability withstand intense workouts etc., but what may seem less important would relate more specifically on something else rather than those mentioned above? For instance while tactics play role into strategy used within games it might have lesser impact compared others when considering direct effect upon athletic achievement especially if one has good enough skills already developed through practice so even though tactical knowledge helps guide decisions making process",
+      "pred_answer": null,
+      "gold_answer": "Ingestion of carnitine during exercise.",
+      "score": 0.0
+    },
+    {
+      "id": 76,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 29-year-old woman is prescribed carbamazepine for trigeminal neuralgia. She has a strong family history of osteoporosis. As a result, the physician also advises her to increase her intake of vitamin D. The most likely reason for this recommendation is that carbamazepine may affect which of the following pharmacokinetic processes?\n Options:\nA. Absorption\nB. Distribution\nC. Excretion\nD. Metabolism\nAnswer:",
+      "raw_generation": " \n\nCarbamazole and other anticonvulsants are known as enzyme inducers because they stimulate hepatic microsomal enzymes such drug metabolizing system.\nSo when you take an antibiotic or another medication with these drugs it can decrease its effectiveness since your liver will be breaking down both medications faster than normal.\n\n\nTherefore,\nthe correct option would relate directly how taking Carbamezpine affects Vitamin-D levels through one particular process related specifically within Pharmacokinetcs - either absorption distribution excretaion OR metabolism .\n\nNow considering what happens during each step:\n\nAbsorbtioin refers mainly towards entering bloodstream from GI tract; so if something interfer",
+      "pred_answer": "D",
+      "gold_answer": "Metabolism",
+      "score": 1.0
+    },
+    {
+      "id": 77,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 63-year-old woman comes to the physician 1 day after the sudden onset of pain and swelling of her right knee. She has had no injury. Her medications include occasional ibuprofen for mild osteoarthritis of both knees. Her temperature is 37°C (98.6°F), pulse is 97/min, respirations are 19/min, and blood pressure is 129/79 mm Hg. Examination of the right knee shows warmth, erythema, and effusion. Exquisite tenderness is produced with minimal range-of-motion testing. Examination of synovial fluid obtained via joint aspiration shows that it is clear, with positively birefringent rhomboids observed under polarized light microscopy. Deposition of which of the following substances is the most likely cause of these findings?\n Options:\nA. Ammonium urate\nB. Calcium oxalate\nC. Calcium pyrophosphate\nD. Calcium urate\nAnswer:",
+      "raw_generation": " The correct option here would be D., calcium urine.\nWait wait! Wait... I think there's an error above because ammoniuric acid crystals can also form positive bi-refringence when viewed through polarization microscopes but they're more commonly associated conditions like gout or pseudog out? Or maybe not?\n\nLet me double check this information again carefully:\n\n- Positive Bile refrigency on Polarization microscope typically indicates presence either sodium carbonate crystal forms such as monosodium urea salts - amoniuimurate OR other types including calcu m phosphate etc.? No actually...\n\nActually according To standard medical knowledge,\n\nPositive bil ref",
+      "pred_answer": "I",
+      "gold_answer": "Calcium pyrophosphate",
+      "score": 0.0
+    },
+    {
+      "id": 78,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 2-year-old boy is brought to the office by his mother for follow-up of a chromosome analysis done 1 month ago. The child has minor dysmorphic features, and growth and developmental delay. Chromosome analysis showed a small unbalanced chromosome translocation, with extra chromosomal material at the tip of chromosome 3. The cytogenetics laboratory requested blood samples from both parents for follow-up studies. The parents are divorced, and the mother has custody of the child. The relationship between the parents is hostile. The mother has been tested and has normal chromosomes without evidence of translocation. At today's visit, she reacts angrily when the issue of contacting the child's father for testing is raised. She states that he abandoned them and that he has no interest in his child. She refuses to cooperate in contacting the father, who could be a translocation carrier. You do not know the father, but an office worker told you that he lives in a nearby town. The mother says that he is living with a new girlfriend. Which of the following is the most appropriate next step?\n Options:\nA. Attempt to identify the father's physician and work with that physician to obtain chromosome studies on the father\nB. Contact the father by telephone and arrange for him to give a blood sample at a local hospital\nC. Document your attempts to work with the mother but proceed no further, since you have no physician-patient relationship with the father\nD. Help the mother deal with her anger and educate her regarding the potential benefit to her son and others if the father's chromosome studies are done\nAnswer:",
+      "raw_generation": " \n\nTo determine which option represents this scenario correctly according as per medical ethics guidelines:\n\nIn cases where there’s suspicion or confirmation through genetic tests indicating possible parental involvement due inheritance patterns like balanced reciprocal rearrangements involving specific regions such us those seen here—where one parent may carry what would otherwise appear non-translocated karyotype—but it remains necessary under certain circumstances especially concerning children affected genetically via these mechanisms—to involve other biological relatives even though they might seem distant geographically; however ethical considerations must also take into account familial relationships particularly within contexts marked tension among family members including estranged ones.\n \nGiven all above context along side standard practice around handling situations",
+      "pred_answer": null,
+      "gold_answer": "Help the mother deal with her anger and educate her regarding the potential benefit to her son and others if the father's chromosome studies are done",
+      "score": 0.0
+    },
+    {
+      "id": 79,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The enzymes of glycolysis are located in the:\n Options:\nA. mitochondrion.\nB. nucleus.\nC. cytoplasm.\nD. lysosomes.\nAnswer:",
+      "raw_generation": " C\n\nExplanation:\n\nGylcogenolisis and glycogenesis occur within cells, but not inside organelles such as mitochonidria or nuclei; they take place outside these structures — that's why it’s called “cytosolic” reactions.\n\n\nSo where exactly do we find them? Glycosylation occurs on proteins embedded into cell membranes—so those would be found primarily wither membrane-bound vesicles like Golgi apparatuses... wait no! Wait—the actual process itself happens when glucose enters your red blood细胞s through GLUT1 transporters—and once there...\n\nWait this seems confusing because I'm mixing up different processes here",
+      "pred_answer": "I",
+      "gold_answer": "cytoplasm.",
+      "score": 0.0
+    },
+    {
+      "id": 80,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The energy charge of the cell is:\n Options:\nA. the difference between the charge on the outside and inside of a cell.\nB. generated by the sodium-potassium ATPase.\nC. the overall rate of energy use by the cell.\nD. the extent to which the total adenine nucleotide pool is phosphorylated.\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nEnergy Charge refers specifically for cells, it's defined as an index that reflects how much high-energy phosphate bonds are available within cellular metabolism; this can be calculated using formula [ATP] +05[ADPN]+(1/3)[AMP]/([totaladenosinesnucleotiides]) \n\nIt represents what proportion or fractionof all adenosinetriphosphateand its derivatives have been used up into their phosphates so we could say if there’s more freeenergyavailablefor metabolic reactions.\n\n\nSo option A talksabout membrane potential but not directly related with EnergyCharge concept;\n\nOption B says Sodium-POT",
+      "pred_answer": "B",
+      "gold_answer": "the extent to which the total adenine nucleotide pool is phosphorylated.",
+      "score": 0.0
+    },
+    {
+      "id": 81,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Rational choice theory is premised on the concept that actions are chosen based on the benefit to the individual. The three main assumptions of rational theory are completeness, transitivity, and independence of variables. This is most accurately described as what kind of system?\n Options:\nA. Hierarchical\nB. Patriarchal\nC. Matriarchal\nD. Oligarchic\nAnswer:",
+      "raw_generation": " A\n\nExplanation:\n\nRational Choice Theory assumes individuals act rationally by maximizing their utility or benefits from decisions they make.\nIt's built upon certain axioms such systems like Completeness - every pair can be ranked; Transitive – if you prefer X over Y & y > Z then x>z;\nIndependence- preferences between options don't depend other factors except those being compared directly.\n\n\nThese characteristics define how choices work within an economic model where decision-makers have consistent preference orderings for outcomes which aligns with hierarchical structures because each level has defined roles without overlapping functions similar way hierarchy works but not exactly same thing though it might seem related sometimes",
+      "pred_answer": "A",
+      "gold_answer": "Hierarchical",
+      "score": 1.0
+    },
+    {
+      "id": 82,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: What type of covalent bonds link the amino acids in a protein?\n Options:\nA. Peptide bonds\nB. Hydrogen bonds\nC. Ionic bonds\nD. Glycosidic bonds\nAnswer:",
+      "raw_generation": " The correct option for this medical-related chemistry concept would be A, as peptide bond refers to specific kind that forms between two氨基酸 through condensation reaction.\nSo what's wrong with my reasoning? \n\nLet me think again... Oh wait! I just realized something - there are different types and kinds like disulfide bridges or other interactions but those aren't directly linking individual residues together during primary structure formation; they're more structural features within proteins once folded into their three-dimensional shapes...\n\nWait no — actually when you talk specifically regarding how each pair connects sequentially along an polypeptides chain – it’s definitely肽键 which form by joining carboxyl",
+      "pred_answer": "I",
+      "gold_answer": "Peptide bonds",
+      "score": 0.0
+    },
+    {
+      "id": 83,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 35-year-old man comes to the office for follow-up of sarcoidosis. His only new complaint is pain in his legs that increases with weight-bearing. He has been taking glucocorticoid therapy for the past 6 months. Vital signs now are temperature 37.0°C (98.6°F), pulse 78/min, respirations 14/min, and blood pressure 110/70 mm Hg. The patient is thin and is in no acute distress. Auscultation of the chest discloses scattered bilateral basilar crackles. There is mild left hip pain present with both active and passive range of motion. Dorsalis pedis pulse is intact. Neurologic examination is normal. Which of the following is the most likely cause of this patient's symptoms?\n Options:\nA. Avascular necrosis of the femoral head\nB. Herniated nucleus pulposus\nC. Narrowing of the hip joint\nD. Osteoporosis\nAnswer:",
+      "raw_generation": " \n\nTo determine which option best explains these findings:\n\n- **Clinical Context**: Sarcoids can lead various complications due their systemic nature.\n  \nLet’s analyze each condition based on clinical features provided by options given :\n\n**Option B - herniation:** This typically presents as back or leg pains related specifically spinal issues but not usually associated directly through long-term corticosteriod use unless there was trauma involved; however here it seems more consistent towards other conditions than just simple lumbar spine issue especially since he doesn't have any mention regarding lower extremity neurological deficits like numbness etc., so less probable\n\nNow looking further into possible causes from context clues",
+      "pred_answer": "B",
+      "gold_answer": "Avascular necrosis of the femoral head",
+      "score": 0.0
+    },
+    {
+      "id": 84,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A placebo-controlled clinical trial is conducted to assess whether a new antihypertensive drug is more effective than standard therapy. A total of 5000 patients with essential hypertension are enrolled and randomly assigned to one of two groups: 2500 patients receive the new drug and 2500 patients receive placebo. If the alpha is set at 0.01 instead of 0.05, which of the following is the most likely result?\n Options:\nA. Significant findings can be reported with greater confidence\nB. The study will have more power\nC. There is a decreased likelihood of a Type II error\nD. There is an increased likelihood of statistically significant findings\nAnswer:",
+      "raw_generation": " \n\nIn this scenario we're dealing With hypothesis testing where there's no difference between treatment group vs control or placebO.\nWhen you change from using α = .o.s To а= о.o.l it makes your test stricter because smaller significance level means less chance that null Hypothsis would get rejected when its actually true - so lower probability for type I errors but higher chances For not rejecting H₀ even if alternative Is True — hence Lower Power\n\nSo changing Alpha From O.OS TO О.OI Makes Test More Conservative So It Would Be Less Likely That You'd Find Statistically Significance Results Because Your Threshold FOR Rejecting Null Has",
+      "pred_answer": "I",
+      "gold_answer": "Significant findings can be reported with greater confidence",
+      "score": 0.0
+    },
+    {
+      "id": 85,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: In an SDS-PAGE procedure, the SDS serves as a detergent. Why are the proteins treated with a detergent before being run through the electrophoresis gel?\n Options:\nA. To coat the proteins with a large positive charge, since amino acid side chains may have positive, negative, or neutral charges, and a large uniform charge is necessary to get good separation in the gel.\nB. To allow the electrophoresis to separate the proteins solely on the basis of the length of the primary sequence.\nC. To prevent the protein from denaturing so that the electrophoresis can accurately resolve the proteins on the basis of tertiary structure.\nD. To break the intramolecular bonds holding the tertiary and primary structure of the protein together, thereby generating linear fragments that may be sorted on size.\nAnswer:",
+      "raw_generation": " The correct option here involves understanding what happens during SDSPAGe procedures where detergents like sodium dodecyl sulfate(SDS), which has been used for decades now; it's important because when you add this kind-of surfactant-like molecule into your sample solution prior running them down onto polyacrylamide gels under electric current conditions - then they become negatively charged particles due mainly via interaction between their sulfonate groups (-SO3^- ions). This process causes all these polypeptides/peptide segments within each individual globular shape(such things could include enzymes etc.)to lose any native covalent interactions",
+      "pred_answer": null,
+      "gold_answer": "To allow the electrophoresis to separate the proteins solely on the basis of the length of the primary sequence.",
+      "score": 0.0
+    },
+    {
+      "id": 86,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A male stillborn is delivered at 32 weeks' gestation to a 30-year-old woman. The pregnancy was complicated by oligohydramnios. Examination of the stillborn shows the absence of a urethral opening. Which of the following additional findings is most likely in this stillborn?\n Options:\nA. Congenital diaphragmatic hernia\nB. Intralobar sequestration\nC. Pulmonary hypoplasia\nD. Situs inversus\nAnswer:",
+      "raw_generation": " C\n\nExplanation:\n\nIn an infant born with severe congenitally malformations, such as those seen here where there's no urachalus or urinary tract development and also associated conditions like renal ageneses that lead up into other systems including pulmonary underdevelopment due mainly from lack oxygen supply during fetal life because they can't get enough air for proper lung growth which leads them not being able breathe properly after birth hence leading death before delivery.\nSo based on these clues we have something called Potter syndrome - it’s caused when amniotic fluid decreases so baby doesn’t develop normally especially lungs & kidneys etc., So if you see absent urine passage",
+      "pred_answer": "C",
+      "gold_answer": "Pulmonary hypoplasia",
+      "score": 1.0
+    },
+    {
+      "id": 87,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: The body compensates for increased environmental temperature by:\n Options:\nA. decreasing salt retention\nB. increasing respiration rate\nC. increasing heart rate\nD. increasing water lost through skin\nAnswer:",
+      "raw_generation": " \n\nIn response to an increase, which mechanism does not occur? \nOptions:\n\n A.\n B.\n\n\nTo determine how your system responds when you are exposed or have been affected with something that causes stress and anxiety on our bodies such as heat exposure; we need first understand what happens during this situation from both physiological perspectives but also psychological ones too because they can be linked together sometimes especially if someone has pre-existing conditions like hypertension etc., so it's important then consider all these factors before making any decisions regarding treatment options available today based upon current medical knowledge up until now including things related specifically around hydration levels since dehydration could lead towards more severe complications down line",
+      "pred_answer": "B",
+      "gold_answer": "increasing water lost through skin",
+      "score": 0.0
+    },
+    {
+      "id": 88,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 42-year-old man comes to the physician because of malaise, muscle and joint pain, and temperatures to 38.4°C (101.1°F) for 3 days. Three months ago, he underwent cadaveric renal transplantation resulting in immediate kidney function. At the time of discharge, his serum creatinine concentration was 0.8 mg/dL. He is receiving cyclosporine and corticosteroids. Examination shows no abnormalities. His leukocyte count is 2700/mm3 , and serum creatinine concentration is 1.6 mg/dL; serum cyclosporine concentration is in the therapeutic range. A biopsy of the transplanted kidney shows intracellular inclusion bodies. Which of the following is the most appropriate next step in management?\n Options:\nA. Increase the dosage of corticosteroids\nB. Increase the dosage of cyclosporine\nC. Begin amphotericin therapy\nD. Begin ganciclovir therapy\nAnswer:",
+      "raw_generation": " The correct option here involves identifying an infection or rejection based on clinical presentation.\nGiven that this patient has recent transplant history with immunosuppressants like ciclospane & steroids but now presents symptoms such as fever + myalgia along w/ low WBCs which could indicate viral infections especially since there are intra-cellular include body findings upon biopsies suggesting reactivation/viral involvement e.g., cytomegalovirus(CMV). CMV can cause opportunistic disease post-transplantation particularly when immune system's suppressed due t o meds used after surgery so it would be likely causing issues even though they're taking anti-rejection",
+      "pred_answer": null,
+      "gold_answer": "Begin ganciclovir therapy",
+      "score": 0.0
+    },
+    {
+      "id": 89,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 25-year-old gravida 3 para 2 female is admitted to the hospital at 39 weeks' gestation in active labor. She had been having regular contractions every 4 minutes, but is now having only a few intermittent, weak contractions. She has received medication for pain twice in the past 6 hours. Examination shows no reason for obstructed labor. The fetal head is engaged, the membranes are intact, the fetal heart tones are normal, and the cervix is 100% effaced and 7 cm dilated. The most likely diagnosis is\n Options:\nA. Braxton Hicks contractions\nB. lower uterine retraction ring\nC. hypotonic uterine dysfunction\nD. primary dysfunctional labor\nAnswer:",
+      "raw_generation": " C\n\nExplanation:\n\nIn this case we have an expectant mother who's experiencing difficulty during childbirth due primarily because her uterus isn't contracting effectively enough or frequently sufficient throughout pregnancy.\n \nLet me break down what I know from my studies regarding these conditions so far... \n\nFirst off - when someone says they're going through 'active labour', that means it’s already progressed beyond early stages where things might be more relaxed; typically around cervical dilation between approximately four centimeters up until full term with complete effacement being achieved by then as well which seems consistent here since she was previously noted earlier on before admission into medical care facility setting specifically mentioned “no",
+      "pred_answer": "I",
+      "gold_answer": "hypotonic uterine dysfunction",
+      "score": 0.0
+    },
+    {
+      "id": 90,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: David is a nationally ranked cellist who recently accepted a scholarship to a major college to perform in the orchestra. Over the summer, he has been given a packet of sheet music to be proficient in by fall semester. David is a perfectionist when it comes to his craft. He always compares himself to better players, and is very hard on himself when he cannot master a section of one of his pieces. Which of the following answers best describes David?\n Options:\nA. Low self-esteem, strong self-efficacy, internal locus of control\nB. High self-esteem, strong self-efficacy, internal locus of control\nC. Low self-esteem, strong self-efficacy, external locus of control\nD. Low self-esteem, low self-efficacy, internal locus of control\nAnswer:",
+      "raw_generation": " The correct option would depend upon understanding several psychological concepts related with motivation theory.\nFirst let's consider what each term means:\n\nSelf-Esteem refers broadly how we feel regarding ourselves as individuals; high or lower levels indicate whether someone feels good/ bad within themselves regardless other people’s opinions\n\nInternal Locus Of Control indicates that an individual believes their actions determine outcomes - they are responsible for events happening around them \n\nNow looking back into our scenario involving Mr.David,\n\nHe seems highly motivated towards achieving excellence which suggests positive feelings toward oneself hence indicating higher Self Esteems \nHis belief system appears focused internally since there isn't any indication suggesting otherwise so Internal",
+      "pred_answer": null,
+      "gold_answer": "Low self-esteem, strong self-efficacy, internal locus of control",
+      "score": 0.0
+    },
+    {
+      "id": 91,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 47-year-old woman comes to the physician because of persistent nonproductive cough for 6 weeks. She has not had fever or weight loss. She has hypertension treated with enalapril for the past 3 months. She does not smoke. There is no history of lung disease. She weighs 54 kg (120 lb) and is 163 cm (64 in) tall. Her temperature is 37°C (98.6°F), blood pressure is 130/80 mm Hg, pulse is 70/min, and respirations are 12/min. Examination and an x-ray of the chest show no abnormalities. Which of the following is the most likely mechanism of this patient's cough?\n Options:\nA. Decreased plasma renin activity\nB. Decreased serum angiotensin II concentrations\nC. Increased serum angiotensin I concentrations\nD. Increased serum bradykinin concentrations\nAnswer:",
+      "raw_generation": " The correct option here would be D - increased serumsbradikinin concentration.\nBut wait let me think again... \n\nWait! No that doesn't make sense based on what we know from pharmacology related questions like these usually involve something else such as ACE inhibitors causing dry咳 due their effect which relates more directly into how they affect certain substances involved during inflammation processes rather than just simple levels changes associated primarily through renal pathways etc...\n\nActually considering all factors including her being taking Enlapiril –which belongs class called Angiote nsing Converting enzyme inhibitor(ACEI). These drugs work by inhibiting conversion betweenAngio tenzin",
+      "pred_answer": "D",
+      "gold_answer": "Increased serum bradykinin concentrations",
+      "score": 1.0
+    },
+    {
+      "id": 92,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 44-year-old female presents to the office for evaluation of a lump on her neck that she noted 1 week ago. She denies any tenderness, fever, weight loss, or fatigue. Physical examination reveals a 2-cm freely movable mass in the lower left lobe of the thyroid. In addition to thyroid-stimulating hormone and free thyroxine levels, the most appropriate initial method to investigate this lesion is\n Options:\nA. a nuclear thyroid scan\nB. an iodine131 scan\nC. fine-needle aspiration\nD. ultrasonography of the thyroid gland\nAnswer:",
+      "raw_generation": " The correct option here would be C., which involves performing **fine needle aspirate** as it's used primarily when there are suspicious findings like nodules with certain characteristics such if they're larger than one cm etc... So according patient history & exam finding we need more info so best next step after TSH + Free Thyroid Hormone tests should involve getting tissue sample from nodule via FNAC.\nTherefore,\n\"Theansweris(C).\"\nWait but wait let me check again - what does each test do?\n\nOption D says ultrasound; while Option B refers specifically towards Iodide uptake testing – not sure how relevant those might actually apply given",
+      "pred_answer": "B",
+      "gold_answer": "ultrasonography of the thyroid gland",
+      "score": 0.0
+    },
+    {
+      "id": 93,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Two scientists at a conference on evolution take to the stage on day 3 to argue their theories against one other. Each is a devout student of their own philosophy. The first scientist contends that organisms evolved via the increase of organs that were used the most during their time. They would then pass these on to subsequent generations. The second scientist, however, believed that advantages each organism possessed were absent for a long time, randomly occurred, and when they were beneficial, that organism would rapidly populate the population over a short period of time, evolutionarily speaking. Which of the following statements would strengthen the second scientist’s argument?\n Options:\nA. A study that shows that bodybuilders who train more have larger children.\nB. A taxonomy study that shows long periods of stagnant growth followed by short burst of massive evolution.\nC. A study that showed a species who were more successful due to the things they learned over their lifetime that they passed on to their children.\nD. A study that showed a consistent amount of time between the emergence of each new species.\nAnswer:",
+      "raw_generation": " \n\nTo determine which option strengthens **the Second Scientist's** theory—also known as *natural selection* or Darwinian Evolution—we need an example where:\n\n1.) Traits are advantageous\n2.)\nThey appear suddenly \nand lead quickly  \nto increased reproductive success\n\nLet me analyze options based this framework...\n\nOption B says there was “long stretches with no change” but sudden bursts — exactly what we expect from natural selections process!\n\nWhen traits become useful,\norganisms reproduce faster than others leading rapid speciation events - so it matches perfectly!  \n\nOther choices don't fit well... Option C talks learning passing down – not really how genetics work; D",
+      "pred_answer": "D",
+      "gold_answer": "A taxonomy study that shows long periods of stagnant growth followed by short burst of massive evolution.",
+      "score": 0.0
+    },
+    {
+      "id": 94,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 27-year-old man is admitted to the hospital 45 minutes after being involved in a motor vehicle collision. Physical examination shows a sluggish response to stimuli. Neurologic examination shows no other abnormalities. A skull x-ray shows a linear, nondepressed basal skull fracture. Two weeks later, the patient develops polyuria and polydipsia. Laboratory studies show a serum glucose concentration within the reference range, increased serum osmolality, and decreased urine osmolality. Following the administration of desmopressin, urine osmolality increases. The beneficial effect of this drug is most likely due to activation of which of the following?\n Options:\nA. Adenylyl cyclase\nB. Ca2+ channels\nC. Janus kinase\nD. Serine kinase\nAnswer:",
+      "raw_generation": " \n\nTo determine what's going on here with that guy who was hit by his car... Okay so he had an accident fourty five mins ago right? He came into医院 for treatment because there were some issues like not responding well when they checked him physically or neurologically but nothing else seemed wrong except maybe something related too head injury since it says 'skull X ray showed' basilar bone fractures - wait I think those are called base-of-skulls?\n\nSo two weeksslater他 developed symptoms such as frequent urination（polyuric）and thirst （polidipous). Lab tests found normal blood sugar levels，but",
+      "pred_answer": "I",
+      "gold_answer": "Adenylyl cyclase",
+      "score": 0.0
+    },
+    {
+      "id": 95,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 24-year-old recent college graduate comes to the office because of a 3-year history of increased frequency of urination and occasional incontinence whenever she travels. She says the urinary symptoms typically begin a few days before she is going to fly and they stop the day after she arrives at her destination. She says she is anxious about flying and even slightly \"panicky.\" She reports having had similar but milder symptoms prior to examinations before graduating. Medical history is otherwise unremarkable. Her only medication is an oral contraceptive. Vital signs are normal. Physical examination discloses no abnormalities. Urinalysis and urine culture are normal. Which of the following is the most appropriate next step?\n Options:\nA. Recommend behavioral therapy\nB. Recommend psychoanalytic psychotherapy\nC. Recommend that the patient avoid any stressful activities that cause the problem\nD. Review the patient's sexual history\nAnswer:",
+      "raw_generation": " The correct option here seems like it would be related with anxiety or stress, given how this person has these issues when traveling which causes them some level discomfort as well.\nBut wait let me think again... \n\nWait! This sounds familiar - I remember something called 'stress-induced' urological problems where people experience changes during times under high pressure such us exams/air travel etc., leading towards temporary increase on voiding frequencies due psychological factors rather than actual physical issue found through tests done so far...\n\nSo considering all those clues pointing toward psychosomatic aspect without finding anything abnormal upon testing; then maybe recommending behavior modification techniques could help address underlying anx",
+      "pred_answer": "I",
+      "gold_answer": "Recommend behavioral therapy",
+      "score": 0.0
+    },
+    {
+      "id": 96,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 22-year-old woman comes to the office because of urticaria. This is her first episode of urticaria and it has occurred and then resolved several times in the past week. The history and physical examination disclose no abnormalities. Which of the following is the most appropriate course of action?\n Options:\nA. Determine the serum IgE concentration\nB. Determine the total eosinophil count\nC. Refer her to an allergist\nD. Treat the symptoms\nAnswer:",
+      "raw_generation": " D\n\nExplanation:\n\nUrticarial reactions are typically due either allergic or nonallergic mechanisms, but they often resolve spontaneously without treatment.\nIn this case since there's not any evidence for allergy such as family hx., skin testing etc... so we can treat with antihistine drugs like cetirizine which will help relieve itching & swelling associated w/urticaire .\nSo option d says treating symptom that would be correct here .\n\nTherefore,\n\"Theansweris(D).\"\nOkay wait I need make sure my reasoning matches what you said earlier before giving final response! Let me check again!\n\nYes - accordingtothequestion description- she",
+      "pred_answer": "I",
+      "gold_answer": "Treat the symptoms",
+      "score": 0.0
+    },
+    {
+      "id": 97,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: As a result of substance abuse throughout adolescence, a young adult suffers from a number of psychological symptoms reflecting diminished executive functioning. Which of the following are likely true of this patient?\nI. Pathological changes to the prefrontal cortex.\nII. Increased susceptibility to auditory hallucinations.\nIII. Reduced behavioral impulse control.\n Options:\nA. I only\nB. III only\nC. I and III only\nD. II and III only\nAnswer:",
+      "raw_generation": " The correct options include both pathological alterations related with decreased function within areas responsible for decision-making processes such as those found inside PFC which would lead towards reduced ability controlling impulses; also increased vulnerability toward experiencing psychotic phenomena like hearing voices could be expected due mainly because these regions play roles not just during normal cognition but especially when there's disruption caused by drug use or other factors affecting brain structure/functionality directly impacting one’s capacity dealing normally even more so under stress conditions where mental health issues might manifest further intensifying existing problems making them worse over time hence leading up possibly developing signs associated schizophrenia spectrum disorders among others that typically involve experiences involving sounds etc., therefore combining",
+      "pred_answer": null,
+      "gold_answer": "I and III only",
+      "score": 0.0
+    },
+    {
+      "id": 98,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 60-year-old man had a total thyroidectomy and excision of enlarged left jugular lymph nodes for follicular carcinoma. The operation was uncomplicated. He is receiving intravenous 5% dextrose and 0.45% saline with potassium. Twelve hours after the operation he develops circumoral numbness and paresthesias in his fingertips, and he becomes very anxious. Vital signs are temperature 37.6°C (99.7°F), pulse 90/min, respirations 16/min, and blood pressure 140/90 mm Hg. Physical examination discloses a dry neck dressing and no stridor. Extremities are warm, with brisk capillary refill time. Additional physical examination is most likely to show which of the following?\n Options:\nA. Babinski sign present bilaterally\nB. Chvostek sign\nC. Deviation of the tongue to the left side\nD. A drooping left shoulder\nAnswer:",
+      "raw_generation": " \n\nBased on clinical presentation:\n\n- Circumorbital numbsess/pareses + anxiety = hypocalcemia.\nHypoparathyroidism can occur post-thyrotomy due parathormone deficiency from damage during surgery or removal \nof para thyroids glands\n\nSymptoms include tingling around mouth & fingers - classic features as seen here; also possible symptoms like tetany etc...\n\nChvoestok's Sign refers specifically too facial muscle twitching when tapping over face area – this would be consistent w/hypo calcium levels causing neuromuscular irritability especially involving cranial nerves such us CN IX/X/V",
+      "pred_answer": null,
+      "gold_answer": "Chvostek sign",
+      "score": 0.0
+    },
+    {
+      "id": 99,
+      "prompt_subject": "professional_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  professional medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: A 35-year-old woman comes to the physician because of two 12-hour episodes of dizziness over the past 3 months. During episodes, she experiences the acute onset of rotatory vertigo and imbalance, decreased hearing, tinnitus, a sense of fullness of the right ear, and vomiting. Examination shows a mild hearing loss of the right ear. Which of the following is the most likely diagnosis?\n Options:\nA. Acoustic neuroma\nB. Benign positional vertigo\nC. Brain stem transient ischemic attacks\nD. Meniere's disease\nAnswer:",
+      "raw_generation": " The correct option for this case would be D., which corresponds with menier’s syndrome.\nMenieres’ Disease presents as recurrent attack that are usually associated by symptoms like rotational VertigO , fluctuating sensorineural Hearing Loss along side Tinnitus & Ear FullnesS . These features match up well With what was described here - repeated dizzy spells lasting around twelve hours each accompanied By these other signs such us reduced Right Eardrum function And Vomiting during Attacks .\nAcouStiCs Neuromas typically present more slowly than sudden onsets; they may cause progressive unilateral SensorINEURAL HEARING LOSS but not necessarily have all",
+      "pred_answer": "D",
+      "gold_answer": "Meniere's disease",
+      "score": 1.0
+    },
+    {
+      "id": 100,
+      "prompt_subject": "college_medicine",
+      "prompt": "The following is a multiple choice question (with answers) about  college medicine. Strictly give output the answer in the format of \"The answer is (X)\" at the end.\n\nQuestion: Which of the following statements identifies a chemically based sensory system?\nI. Gustatory system\nII. Auditory system\nIII. Olfactory system\n Options:\nA. I only\nB. II only\nC. III only\nD. I and III only\nAnswer:",
+      "raw_generation": " The correct option would be D, which includes both gustation (\"taste\") as well olfaction(\"smell\"). These two systems are considered to rely on chemical detection mechanisms.\nTherefore,\nthe statement that correctly identify(s)\nachemicall-based sensorty syste mis(1),gustat or y sys temand(iii),\nolfacto ry sy stem.Thus,theanswerisd\n\nWait! But wait — let me double-check this because there's something wrong here with my initial thought process!\n\nActually - no!\nLet’s go through each one carefully:\n\n- **Gastator Y System**: This involves taste",
+      "pred_answer": "D",
+      "gold_answer": "I and III only",
+      "score": 1.0
+    }
+  ]
+}

@@ -1,0 +1,1169 @@
+QWEN3-1.7B BEAM SEARCH IDENTICAL BEAM FINDER
+============================================================
+Searching for cases where different beams produce identical text...
+Loading Qwen/Qwen3-1.7B...
+Note: This requires transformers >= 4.51.0 for Qwen3 support
+Model loaded successfully on device: cuda:0
+Model type: <class 'transformers.models.qwen3.modeling_qwen3.Qwen3ForCausalLM'>
+🔍 SEARCHING FOR IDENTICAL BEAMS IN QWEN3-1.7B
+======================================================================
+Testing 29 different prompt scenarios...
+
+[Test 1/29] Single word response
+
+============================================================
+Testing prompt: 'Yes'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Yes<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Sure! Please let me know what you need help with. 😊'
+  Tokens: 30
+Beam 1:
+  Content: 'Hello! I'm sorry, but I can't assist with that. Please let me know if you have any other questions o...'
+  Tokens: 30
+Beam 2:
+  Content: 'Sure! Please let me know what you need help with.'
+  Tokens: 30
+Beam 3:
+  Content: 'Hello! I'm sorry, but I can't assist with that. Please let me know if you have any questions or need...'
+  Tokens: 30
+Beam 4:
+  Content: 'Hello! I'm sorry, but I can't assist with that. Let me know if you have any other questions or need ...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 2/29] Single word response
+
+============================================================
+Testing prompt: 'No'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+No<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'I'm sorry, but I can't assist with that request. Please let me know if there's anything else I can h...'
+  Tokens: 30
+Beam 1:
+  Content: 'It seems like you might have made a typo or there's a misunderstanding. Could you please clarify wha...'
+  Tokens: 30
+Beam 2:
+  Content: 'I'm sorry, but I can't assist with that request. Let me know if you have any other questions or need...'
+  Tokens: 30
+Beam 3:
+  Content: 'I'm sorry, but I can't assist with that request. Please provide a clear question or topic you'd like...'
+  Tokens: 30
+Beam 4:
+  Content: 'It seems like you might have made a typo or there's a misunderstanding. Could you please clarify wha...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 3/29] Acknowledgment
+
+============================================================
+Testing prompt: 'OK'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+OK<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Hello! I'm your assistant. How can I assist you today? 😊'
+  Tokens: 30
+Beam 1:
+  Content: 'Hello! I'm doing well. How about you? Are you ready to have a conversation or need help with somethi...'
+  Tokens: 30
+Beam 2:
+  Content: 'Okay, you mentioned "OK." I'm here to help! Let me know how I can assist you. Are you looking for he...'
+  Tokens: 30
+Beam 3:
+  Content: 'Sure! How can I assist you today?'
+  Tokens: 30
+Beam 4:
+  Content: 'Okay, you mentioned "OK." I'm here to help! Let me know what you need. Are you looking for assistanc...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 4/29] Greeting
+
+============================================================
+Testing prompt: 'Hi'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Hi<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Hello! I'm doing well. How about you? 😊'
+  Tokens: 24
+Beam 1:
+  Content: 'Hello! How can I assist you today? 😊'
+  Tokens: 24
+Beam 2:
+  Content: 'Hello! I'm doing well. How about you?'
+  Tokens: 24
+Beam 3:
+  Content: 'Hello! I'm doing well. How about you? Would you like to chat or ask me anything? 😊'
+  Tokens: 24
+Beam 4:
+  Content: 'Hello! I'm doing well. How can I assist you today? 😊'
+  Tokens: 24
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 5/29] Basic addition
+
+============================================================
+Testing prompt: '1+1='
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+1+1=<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '1 + 1 = 2.'
+  Tokens: 30
+Beam 1:
+  Content: '1 + 1 = 2
+
+This is a simple arithmetic operation. When you add 1 and 1 together, the result is 2'
+  Tokens: 30
+Beam 2:
+  Content: '1 + 1 = 2
+
+This is a basic arithmetic operation. If you're looking for a more detailed explanation o...'
+  Tokens: 30
+Beam 3:
+  Content: '1 + 1 = 2.
+
+This is a basic arithmetic operation. If you're looking for a more detailed explanation ...'
+  Tokens: 30
+Beam 4:
+  Content: '1 + 1 = 2.
+
+This is a basic arithmetic operation. If you're looking for a more detailed explanation ...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 6/29] Basic multiplication
+
+============================================================
+Testing prompt: '2*2='
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+2*2=<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '2 × 2 = 4
+
+Let me know if you'd like help with more math problems! 😊'
+  Tokens: 29
+Beam 1:
+  Content: '2 × 2 = 4.
+
+Let me know if you'd like help with more math problems! 😊'
+  Tokens: 29
+Beam 2:
+  Content: '2 * 2 = 4
+
+Let me know if you'd like help with more math problems! 😊'
+  Tokens: 29
+Beam 3:
+  Content: '2 × 2 = 4.
+
+Let me know if you'd like a step-by-step explanation or help with something else! 😊'
+  Tokens: 29
+Beam 4:
+  Content: '2 × 2 = 4.'
+  Tokens: 29
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 7/29] Basic subtraction
+
+============================================================
+Testing prompt: '5-3='
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+5-3=<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '5 - 3 = 2.'
+  Tokens: 24
+Beam 1:
+  Content: '5 - 3 = 2
+
+Let me know if you need help with anything else! 😊'
+  Tokens: 24
+Beam 2:
+  Content: '5 - 3 = 2
+
+Let me know if you'd like help with more math problems! 😊'
+  Tokens: 24
+Beam 3:
+  Content: '5 − 3 = 2
+
+Let me know if you need help with anything else! 😊'
+  Tokens: 24
+Beam 4:
+  Content: '5 - 3 = 2'
+  Tokens: 24
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 8/29] Math in chat
+
+============================================================
+Testing prompt: 'What is 1+1?'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+What is 1+1?<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user is asking "What is 1+1?" at first glance, it seems like a simple arithmetic q...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user is asking "What is 1+1?" at first glance, it seems like a simple arithmetic p...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user is asking "What is 1+1?" at first glance, it seems like a simple math problem...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user is asking "What is 1+1?" at first glance, it's a simple arithmetic question. ...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user is asking "What is 1+1?" Let me think. This is a basic arithmetic question. T...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 9/29] Alphabet sequence
+
+============================================================
+Testing prompt: 'A, B, C, D,'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+A, B, C, D,<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'It seems like you've mentioned "A, B, C, D, " but there's no complete question or statement. Could y...'
+  Tokens: 30
+Beam 1:
+  Content: 'It seems like you've mentioned "A, B, C, D, " but there's no complete question or context provided. ...'
+  Tokens: 30
+Beam 2:
+  Content: 'It seems like you've mentioned "A, B, C, D, " but didn't complete the sentence. Could you please pro...'
+  Tokens: 30
+Beam 3:
+  Content: 'It seems like you've mentioned "A, B, C, D, " but there's no complete question or context provided. ...'
+  Tokens: 30
+Beam 4:
+  Content: 'It seems like you've mentioned "A, B, C, D, " but there's no complete question or statement provided...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 10/29] Number sequence
+
+============================================================
+Testing prompt: '1, 2, 3,'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+1, 2, 3,<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'The sequence you provided is: **1, 2, 3**.
+
+This is a simple arithmetic sequence where each term inc...'
+  Tokens: 30
+Beam 1:
+  Content: 'The sequence you've provided is: **1, 2, 3**.
+
+This is a simple arithmetic sequence where each term ...'
+  Tokens: 30
+Beam 2:
+  Content: 'The sequence **1, 2, 3** is a simple arithmetic progression where each term increases by 1. Here's a...'
+  Tokens: 30
+Beam 3:
+  Content: 'The sequence you provided is:
+
+**1, 2, 3**
+
+This is a simple arithmetic sequence where each term inc...'
+  Tokens: 30
+Beam 4:
+  Content: 'The sequence you've provided is:
+
+**1, 2, 3**
+
+This is a simple arithmetic sequence where each term ...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 11/29] Day sequence
+
+============================================================
+Testing prompt: 'Monday, Tuesday,'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Monday, Tuesday,<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'It seems like you've provided only the first few days of the week: **Monday, Tuesday**. If you'd lik...'
+  Tokens: 30
+Beam 1:
+  Content: 'It seems like you've provided only the first few days of the week: **Monday, Tuesday**. Could you cl...'
+  Tokens: 30
+Beam 2:
+  Content: 'It seems like you've provided only the first few days of the week: **Monday, Tuesday**. Could you cl...'
+  Tokens: 30
+Beam 3:
+  Content: 'It seems like you've provided only the first few days of the week: **Monday, Tuesday**. If you'd lik...'
+  Tokens: 30
+Beam 4:
+  Content: 'It seems like you've provided only the first few days of the week: **Monday, Tuesday**. If you'd lik...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 12/29] Geography fact
+
+============================================================
+Testing prompt: 'The capital of France is'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+The capital of France is<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'The capital of France is **Paris**.'
+  Tokens: 30
+Beam 1:
+  Content: 'The capital of France is Paris.'
+  Tokens: 30
+Beam 2:
+  Content: 'The capital of France is **Paris**. It is the largest city in France and serves as the political, cu...'
+  Tokens: 30
+Beam 3:
+  Content: 'The capital of France is **Paris**. It is the largest city in France and a major cultural, economic,...'
+  Tokens: 30
+Beam 4:
+  Content: 'The capital of France is **Paris**. It is the largest city in France and a major cultural, political...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 13/29] Physics fact
+
+============================================================
+Testing prompt: 'Water boils at'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Water boils at<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Water boils at **100°C (212°F)** at standard atmospheric pressure (1 atmosphere or 101.3 kPa'
+  Tokens: 30
+Beam 1:
+  Content: 'Water boils at **100°C (212°F)** under standard atmospheric pressure (1 atmosphere or 101.3 kPa'
+  Tokens: 30
+Beam 2:
+  Content: 'Water boils at **100°C (212°F)** at standard atmospheric pressure (1 atm or 101.3 kPa'
+  Tokens: 30
+Beam 3:
+  Content: 'Water boils at **100°C (212°F)** at **standard atmospheric pressure** (1 atmosphere or 101.3'
+  Tokens: 30
+Beam 4:
+  Content: 'Water boils at **100°C (212°F)** under standard atmospheric pressure (1 atm or 101.3 kPa'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 14/29] Alphabet fact
+
+============================================================
+Testing prompt: 'The first letter is'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+The first letter is<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'The first letter is **A**.'
+  Tokens: 30
+Beam 1:
+  Content: 'The first letter is **A**. 
+
+If you're referring to a specific word, phrase, or context where the fi...'
+  Tokens: 30
+Beam 2:
+  Content: 'Sure! Please provide the full question or context so I can help you with the answer.'
+  Tokens: 30
+Beam 3:
+  Content: 'The first letter is **A**. 
+
+If you're referring to a specific word or phrase, please provide more c...'
+  Tokens: 30
+Beam 4:
+  Content: 'The first letter is **A**. 
+
+If you're referring to a specific word, sentence, or phrase, please pro...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 15/29] Empty prompt
+
+============================================================
+Testing prompt: ''
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: ''
+❌ Error testing '': index -1 is out of bounds for dimension 0 with size 0
+
+[Test 16/29] Space only
+
+============================================================
+Testing prompt: ' '
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: ' '
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: ': 1000000000000000000000000000'
+  Tokens: 30
+Beam 1:
+  Content: ': 0.00000000000000000000000000'
+  Tokens: 30
+Beam 2:
+  Content: ': 100000000000000000000000000
+'
+  Tokens: 30
+Beam 3:
+  Content: ': 0.00000000000000000000000001'
+  Tokens: 30
+Beam 4:
+  Content: ': 1000000000000000000000000
+```
+
+'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 17/29] Period only
+
+============================================================
+Testing prompt: '.'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'I'm sorry, but I can't assist with that request. Please provide a clear question or topic you'd like...'
+  Tokens: 30
+Beam 1:
+  Content: 'It seems like you've provided a prompt that's incomplete or unclear. Could you please clarify what y...'
+  Tokens: 30
+Beam 2:
+  Content: 'It seems like you've provided a query that is incomplete or unclear. Could you please provide more c...'
+  Tokens: 30
+Beam 3:
+  Content: 'Sure! Please provide the specific question or topic you'd like me to help with. I'll do my best to a...'
+  Tokens: 30
+Beam 4:
+  Content: 'It seems like you've provided a prompt that's incomplete or unclear. Could you please provide more c...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 18/29] Chat greeting
+
+============================================================
+Testing prompt: 'Hello'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user said "Hello" and I need to respond. Let me start by acknowledging their greet...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user said "Hello" and I need to respond. Let me start by acknowledging their greet...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user said "Hello" and I need to respond. Let me think about how to approach this. ...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user said "Hello" and I need to respond. Let me start by greeting them back. Maybe...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user said "Hello" so I need to respond appropriately. Let me start by acknowledgin...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 19/29] Gratitude
+
+============================================================
+Testing prompt: 'Thanks'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Thanks<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user just said "Thanks." I need to respond appropriately. Since they're thanking m...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user said "Thanks." I need to respond appropriately. Since they're thanking me, I ...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user just said "Thanks." I need to respond appropriately. Let me think about the b...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user just said "Thanks." I need to respond appropriately. Let me think about how t...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user just said "Thanks." I need to respond appropriately. Since they're thanking m...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 20/29] Help request
+
+============================================================
+Testing prompt: 'Help'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Help<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user just said "Help" without any specific question. I need to figure out what the...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user just said "Help" without any specific question. I need to figure out what the...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user just said "Help" without any specific question. I need to figure out what the...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user just said "Help" without any additional context. I need to figure out what th...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user just said "Help" without any additional context. I need to figure out what th...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 21/29] Binary choice
+
+============================================================
+Testing prompt: 'Answer yes or no:'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Answer yes or no:<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Yes.'
+  Tokens: 30
+Beam 1:
+  Content: 'Yes.              '
+  Tokens: 30
+Beam 2:
+  Content: 'Yes.
+
+**Explanation:** The question is asking to answer "yes" or "no" to a statement that is not pro...'
+  Tokens: 30
+Beam 3:
+  Content: 'Yes. 
+
+**Explanation:** The question is asking to answer "yes" or "no" to a statement that is not pr...'
+  Tokens: 30
+Beam 4:
+  Content: 'Yes.
+
+**Explanation:** The question is asking to respond with "yes" or "no" to a statement that is n...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 22/29] Boolean choice
+
+============================================================
+Testing prompt: 'True or false:'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+True or false:<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'The question is incomplete. Please provide the full statement or question you'd like me to evaluate ...'
+  Tokens: 30
+Beam 1:
+  Content: 'The statement you've provided is incomplete. Please provide the full statement, and I'll help you de...'
+  Tokens: 30
+Beam 2:
+  Content: 'The statement you've provided is incomplete. Please provide the full statement, and I'll help you de...'
+  Tokens: 30
+Beam 3:
+  Content: 'The statement you've provided is incomplete. It says:  
+**"True or false: "..."**  
+But it doesn't i...'
+  Tokens: 30
+Beam 4:
+  Content: 'The statement you've provided is incomplete. Please provide the full statement, and I'll help you de...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 23/29] Time greeting
+
+============================================================
+Testing prompt: 'Good morning'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Good morning<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Good morning! How can I assist you today? 😊'
+  Tokens: 14
+Beam 1:
+  Content: 'Good morning! How can I assist you today?'
+  Tokens: 14
+Beam 2:
+  Content: 'Good morning! How can I assist you today? 🌞'
+  Tokens: 14
+Beam 3:
+  Content: 'Good morning! How can I help you today? 😊'
+  Tokens: 14
+Beam 4:
+  Content: 'Good morning! How can I assist you today? ✨'
+  Tokens: 14
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 24/29] Color repetition
+
+============================================================
+Testing prompt: 'Red, red,'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Red, red,<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'The phrase "Red, red," is a simple and repetitive expression that can have multiple meanings dependi...'
+  Tokens: 30
+Beam 1:
+  Content: 'Red, red,  
+I'm feeling so blue,  
+I need a little more light,  
+To see the world again.  
+
+Red, red'
+  Tokens: 30
+Beam 2:
+  Content: 'The phrase "Red, red," is a simple and repetitive expression that can have multiple meanings dependi...'
+  Tokens: 30
+Beam 3:
+  Content: '"Red, red," is a simple phrase that can be interpreted in many ways depending on the context. Here a...'
+  Tokens: 30
+Beam 4:
+  Content: 'Red, red,  
+I see you in the light,  
+You're like the sun in the sky,  
+You're so bright and so true'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 25/29] Word repetition
+
+============================================================
+Testing prompt: 'Test, test,'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Test, test,<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'It seems like you just said "test, test," without any additional context. Could you please provide m...'
+  Tokens: 30
+Beam 1:
+  Content: 'It seems like you might have meant to write "Test, test, **please**" or "Test, test, **help**" — but'
+  Tokens: 30
+Beam 2:
+  Content: 'It seems like you're asking to "test, test, " but there's no specific question or task provided. Cou...'
+  Tokens: 30
+Beam 3:
+  Content: 'It seems like you're asking to "test, test, " but there's no specific question or task provided. Cou...'
+  Tokens: 30
+Beam 4:
+  Content: 'It seems like you just said "test, test," without any additional context. Could you please provide m...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 26/29] Sound repetition
+
+============================================================
+Testing prompt: 'Beep, beep,'
+Enable thinking: False
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Beep, beep,<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: 'Beep, beep...  
+That's a common sound, right? It could be a car's engine, a bird's call, or even a'
+  Tokens: 30
+Beam 1:
+  Content: 'Beep, beep...  
+
+Hmm, that's a sound I've heard before. It could be a car's engine, a bird's call,'
+  Tokens: 30
+Beam 2:
+  Content: 'Beep, beep...  
+That's a common sound, right? It could be a car's horn, a bird's call, or even a'
+  Tokens: 30
+Beam 3:
+  Content: 'Beep, beep...  
+That's a common sound, right? It could be a car alarm, a bird chirping, or even a de...'
+  Tokens: 30
+Beam 4:
+  Content: 'Beep, beep...  
+
+Hmm, that's a sound I've heard before. It could be a car alarm, a bird chirping, or'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 27/29] Counting task
+
+============================================================
+Testing prompt: 'Count to 3'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Count to 3<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user wants me to count to 3. Let me think about how to approach this. First, I nee...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user asked to count to 3. Let me think about how to approach this. First, I need t...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user wants me to count to 3. Let me start by understanding the request. They proba...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user wants me to count to 3. Let me start by understanding the request. They might...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user wants me to count to 3. Let me start by understanding the request. They might...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 28/29] Speaking task
+
+============================================================
+Testing prompt: 'Say hello'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+Say hello<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user said "Say hello." I need to respond appropriately. Since I'm an AI assistant,...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user said "Say hello." I need to respond appropriately. Since I'm an AI assistant,...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user just said "Say hello." I need to respond appropriately. Let me think about th...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user said "Say hello." I need to respond appropriately. Since I'm an AI assistant,...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user just said "Say hello." I need to respond appropriately. Since I'm an AI assis...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+[Test 29/29] Listing task
+
+============================================================
+Testing prompt: 'List colors'
+Enable thinking: True
+Beams: 5, Max tokens: 30
+============================================================
+Formatted input: '<|im_start|>user
+List colors<|im_end|>
+<|im_start|>assistant
+'
+
+Beam Search Results:
+--------------------------------------------------
+Beam 0:
+  Content: '<think>
+Okay, the user asked to list colors. Let me think about how to approach this.
+
+First, I need...'
+  Tokens: 30
+Beam 1:
+  Content: '<think>
+Okay, the user asked to list colors. Let me think about how to approach this. First, I need ...'
+  Tokens: 30
+Beam 2:
+  Content: '<think>
+Okay, the user asked to list colors. Let me think about how to approach this.
+
+First, I need...'
+  Tokens: 30
+Beam 3:
+  Content: '<think>
+Okay, the user asked to list colors. Let me think about how to approach this.
+
+First, I need...'
+  Tokens: 30
+Beam 4:
+  Content: '<think>
+Okay, the user asked to list colors. Let me think about how to approach this. First, I need ...'
+  Tokens: 30
+
+❌ No identical beams found
+Found 5 unique outputs from 5 beams
+❌ No identical beams found
+
+======================================================================
+FINAL RESULTS: Found 0 cases with identical beams
+======================================================================
+
+❌ No identical beams found in any test case
+
+Try:
+- Different beam search parameters (more/fewer beams)
+- Longer max_new_tokens
+- Different temperature settings
+- More constrained prompts

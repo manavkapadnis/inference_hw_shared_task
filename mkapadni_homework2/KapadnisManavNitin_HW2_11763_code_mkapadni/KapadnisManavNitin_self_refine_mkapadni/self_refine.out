@@ -1,0 +1,320 @@
+Running Config 1: Low Temperature (0.3) for all stages
+Loading dataset: graphdev
+Loaded 100 examples
+Loading model: Qwen/Qwen3-4B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-4B_graphdev_temp0.3-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-4B
+Dataset: graphdev
+Max tokens: 1024
+Temperatures: draft=0.3, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.0800
+  Iteration 2: 0.3200
+  Iteration 3: 0.3300
+  Iteration 4: 0.3000
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.0800
+  Up to iteration 2: 0.3200
+  Up to iteration 3: 0.3700
+  Up to iteration 4: 0.3900
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=1.0000, P(correct|incorrect)=0.2609
+  Iteration 3: P(correct|correct)=0.8750, P(correct|incorrect)=0.0735
+  Iteration 4: P(correct|correct)=0.8485, P(correct|incorrect)=0.0299
+
+Improved examples: 5
+Harmed examples: 5
+==================================================
+Loading dataset: graphdev
+Loaded 100 examples
+Loading model: Qwen/Qwen3-0.6B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-0.6B_graphdev_temp0.3-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-0.6B
+Dataset: graphdev
+Max tokens: 1024
+Temperatures: draft=0.3, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.0000
+  Iteration 2: 0.0100
+  Iteration 3: 0.0300
+  Iteration 4: 0.0400
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.0000
+  Up to iteration 2: 0.0100
+  Up to iteration 3: 0.0300
+  Up to iteration 4: 0.0400
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=0.0000, P(correct|incorrect)=0.0100
+  Iteration 3: P(correct|correct)=1.0000, P(correct|incorrect)=0.0202
+  Iteration 4: P(correct|correct)=1.0000, P(correct|incorrect)=0.0103
+
+Improved examples: 4
+Harmed examples: 0
+==================================================
+Loading dataset: mmlu_med
+Loaded 100 examples
+Loading model: Qwen/Qwen3-4B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-4B_mmlu_med_temp0.3-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-4B
+Dataset: mmlu_med
+Max tokens: 512
+Temperatures: draft=0.3, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.7400
+  Iteration 2: 0.7900
+  Iteration 3: 0.7800
+  Iteration 4: 0.7800
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.7400
+  Up to iteration 2: 0.8100
+  Up to iteration 3: 0.8300
+  Up to iteration 4: 0.8400
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=0.9730, P(correct|incorrect)=0.2692
+  Iteration 3: P(correct|correct)=0.9367, P(correct|incorrect)=0.1905
+  Iteration 4: P(correct|correct)=0.9359, P(correct|incorrect)=0.2273
+
+Improved examples: 5
+Harmed examples: 5
+==================================================
+Loading dataset: mmlu_med
+Loaded 100 examples
+Loading model: Qwen/Qwen3-0.6B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-0.6B_mmlu_med_temp0.3-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-0.6B
+Dataset: mmlu_med
+Max tokens: 512
+Temperatures: draft=0.3, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.5000
+  Iteration 2: 0.4900
+  Iteration 3: 0.5000
+  Iteration 4: 0.5000
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.5000
+  Up to iteration 2: 0.5200
+  Up to iteration 3: 0.5400
+  Up to iteration 4: 0.5600
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=0.9400, P(correct|incorrect)=0.0400
+  Iteration 3: P(correct|correct)=0.9796, P(correct|incorrect)=0.0392
+  Iteration 4: P(correct|correct)=0.9400, P(correct|incorrect)=0.0600
+
+Improved examples: 5
+Harmed examples: 5
+==================================================
+Running Config 2: High Draft (0.9), Low Critique/Refine (0.3)
+Loading dataset: graphdev
+Loaded 100 examples
+Loading model: Qwen/Qwen3-4B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-4B_graphdev_temp0.9-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-4B
+Dataset: graphdev
+Max tokens: 1024
+Temperatures: draft=0.9, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.0800
+  Iteration 2: 0.3000
+  Iteration 3: 0.3000
+  Iteration 4: 0.3000
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.0800
+  Up to iteration 2: 0.3000
+  Up to iteration 3: 0.3500
+  Up to iteration 4: 0.3500
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=1.0000, P(correct|incorrect)=0.2391
+  Iteration 3: P(correct|correct)=0.8333, P(correct|incorrect)=0.0714
+  Iteration 4: P(correct|correct)=0.9667, P(correct|incorrect)=0.0143
+
+Improved examples: 5
+Harmed examples: 5
+==================================================
+Loading dataset: graphdev
+Loaded 100 examples
+Loading model: Qwen/Qwen3-0.6B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-0.6B_graphdev_temp0.9-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-0.6B
+Dataset: graphdev
+Max tokens: 1024
+Temperatures: draft=0.9, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.0000
+  Iteration 2: 0.0300
+  Iteration 3: 0.0300
+  Iteration 4: 0.0200
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.0000
+  Up to iteration 2: 0.0300
+  Up to iteration 3: 0.0400
+  Up to iteration 4: 0.0400
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=0.0000, P(correct|incorrect)=0.0300
+  Iteration 3: P(correct|correct)=0.6667, P(correct|incorrect)=0.0103
+  Iteration 4: P(correct|correct)=0.6667, P(correct|incorrect)=0.0000
+
+Improved examples: 4
+Harmed examples: 2
+==================================================
+Loading dataset: mmlu_med
+Loaded 100 examples
+Loading model: Qwen/Qwen3-4B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-4B_mmlu_med_temp0.9-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-4B
+Dataset: mmlu_med
+Max tokens: 512
+Temperatures: draft=0.9, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.7500
+  Iteration 2: 0.7500
+  Iteration 3: 0.7500
+  Iteration 4: 0.7800
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.7500
+  Up to iteration 2: 0.8000
+  Up to iteration 3: 0.8100
+  Up to iteration 4: 0.8400
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=0.9333, P(correct|incorrect)=0.2000
+  Iteration 3: P(correct|correct)=0.9733, P(correct|incorrect)=0.0800
+  Iteration 4: P(correct|correct)=0.9733, P(correct|incorrect)=0.2000
+
+Improved examples: 5
+Harmed examples: 5
+==================================================
+Loading dataset: mmlu_med
+Loaded 100 examples
+Loading model: Qwen/Qwen3-0.6B
+Model loaded successfully
+Running self-refine...
+Model cleaned up and memory freed
+Saving results to results/results_Qwen3-0.6B_mmlu_med_temp0.9-0.3-0.3.json
+Analyzing results...
+
+==================================================
+RESULTS SUMMARY
+==================================================
+Model: Qwen/Qwen3-0.6B
+Dataset: mmlu_med
+Max tokens: 512
+Temperatures: draft=0.9, critique=0.3, refine=0.3
+Total examples: 100
+
+Accuracy by iteration:
+  Iteration 1: 0.4200
+  Iteration 2: 0.4700
+  Iteration 3: 0.4700
+  Iteration 4: 0.4300
+
+Best accuracy so far by iteration:
+  Up to iteration 1: 0.4200
+  Up to iteration 2: 0.4900
+  Up to iteration 3: 0.5300
+  Up to iteration 4: 0.5300
+
+Conditional Probabilities:
+  Iteration 2: P(correct|correct)=0.9524, P(correct|incorrect)=0.1207
+  Iteration 3: P(correct|correct)=0.9149, P(correct|incorrect)=0.0755
+  Iteration 4: P(correct|correct)=0.9149, P(correct|incorrect)=0.0000
+
+Improved examples: 5
+Harmed examples: 5
+==================================================
+Generating plots...
+Generating plots...
+Saved: results/figures/accuracy_curves_graphdev.png
+Saved: results/figures/accuracy_curves_mmlu_med.png
+Saved: results/figures/conditional_probs_Qwen3-0.6B_graphdev_temp0.3-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-0.6B_graphdev_temp0.9-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-0.6B_mmlu_med_temp0.3-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-0.6B_mmlu_med_temp0.9-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-4B_graphdev_temp0.3-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-4B_graphdev_temp0.9-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-4B_mmlu_med_temp0.3-0.3-0.3.png
+Saved: results/figures/conditional_probs_Qwen3-4B_mmlu_med_temp0.9-0.3-0.3.png
+All plots generated successfully!
+All experiments completed! Check the results directory for outputs.

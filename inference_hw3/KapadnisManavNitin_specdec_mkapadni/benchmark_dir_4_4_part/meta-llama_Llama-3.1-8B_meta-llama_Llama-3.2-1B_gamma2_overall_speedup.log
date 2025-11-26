@@ -1,0 +1,12 @@
+---(Benchmark Summary) ---
+Processed 20 / 20 prompts successfully.
+Averaged over 2 runs per prompt.
+Generation params: max_new_tokens=50, lookahead=2, temp=0.1
+---------------------------------
+Average AR Time: 1.2807s
+Average SD Time: 2.4429s
+Average Acceptance Rate: 69.98%
+Average Empirical Speedup: 0.52x
+---------------------------------
+
+Results written to benchmark_dir/meta-llama_Llama-3.1-8B_meta-llama_Llama-3.2-1B_gamma2_overall_speedup.log

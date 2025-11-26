@@ -1,0 +1,7 @@
+GPU 0: NVIDIA A100-SXM4-80GB
+  VRAM: 85.1 GB
+  Compute Capability: 8.0
+  Multiprocessors: 108
+  Details via nvidia-smi:
+name, memory.total [MiB], compute_cap
+NVIDIA A100-SXM4-80GB, 81920, 8.0

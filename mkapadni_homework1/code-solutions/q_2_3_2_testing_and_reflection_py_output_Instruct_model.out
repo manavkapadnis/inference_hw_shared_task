@@ -1,0 +1,80 @@
+Using device: cuda
+Loading tokenizer and model...
+Model loaded successfully!
+Testing prompts...
+================================================================================
+
+LOW PERPLEXITY PROMPTS:
+==================================================
+
+Prompt 1: 'The capital of France is'
+Generated:  Paris. Which of the following statements about Paris is true?
+A. It is located in the northern part of France.
+B. It is the largest city in France.
+C. It is the administrative center of the Île-de-France region.
+D. It is the largest city in Europe.
+
+To determine which statement
+Number of generated tokens: 64
+Global perplexity: 1.4725
+Average per-token perplexity: 1.7246
+Per-token perplexities: [2.0039, 2.1683, 6.0368, 1.0952, 1.0134, 1.0005, 3.2926, 3.4889, 1.3474, 1.0276]
+
+Prompt 2: 'Dear Sir or Madam, I am writing to inform you that'
+Generated:  I have recently purchased a product from your company and I am very disappointed with the quality of the item. Upon receiving the product, I noticed that it was damaged and did not meet the expectations set by your advertisement. I believe that this is a clear case of misleading advertising and I would like to request a full refund for
+Number of generated tokens: 64
+Global perplexity: 1.7599
+Average per-token perplexity: 2.1109
+Per-token perplexities: [2.1683, 2.5284, 6.3701, 7.6776, 1.4905, 3.9234, 1.0865, 1.0323, 1.9303, 2.9195]
+
+Prompt 3: 'The first law of thermodynamics states that energy'
+Generated:  cannot be created or destroyed, only transformed from one form to another. This principle is fundamental in understanding the behavior of systems in various fields, including physics and engineering. Consider a closed system where 100 Joules of heat is added to the system, causing it to do work on its surroundings. If the system
+Number of generated tokens: 64
+Global perplexity: 1.5481
+Average per-token perplexity: 1.8065
+Per-token perplexities: [1.9768, 1.001, 1.0059, 1.0333, 1.0049, 1.2118, 1.2626, 2.296, 1.3028, 1.0]
+
+
+HIGH PERPLEXITY PROMPTS:
+==================================================
+
+Prompt 1: 'The purple elephant's quantum consciousness merged with the digital symphony, creating'
+Generated:  a new form of existence. The once solitary creature now thrives in a world where it can interact with other sentient beings through a shared network. However, this newfound existence has come with its own set of challenges. The purple elephant must navigate a complex web of emotions and thoughts, all while maintaining its individuality. It
+Number of generated tokens: 64
+Global perplexity: 2.2254
+Average per-token perplexity: 2.7783
+Per-token perplexities: [1.2162, 6.3602, 1.8824, 1.0134, 2.1649, 1.8269, 2.8583, 8.578, 3.1801, 2.9362]
+
+Prompt 2: 'In the ancient Sumerian language, the word 'zukratum' means'
+Generated:  'to be a priest'. If a Sumerian scribe wanted to write a sentence meaning "The priest is performing a ritual", which of the following words would they most likely use in place of 'zukratum'? 
+A) gud
+B) ensi
+C) ninsin
+D
+Number of generated tokens: 64
+Global perplexity: 1.9268
+Average per-token perplexity: 2.7140
+Per-token perplexities: [1.5963, 5.864, 14.8004, 12.0648, 6.1733, 3.2025, 5.3683, 1.5827, 1.323, 1.0]
+
+Prompt 3: 'My grandmother's secret recipe calls for exactly 2.7 cups of'
+Generated:  flour to make her famous cookies. However, her measuring cups only come in whole numbers and half-cup increments. She wants to measure out the exact amount using the fewest number of cups possible. What is the minimum number of cups she needs to use, and how should she measure it? To determine the minimum number
+Number of generated tokens: 64
+Global perplexity: 1.4026
+Average per-token perplexity: 1.5707
+Per-token perplexities: [1.5092, 3.2926, 1.1448, 1.4114, 1.0396, 2.6023, 1.0114, 2.4251, 1.0, 1.517]
+
+================================================================================
+SUMMARY TABLE:
+================================================================================
+Type   Prompt#  Global PPL   Avg Per-Token PPL  # Tokens  
+------------------------------------------------------------
+low    1        1.4725       1.7246             64        
+low    2        1.7599       2.1109             64        
+low    3        1.5481       1.8065             64        
+high   1        2.2254       2.7783             64        
+high   2        1.9268       2.7140             64        
+high   3        1.4026       1.5707             64        
+
+Model used: Qwen/Qwen2.5-7B-Instruct
+Sampling method: Greedy (deterministic)
+Max new tokens: 64

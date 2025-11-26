@@ -1,0 +1,26 @@
+# Core dependencies
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+
+# For evaluation metrics
+nltk>=3.8.0
+bert-score>=0.3.13
+scipy>=1.10.0
+
+# For API calls
+litellm>=1.0.0
+openai>=1.0.0
+
+# For visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Utilities
+tqdm>=4.65.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Optional: for faster inference
+accelerate>=0.20.0
+bitsandbytes>=0.41.0

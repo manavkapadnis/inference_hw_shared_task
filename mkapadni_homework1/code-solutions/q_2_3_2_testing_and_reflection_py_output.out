@@ -1,0 +1,72 @@
+Using device: cuda
+Loading tokenizer and model...
+Model loaded successfully!
+Testing prompts...
+================================================================================
+
+LOW PERPLEXITY PROMPTS:
+==================================================
+
+Prompt 1: 'The capital of France is'
+Generated:  Paris. It is the largest city in France. Paris is also one of the most beautiful cities in the world. The city is famous for its art, fashion, and history. The Eiffel Tower is the most famous building in Paris. It is a very tall tower. It is 324 meters high
+Number of generated tokens: 64
+Global perplexity: 1.9893
+Average per-token perplexity: 2.3239
+Per-token perplexities: [2.2468, 2.629, 6.6171, 1.4577, 5.0227, 2.8724, 1.1551, 1.0987, 2.4323, 2.2177]
+
+Prompt 2: 'Dear Sir or Madam, I am writing to inform you that'
+Generated:  I have been a customer of your company for many years. I have always been satisfied with the quality of your products and the service you provide. However, I am writing to express my disappointment with the recent experience I had with your company. I recently purchased a product from your company and was very dissatisfied with the quality
+Number of generated tokens: 64
+Global perplexity: 1.6565
+Average per-token perplexity: 1.9400
+Per-token perplexities: [2.7732, 3.5341, 7.9303, 10.1261, 3.0296, 1.171, 1.2412, 2.0855, 1.2033, 4.9231]
+
+Prompt 3: 'The first law of thermodynamics states that energy'
+Generated:  cannot be created or destroyed, only converted from one form to another. This law is also known as the law of conservation of energy. The law of conservation of energy states that energy cannot be created or destroyed, only converted from one form to another. This means that the total amount of energy in a closed system remains constant
+Number of generated tokens: 64
+Global perplexity: 1.2614
+Average per-token perplexity: 1.3646
+Per-token perplexities: [1.9357, 1.0049, 1.0281, 1.1106, 1.0144, 1.4322, 1.4884, 2.5441, 1.0535, 1.0005]
+
+
+HIGH PERPLEXITY PROMPTS:
+==================================================
+
+Prompt 1: 'The purple elephant's quantum consciousness merged with the digital symphony, creating'
+Generated:  a new form of existence. The quantum elephant now has the ability to manipulate the digital symphony and create new melodies. The digital symphony now has the ability to communicate with the quantum elephant and create new forms of art. The quantum elephant and the digital symphony have become one, creating a new form of existence that
+Number of generated tokens: 64
+Global perplexity: 1.9046
+Average per-token perplexity: 2.3549
+Per-token perplexities: [1.4124, 6.7871, 4.9982, 1.0317, 3.4247, 2.794, 3.7034, 11.8983, 3.4048, 5.4252]
+
+Prompt 2: 'In the ancient Sumerian language, the word 'zukratum' means'
+Generated:  'to be a priest'. The Sumerians believed that the gods lived in the sky and that the priests were the only ones who could communicate with them. They also believed that the priests had the power to control the weather and the crops. The Sumerians built temples for their gods and the priests lived in these
+Number of generated tokens: 64
+Global perplexity: 2.0508
+Average per-token perplexity: 2.9382
+Per-token perplexities: [1.5706, 5.4906, 16.4415, 23.2232, 15.2693, 3.5648, 7.256, 3.9728, 1.001, 1.4971]
+
+Prompt 3: 'My grandmother's secret recipe calls for exactly 2.7 cups of'
+Generated:  flour. If I only have a 1/4 cup measuring cup, how many times must I fill it to get the correct amount of flour? To determine how many times I need to fill a 1/4 cup measuring cup to get exactly 2.7 cups of flour, we can follow these steps:
+
+
+Number of generated tokens: 64
+Global perplexity: 1.2581
+Average per-token perplexity: 1.3549
+Per-token perplexities: [1.641, 2.5237, 4.8387, 2.1547, 2.7864, 1.0235, 1.1185, 1.5037, 1.1597, 1.3342]
+
+================================================================================
+SUMMARY TABLE:
+================================================================================
+Type   Prompt#  Global PPL   Avg Per-Token PPL  # Tokens  
+------------------------------------------------------------
+low    1        1.9893       2.3239             64        
+low    2        1.6565       1.9400             64        
+low    3        1.2614       1.3646             64        
+high   1        1.9046       2.3549             64        
+high   2        2.0508       2.9382             64        
+high   3        1.2581       1.3549             64        
+
+Model used: Qwen/Qwen2.5-7B
+Sampling method: Greedy (deterministic)
+Max new tokens: 64

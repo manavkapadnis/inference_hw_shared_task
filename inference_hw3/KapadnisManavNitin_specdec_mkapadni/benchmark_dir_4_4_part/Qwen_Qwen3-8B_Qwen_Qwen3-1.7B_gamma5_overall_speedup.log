@@ -1,0 +1,12 @@
+---(Benchmark Summary) ---
+Processed 20 / 20 prompts successfully.
+Averaged over 2 runs per prompt.
+Generation params: max_new_tokens=50, lookahead=5, temp=0.1
+---------------------------------
+Average AR Time: 1.8439s
+Average SD Time: 3.3386s
+Average Acceptance Rate: 59.09%
+Average Empirical Speedup: 0.55x
+---------------------------------
+
+Results written to benchmark_dir/Qwen_Qwen3-8B_Qwen_Qwen3-1.7B_gamma5_overall_speedup.log

@@ -1,0 +1,13 @@
+{
+  "model": "meta-llama/Llama-3.1-8B",
+  "prompt": "The capital of France is,",
+  "tau": 2.0,
+  "temperature": 0.9,
+  "learning_rate": 0.1,
+  "sequence_len": 591,
+  "mean_token_ppl": 17.901761075389793,
+  "median_token_ppl": 3.3304386000347983,
+  "std_token_ppl": 34.24845083136594,
+  "sequence_ppl": 5.3993381858292055,
+  "num_steps": 121
+}
