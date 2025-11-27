@@ -1,0 +1,30 @@
+Initializing inference system...
+Loading models...
+Using 4-bit quantization
+Loading large model: Qwen/Qwen3-14B
+Loading small model: Qwen/Qwen3-8B
+Models loaded successfully!
+Loading infobench dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system4_infobench.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: infobench
+Examples: 100
+Correct: 78.90050782550783
+Accuracy: 0.7890
+
+Timing Metrics:
+  Total Time: 3846.39s
+  Avg Batch Time: 18.1965s
+  Throughput: 0.03 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 36564
+  Avg Tokens/Request: 365.64
+==================================================
+System 4 InfoBench evaluation complete!

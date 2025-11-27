@@ -1,0 +1,28 @@
+Initializing inference system...
+Loading models...
+Loading large model: Qwen/Qwen3-8B
+Loading small model: Qwen/Qwen3-4B
+Models loaded successfully!
+Loading infobench dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system1_infobench.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: infobench
+Examples: 100
+Correct: 78.67810800310798
+Accuracy: 0.7868
+
+Timing Metrics:
+  Total Time: 2882.52s
+  Avg Batch Time: 8.5680s
+  Throughput: 0.03 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 35603
+  Avg Tokens/Request: 356.03
+==================================================

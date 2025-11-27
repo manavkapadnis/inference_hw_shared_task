@@ -1,0 +1,30 @@
+Initializing inference system...
+Loading models...
+Using 4-bit quantization
+Loading large model: Qwen/Qwen3-8B
+Loading small model: Qwen/Qwen3-1.7B
+Models loaded successfully!
+Loading mmlu_med dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system6_mmlu.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: mmlu_med
+Examples: 100
+Correct: 81.0
+Accuracy: 0.8100
+
+Timing Metrics:
+  Total Time: 95.24s
+  Avg Batch Time: 0.9523s
+  Throughput: 1.05 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 20519
+  Avg Tokens/Request: 205.19
+==================================================
+System 6 MMLU evaluation complete!

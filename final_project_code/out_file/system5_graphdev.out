@@ -1,0 +1,30 @@
+Initializing inference system...
+Loading models...
+Using 8-bit quantization
+Loading large model: Qwen/Qwen3-8B
+Loading small model: Qwen/Qwen3-1.7B
+Models loaded successfully!
+Loading graphdev dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system5_graphdev.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: graphdev
+Examples: 100
+Correct: 99.66666666666667
+Accuracy: 0.9967
+
+Timing Metrics:
+  Total Time: 4588.82s
+  Avg Batch Time: 45.8875s
+  Throughput: 0.02 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 179983
+  Avg Tokens/Request: 1799.83
+==================================================
+System 5 GraphDev evaluation complete!

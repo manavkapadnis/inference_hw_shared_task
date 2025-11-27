@@ -1,0 +1,28 @@
+Initializing inference system...
+Loading models...
+Loading large model: Qwen/Qwen3-8B
+Loading small model: Qwen/Qwen3-1.7B
+Models loaded successfully!
+Loading mmlu_med dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system3_mmlu.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: mmlu_med
+Examples: 100
+Correct: 78.0
+Accuracy: 0.7800
+
+Timing Metrics:
+  Total Time: 619.86s
+  Avg Batch Time: 6.1983s
+  Throughput: 0.16 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 24014
+  Avg Tokens/Request: 240.14
+==================================================

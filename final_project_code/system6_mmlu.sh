@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=system4_graphdev
+#SBATCH --job-name=system6_mmlu
 #SBATCH --partition=shire-general
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=12
 #SBATCH --gres=gpu:A100_80GB:1
 #SBATCH --mem=100GB
 #SBATCH --time=100:00:00
-#SBATCH --output=/home/mkapadni/work/inference_algo/homework4/attempt_1/out_file/system4_graphdev.out
-#SBATCH --error=/home/mkapadni/work/inference_algo/homework4/attempt_1/err_file/system4_graphdev.err
+#SBATCH --output=/home/mkapadni/work/inference_algo/homework4/attempt_1/out_file/system6_mmlu_new_function.out
+#SBATCH --error=/home/mkapadni/work/inference_algo/homework4/attempt_1/err_file/system6_mmlu_new_function.err
 
 # Load environment
 source ~/.bashrc
@@ -20,13 +20,13 @@ cd /home/mkapadni/work/inference_algo/homework4/attempt_1
 export TRANSFORMERS_CACHE=/data/user_data/mkapadni/hf_cache
 export HF_HOME=/data/user_data/mkapadni/hf_cache
 
-# Run evaluation - System 4: Qwen3-14B + Qwen3-8B, both 4-bit
+# Run evaluation - System 6: Qwen3-8B + Qwen3-1.7B, both 4-bit
 python evaluate_local.py \
-    --task graphdev \
-    --large_model Qwen/Qwen3-14B \
-    --small_model Qwen/Qwen3-8B \
+    --task mmlu_med \
+    --large_model Qwen/Qwen3-8B \
+    --small_model Qwen/Qwen3-1.7B \
     --use_4bit \
     --batch_size 1 \
-    --output results/system4_graphdev_new_function.json
+    --output results/system6_mmlu.json
 
-echo "System 4 GraphDev evaluation complete!"
+echo "System 6 MMLU evaluation complete!"

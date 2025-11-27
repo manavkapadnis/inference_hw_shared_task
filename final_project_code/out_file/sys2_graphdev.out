@@ -1,0 +1,28 @@
+Initializing inference system...
+Loading models...
+Loading large model: Qwen/Qwen3-4B
+Loading small model: Qwen/Qwen3-0.6B
+Models loaded successfully!
+Loading graphdev dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system2_graphdev.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: graphdev
+Examples: 100
+Correct: 91.33333333333334
+Accuracy: 0.9133
+
+Timing Metrics:
+  Total Time: 5161.12s
+  Avg Batch Time: 51.6103s
+  Throughput: 0.02 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 180134
+  Avg Tokens/Request: 1801.34
+==================================================

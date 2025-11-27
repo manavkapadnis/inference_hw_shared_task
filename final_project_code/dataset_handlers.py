@@ -43,9 +43,11 @@ def bool_ratio(bool_results: List[bool]) -> float:
     return count['true'] / sum(count.values()) if sum(count.values()) > 0 else 0.0
 
 
+
+
 # def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, Any]]:
 #     """
-#     Find the top P shortest paths from node 0 to node N-1 using dynamic programming.
+#     Find the top P shortest paths from node 0 to node N-1 using Yen's algorithm.
 #     Adapted from HW1 graph_path_finder.py
 #     """
 #     # Build adjacency list
@@ -53,38 +55,107 @@ def bool_ratio(bool_results: List[bool]) -> float:
 #     for src, dst, weight in edges:
 #         graph[src].append((dst, weight))
     
-#     # Use modified Dijkstra's algorithm to find top P paths
-#     pq = [(0, [0])]  # (cost, path)
+#     # Helper function: Dijkstra with edge blocking
+#     def dijkstra(source, target, blocked_edges=set()):
+#         dist = {i: float('inf') for i in range(N)}
+#         dist[source] = 0.0
+#         parent = {i: None for i in range(N)}
+#         pq = [(0.0, source)]
+#         visited = set()
+        
+#         while pq:
+#             d, u = heapq.heappop(pq)
+            
+#             if u in visited:
+#                 continue
+#             visited.add(u)
+            
+#             if u == target:
+#                 break
+            
+#             for v, edge_weight in graph[u]:
+#                 if (u, v) in blocked_edges:
+#                     continue
+#                 if dist[u] + edge_weight < dist[v]:
+#                     dist[v] = dist[u] + edge_weight
+#                     parent[v] = u
+#                     heapq.heappush(pq, (dist[v], v))
+        
+#         if dist[target] == float('inf'):
+#             return None, float('inf')
+        
+#         # Reconstruct path
+#         path = []
+#         node = target
+#         while node is not None:
+#             path.append(node)
+#             node = parent[node]
+#         path.reverse()
+        
+#         return path, int(dist[target])
+    
+#     # Find P shortest paths using Yen's algorithm
 #     paths_found = []
-#     visited_states = set()
     
-#     while pq and len(paths_found) < P:
-#         cost, path = heapq.heappop(pq)
-#         current_node = path[-1]
-        
-#         # Create a state key to avoid revisiting the same (node, path_length) combination
-#         state_key = (current_node, len(path))
-#         if state_key in visited_states:
-#             continue
-#         visited_states.add(state_key)
-        
-#         # If we reached the target node, add this path to results
-#         if current_node == N - 1:
-#             paths_found.append({"path": path, "weight": cost})
-#             continue
-        
-#         # Explore neighbors
-#         for neighbor, edge_weight in graph[current_node]:
-#             if neighbor not in path:  # Avoid cycles
-#                 new_cost = cost + edge_weight
-#                 new_path = path + [neighbor]
-#                 heapq.heappush(pq, (new_cost, new_path))
+#     # First shortest path
+#     path, weight = dijkstra(0, N - 1)
+#     if path:
+#         paths_found.append({"path": path, "weight": weight})
     
-#     return paths_found
+#     # Find P-1 more paths
+#     candidates = []
+    
+#     for k in range(1, P):
+#         if not paths_found:
+#             break
+        
+#         prev_path = paths_found[-1]["path"]
+        
+#         # For each node in previous path (except last)
+#         for i in range(len(prev_path) - 1):
+#             spur_node = prev_path[i]
+#             root_path = prev_path[:i+1]
+            
+#             # Block edges that would create duplicate paths
+#             blocked = set()
+#             for p in paths_found:
+#                 p_path = p["path"]
+#                 if len(p_path) > i and p_path[:i+1] == root_path:
+#                     if len(p_path) > i + 1:
+#                         blocked.add((p_path[i], p_path[i+1]))
+            
+#             # Find spur path from spur_node to target
+#             spur_path, spur_dist = dijkstra(spur_node, N - 1, blocked)
+            
+#             if spur_path:
+#                 # Combine root + spur (excluding duplicate spur_node)
+#                 total_path = root_path[:-1] + spur_path
+                
+#                 # Calculate total weight
+#                 total_weight = 0
+#                 for j in range(len(total_path) - 1):
+#                     u, v = total_path[j], total_path[j+1]
+#                     for dst, w in graph[u]:
+#                         if dst == v:
+#                             total_weight += w
+#                             break
+                
+#                 # Add to candidates if not already present
+#                 candidate = {"path": total_path, "weight": total_weight}
+#                 if candidate not in candidates:
+#                     candidates.append(candidate)
+        
+#         # Pick shortest candidate
+#         if candidates:
+#             candidates.sort(key=lambda x: x["weight"])
+#             next_path = candidates.pop(0)
+#             paths_found.append(next_path)
+    
+#     return paths_found[:P]
 
 def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, Any]]:
     """
-    Find the top P shortest paths from node 0 to node N-1 using Yen's algorithm.
+    Find the top P shortest paths from node 0 to node N-1 using optimized Yen's algorithm.
     Adapted from HW1 graph_path_finder.py
     """
     # Build adjacency list
@@ -92,20 +163,20 @@ def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, A
     for src, dst, weight in edges:
         graph[src].append((dst, weight))
     
-    # Helper function: Dijkstra with edge blocking
-    def dijkstra(source, target, blocked_edges=set()):
-        dist = {i: float('inf') for i in range(N)}
-        dist[source] = 0.0
-        parent = {i: None for i in range(N)}
-        pq = [(0.0, source)]
-        visited = set()
+    # Helper function: Optimized Dijkstra with edge blocking
+    def dijkstra(source, target, blocked_edges):
+        dist = [float('inf')] * N
+        dist[source] = 0
+        parent = [-1] * N
+        pq = [(0, source)]
+        visited = [False] * N
         
         while pq:
             d, u = heapq.heappop(pq)
             
-            if u in visited:
+            if visited[u]:
                 continue
-            visited.add(u)
+            visited[u] = True
             
             if u == target:
                 break
@@ -113,10 +184,11 @@ def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, A
             for v, edge_weight in graph[u]:
                 if (u, v) in blocked_edges:
                     continue
-                if dist[u] + edge_weight < dist[v]:
-                    dist[v] = dist[u] + edge_weight
+                new_dist = d + edge_weight
+                if new_dist < dist[v]:
+                    dist[v] = new_dist
                     parent[v] = u
-                    heapq.heappush(pq, (dist[v], v))
+                    heapq.heappush(pq, (new_dist, v))
         
         if dist[target] == float('inf'):
             return None, float('inf')
@@ -124,71 +196,90 @@ def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, A
         # Reconstruct path
         path = []
         node = target
-        while node is not None:
+        while node != -1:
             path.append(node)
             node = parent[node]
         path.reverse()
         
         return path, int(dist[target])
     
-    # Find P shortest paths using Yen's algorithm
+    # Find P shortest paths using optimized Yen's algorithm
     paths_found = []
     
     # First shortest path
-    path, weight = dijkstra(0, N - 1)
-    if path:
-        paths_found.append({"path": path, "weight": weight})
+    path, weight = dijkstra(0, N - 1, set())
+    if not path:
+        return []
     
-    # Find P-1 more paths
-    candidates = []
+    paths_found.append({"path": path, "weight": weight})
+    
+    if P == 1:
+        return paths_found
+    
+    # Use a min-heap for candidates (weight, path_tuple)
+    candidates_heap = []
+    seen_paths = {tuple(path)}  # Track seen paths for O(1) duplicate detection
     
     for k in range(1, P):
-        if not paths_found:
-            break
-        
         prev_path = paths_found[-1]["path"]
+        prev_len = len(prev_path)
         
         # For each node in previous path (except last)
-        for i in range(len(prev_path) - 1):
+        for i in range(prev_len - 1):
             spur_node = prev_path[i]
             root_path = prev_path[:i+1]
             
-            # Block edges that would create duplicate paths
+            # Build blocked edges set
             blocked = set()
-            for p in paths_found:
-                p_path = p["path"]
-                if len(p_path) > i and p_path[:i+1] == root_path:
-                    if len(p_path) > i + 1:
-                        blocked.add((p_path[i], p_path[i+1]))
+            for p_dict in paths_found:
+                p_path = p_dict["path"]
+                if len(p_path) > i and p_path[:i+1] == root_path and len(p_path) > i + 1:
+                    blocked.add((p_path[i], p_path[i+1]))
             
+            # Skip if no valid spur path exists (optimization)
+            if not blocked and i > 0:
+                continue
+                
             # Find spur path from spur_node to target
-            spur_path, spur_dist = dijkstra(spur_node, N - 1, blocked)
+            spur_path, spur_weight = dijkstra(spur_node, N - 1, blocked)
             
-            if spur_path:
-                # Combine root + spur (excluding duplicate spur_node)
-                total_path = root_path[:-1] + spur_path
-                
-                # Calculate total weight
-                total_weight = 0
-                for j in range(len(total_path) - 1):
-                    u, v = total_path[j], total_path[j+1]
-                    for dst, w in graph[u]:
-                        if dst == v:
-                            total_weight += w
-                            break
-                
-                # Add to candidates if not already present
-                candidate = {"path": total_path, "weight": total_weight}
-                if candidate not in candidates:
-                    candidates.append(candidate)
+            if not spur_path:
+                continue
+            
+            # Combine root + spur
+            total_path = root_path[:-1] + spur_path
+            total_path_tuple = tuple(total_path)
+            
+            # Skip if already seen
+            if total_path_tuple in seen_paths:
+                continue
+            
+            seen_paths.add(total_path_tuple)
+            
+            # Calculate total weight incrementally
+            total_weight = 0
+            # Weight from start to spur_node
+            for j in range(i):
+                u, v = total_path[j], total_path[j+1]
+                for dst, w in graph[u]:
+                    if dst == v:
+                        total_weight += w
+                        break
+            # Add spur path weight
+            total_weight += spur_weight
+            
+            # Push to heap
+            heapq.heappush(candidates_heap, (total_weight, total_path_tuple))
         
-        # Pick shortest candidate
-        if candidates:
-            candidates.sort(key=lambda x: x["weight"])
-            next_path = candidates.pop(0)
-            paths_found.append(next_path)
+        # Get next shortest path from heap
+        if not candidates_heap:
+            break
+        
+        next_weight, next_path_tuple = heapq.heappop(candidates_heap)
+        paths_found.append({"path": list(next_path_tuple), "weight": next_weight})
     
-    return paths_found[:P]
+    return paths_found
+
 
 
 

@@ -78,7 +78,8 @@ class TaskRouter:
         """Decide which model to use based on task and complexity"""
         # Graph tasks: always use larger model for accuracy
         if task == "graph":
-            return "large"
+            # return "large"
+            return "small"
         
         # MMLU: use large model for medical questions (they're tricky)
         if task == "mmlu":

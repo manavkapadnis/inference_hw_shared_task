@@ -1,0 +1,30 @@
+Initializing inference system...
+Loading models...
+Using 8-bit quantization
+Loading large model: Qwen/Qwen3-8B
+Loading small model: Qwen/Qwen3-1.7B
+Models loaded successfully!
+Loading infobench dataset...
+Loaded 100 examples
+Evaluating 100 examples...
+Results saved to results/system5_infobench.json
+
+==================================================
+EVALUATION SUMMARY
+==================================================
+Task: infobench
+Examples: 100
+Correct: 74.18600843600844
+Accuracy: 0.7419
+
+Timing Metrics:
+  Total Time: 5013.71s
+  Avg Batch Time: 30.2617s
+  Throughput: 0.02 examples/s
+
+System Stats:
+  Total Requests: 100
+  Total Tokens: 38289
+  Avg Tokens/Request: 382.89
+==================================================
+System 5 InfoBench evaluation complete!
