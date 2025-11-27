@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.9133333333333334,
+  "correct": 91.33333333333334,
+  "total": 100,
+  "total_time_seconds": 5197.152071237564,
+  "avg_batch_time_seconds": 51.97063110589981,
+  "throughput_examples_per_second": 0.019241307283161264,
+  "stats": {
+    "total_requests": 100,
+    "total_tokens": 180134,
+    "avg_tokens_per_request": 1801.34
+  }
+}

@@ -1,0 +1,22 @@
+# Final Project Dependencies
+
+# Core ML libraries
+torch>=2.0.0
+transformers>=4.40.0
+accelerate>=0.20.0
+sentencepiece
+protobuf
+
+# Dataset and evaluation
+datasets
+tqdm
+
+# Modal deployment
+modal
+fastapi[standard]
+
+# Testing and development
+requests
+
+# Optional: for enhanced features
+# bitsandbytes  # For quantization
