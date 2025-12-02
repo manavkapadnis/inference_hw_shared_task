@@ -78,8 +78,7 @@ class TaskRouter:
         """Decide which model to use based on task and complexity"""
         # Graph tasks: always use larger model for accuracy
         if task == "graph":
-            # return "large"
-            return "small"
+            return "large"
         
         # MMLU: use large model for medical questions (they're tricky)
         if task == "mmlu":
@@ -145,42 +144,61 @@ class InferenceSystem:
                  small_model_path: str = "Qwen/Qwen3-1.7B",
                  device: str = "cuda",
                  use_8bit: bool = False,
-                 use_4bit: bool = False):
+                 use_4bit: bool = False,
+                 gpu_placement: bool = True):
         
         self.device = device
         self.router = TaskRouter()
         self.batcher = ContinuousBatcher(max_batch_size=8)
+        self.gpu_placement = gpu_placement
         
         print("Loading models...")
         
         # Configure quantization
-        load_kwargs = {
-            "device_map": "auto",
+        load_kwargs_large = {
+            "trust_remote_code": True
+        }
+        load_kwargs_small = {
             "trust_remote_code": True
         }
         
         if use_4bit:
-            # 4-bit quantization config
             quantization_config = BitsAndBytesConfig(
                 load_in_4bit=True,
                 bnb_4bit_compute_dtype=torch.bfloat16,
                 bnb_4bit_use_double_quant=True,
                 bnb_4bit_quant_type="nf4"
             )
-            load_kwargs["quantization_config"] = quantization_config
+            load_kwargs_large["quantization_config"] = quantization_config
+            load_kwargs_small["quantization_config"] = quantization_config
             print("Using 4-bit quantization")
         elif use_8bit:
-            load_kwargs["load_in_8bit"] = True
+            load_kwargs_large["load_in_8bit"] = True
+            load_kwargs_small["load_in_8bit"] = True
             print("Using 8-bit quantization")
         else:
-            load_kwargs["torch_dtype"] = torch.bfloat16
+            load_kwargs_large["torch_dtype"] = torch.bfloat16
+            load_kwargs_small["torch_dtype"] = torch.bfloat16
             print("Using full precision (bfloat16)")
+        
+        # GPU placement: large model on GPU 0, small model on GPU 1
+        if gpu_placement and torch.cuda.device_count() >= 2:
+            print(f"GPU placement enabled: Large model -> GPU:0, Small model -> GPU:1")
+            load_kwargs_large["device_map"] = {"": 0}
+            load_kwargs_small["device_map"] = {"": 1}
+        elif gpu_placement and torch.cuda.device_count() == 1:
+            print(f"Only 1 GPU available, placing both models on GPU:0")
+            load_kwargs_large["device_map"] = "auto"
+            load_kwargs_small["device_map"] = "auto"
+        else:
+            load_kwargs_large["device_map"] = "auto"
+            load_kwargs_small["device_map"] = "auto"
         
         # Load large model
         print(f"Loading large model: {large_model_path}")
         self.large_tokenizer = AutoTokenizer.from_pretrained(large_model_path, trust_remote_code=True)
         self.large_model = AutoModelForCausalLM.from_pretrained(
-            large_model_path, **load_kwargs
+            large_model_path, **load_kwargs_large
         )
         self.large_model.eval()
         
@@ -192,7 +210,7 @@ class InferenceSystem:
         print(f"Loading small model: {small_model_path}")
         self.small_tokenizer = AutoTokenizer.from_pretrained(small_model_path, trust_remote_code=True)
         self.small_model = AutoModelForCausalLM.from_pretrained(
-            small_model_path, **load_kwargs
+            small_model_path, **load_kwargs_small
         )
         self.small_model.eval()
         
@@ -200,6 +218,8 @@ class InferenceSystem:
             self.small_tokenizer.pad_token = self.small_tokenizer.eos_token
         
         print("Models loaded successfully!")
+        print(f"Large model device: {self.large_model.device}")
+        print(f"Small model device: {self.small_model.device}")
         
         # Performance tracking
         self.request_count = 0
