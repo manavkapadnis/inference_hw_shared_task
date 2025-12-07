@@ -3,10 +3,11 @@ Math verify stub for MMLU evaluation
 Simplified version for answer verification
 """
 
+import re
+
+
 def parse(response: str):
     """Parse answer from response."""
-    import re
-    
     if not response:
         return []
     
@@ -27,7 +28,7 @@ def parse(response: str):
     if answer_match2:
         return [answer_match2.group(1).upper()]
     
-    # Last resort: find any single capital letter
+    # Last resort: find any single capital letter A-D
     letter_match = re.search(r'\b([A-D])\b', response)
     if letter_match:
         return [letter_match.group(1)]

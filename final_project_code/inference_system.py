@@ -27,26 +27,26 @@ class TaskRouter:
     """Routes requests to appropriate models based on task complexity"""
     
     def __init__(self):
-        # Patterns to identify task types
+        # IMPROVED: More reliable patterns
         self.graph_patterns = [
-            r"directed graph",
-            r"nodes.*edges",
-            r"shortest path",
-            r"->.*weight",
-            r"node \d+ to node \d+"
+            r'directed\s+graph',
+            r'graph\s+with\s+\d+\s+nodes?',
+            r'shortest\s+path',
+            r'\d+\s*-+>\s*\d+.*weight',
+            r'node\s+\d+\s+to\s+node\s+\d+',
         ]
         
         self.mmlu_patterns = [
-            r"multiple choice",
-            r"Options:\s*A\.",
-            r"college_medicine",
-            r"professional_medicine",
-            r"The following is a.*question.*about"
+            r'multiple\s+choice',
+            r'Options:\s*A\.',
+            r'college_medicine',
+            r'professional_medicine',
+            r'The\s+following\s+is\s+a.*question.*about',
         ]
         
         self.infobench_patterns = [
-            r"Instruction:",
-            r"Question:.*Generation:",
+            r'Instruction:',
+            r'Question:.*Generation:',
         ]
     
     def identify_task(self, prompt: str) -> str:
@@ -54,24 +54,24 @@ class TaskRouter:
         prompt_lower = prompt.lower()
         
         # Check graph patterns
-        graph_matches = sum(1 for pattern in self.graph_patterns 
-                          if re.search(pattern, prompt_lower, re.IGNORECASE))
+        graph_matches = 0
+        for pattern in self.graph_patterns:
+            if re.search(pattern, prompt_lower, re.IGNORECASE):
+                graph_matches += 1
+        
         if graph_matches >= 2:
             return "graph"
         
         # Check MMLU patterns
-        mmlu_matches = sum(1 for pattern in self.mmlu_patterns 
-                         if re.search(pattern, prompt, re.IGNORECASE))
-        if mmlu_matches >= 1:
-            return "mmlu"
+        for pattern in self.mmlu_patterns:
+            if re.search(pattern, prompt, re.IGNORECASE):
+                return "mmlu"
         
         # Check InfoBench patterns
-        infobench_matches = sum(1 for pattern in self.infobench_patterns 
-                               if re.search(pattern, prompt, re.IGNORECASE))
-        if infobench_matches >= 1:
-            return "infobench"
+        for pattern in self.infobench_patterns:
+            if re.search(pattern, prompt, re.IGNORECASE):
+                return "infobench"
         
-        # Default to infobench for open-ended queries
         return "infobench"
     
     def route_to_model(self, prompt: str, task: str, prompt_length: int) -> str:

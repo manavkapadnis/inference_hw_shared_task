@@ -1,0 +1,43 @@
+{
+  "system_id": "system1",
+  "accuracy": {
+    "system_id": "system1",
+    "total_examples": 300,
+    "task_metrics": {
+      "mmlu_med": {
+        "count": 100,
+        "accuracy": 0.82,
+        "total_score": 82.0
+      },
+      "graph": {
+        "count": 100,
+        "accuracy": 0.97,
+        "total_score": 97.0
+      },
+      "infobench": {
+        "count": 100,
+        "accuracy": 0.7394049006549004,
+        "total_score": 73.94049006549004
+      }
+    },
+    "overall_accuracy": 0.843134966884967
+  },
+  "throughput": {
+    "total_batches": 98,
+    "successful_batches": 93,
+    "failed_batches": 5,
+    "success_rate": 0.9489795918367347,
+    "total_prompts": 291,
+    "total_time_seconds": 1478.03,
+    "throughput_prompts_per_sec": 0.2,
+    "throughput_batches_per_sec": 0.06,
+    "min_latency": 5.935,
+    "max_latency": 333.165,
+    "avg_latency": 176.88,
+    "median_latency": 185.022,
+    "p90_latency": 275.436,
+    "p95_latency": 296.858,
+    "p99_latency": 333.165,
+    "std_latency": 74.985
+  }
+}

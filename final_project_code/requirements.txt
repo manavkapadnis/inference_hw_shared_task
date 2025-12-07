@@ -19,4 +19,10 @@ fastapi[standard]
 requests
 
 # Optional: for enhanced features
-# bitsandbytes  # For quantization
+bitsandbytes  # For quantization
+
+openai
+python-dotenv
+aiohttp
+tqdm
+math-verify

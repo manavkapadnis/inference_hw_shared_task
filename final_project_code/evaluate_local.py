@@ -6,224 +6,342 @@ Test the inference system locally before deploying to Modal
 import torch
 import json
 import argparse
+import re
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 from tqdm import tqdm
 from datasets import load_dataset
 from dotenv import load_dotenv
+from collections import defaultdict
+import heapq
 
-# Load environment variables from .env file
 load_dotenv()
 
-from inference_system import InferenceSystem
-from dataset_handlers import get_handler
-import dataset_handlers
 
+# ============================================================================
+# Graph Solver (same as in modal_deploy_api.py)
+# ============================================================================
 
-def load_test_data(task: str, split: str = "dev_test", limit: int = None) -> List[Dict[str, Any]]:
-    """Load test data from HuggingFace"""
-    print(f"Loading {task} dataset...")
+class DijkstraSolver:
+    """Pure algorithmic solver using modified Dijkstra for K-shortest paths."""
     
+    @staticmethod
+    def dijkstra_k_shortest_paths(
+        num_nodes: int,
+        edges: List[List[int]],
+        K: int,
+        source: int = 0,
+        target: int = None
+    ) -> List[Tuple[List[int], int]]:
+        """Find K shortest simple paths using modified Dijkstra"""
+        if target is None:
+            target = num_nodes - 1
+        
+        graph = defaultdict(list)
+        for edge in edges:
+            src, dst, weight = edge[0], edge[1], edge[2]
+            graph[src].append((dst, weight))
+        
+        pq = [(0.0, tuple([source]))]
+        found_paths = []
+        seen_paths = set()
+        
+        while pq and len(found_paths) < K:
+            cost, path_tuple = heapq.heappop(pq)
+            path = list(path_tuple)
+            
+            path_signature = (path_tuple, int(cost))
+            if path_signature in seen_paths:
+                continue
+            seen_paths.add(path_signature)
+            
+            current_node = path[-1]
+            
+            if current_node == target:
+                found_paths.append((path, int(cost)))
+                continue
+            
+            for neighbor, edge_weight in graph[current_node]:
+                if neighbor not in path:
+                    new_cost = cost + edge_weight
+                    new_path = path + [neighbor]
+                    heapq.heappush(pq, (new_cost, tuple(new_path)))
+        
+        return found_paths[:K]
+    
+    @staticmethod
+    def format_solution(paths: List[Tuple[List[int], int]]) -> str:
+        """Format as submit_paths() - REQUIRED FORMAT FOR GRADER"""
+        if not paths:
+            return "submit_paths(paths=[], weights=[])"
+        
+        paths_list = [p for p, _ in paths]
+        weights_list = [w for _, w in paths]
+        
+        return f"submit_paths(paths={paths_list}, weights={weights_list})"
+
+
+def extract_graph_params_from_prompt(prompt: str) -> Dict:
+    """Extract graph parameters using regex patterns."""
+    try:
+        nodes_match = re.search(r'graph\s+with\s+(\d+)\s+nodes?', prompt, re.IGNORECASE)
+        if not nodes_match:
+            return None
+        num_nodes = int(nodes_match.group(1))
+        
+        k_match = re.search(r'top[-\s]?(\d+)|(\d+)\s+shortest', prompt, re.IGNORECASE)
+        if k_match:
+            K = int(k_match.group(1) or k_match.group(2))
+        else:
+            K = 1
+        
+        edges = []
+        for match in re.finditer(r'(\d+)\s*-+>\s*(\d+),?\s*weight:?\s*(\d+)', prompt, re.IGNORECASE):
+            src = int(match.group(1))
+            dst = int(match.group(2))
+            weight = int(match.group(3))
+            edges.append([src, dst, weight])
+        
+        if not edges:
+            for match in re.finditer(r'[\(\[](\d+),\s*(\d+),\s*(\d+)[\)\]]', prompt):
+                src = int(match.group(1))
+                dst = int(match.group(2))
+                weight = int(match.group(3))
+                edges.append([src, dst, weight])
+        
+        if not edges:
+            return None
+        
+        return {'num_nodes': num_nodes, 'edges': edges, 'K': K}
+    except:
+        return None
+
+
+def solve_graph_problem(prompt: str) -> str:
+    """Solve graph problem directly"""
+    parsed = extract_graph_params_from_prompt(prompt)
+    
+    if parsed is None:
+        return "submit_paths(paths=[], weights=[])"
+    
+    try:
+        paths = DijkstraSolver.dijkstra_k_shortest_paths(
+            num_nodes=parsed['num_nodes'],
+            edges=parsed['edges'],
+            K=parsed['K']
+        )
+        return DijkstraSolver.format_solution(paths)
+    except:
+        return "submit_paths(paths=[], weights=[])"
+
+
+# ============================================================================
+# Dataset Handlers
+# ============================================================================
+
+class GraphHandler:
+    """Handler for graph tasks"""
+    
+    def format_prompt(self, example: Dict) -> str:
+        return example.get('prompt', '')
+    
+    def parse_response(self, response: str, example: Dict = None) -> Dict:
+        """Parse response - returns dict with paths and weights"""
+        if not response:
+            return {"paths": [], "weights": []}
+        
+        # Parse submit_paths format
+        func_match = re.search(
+            r'submit_paths\s*\(\s*paths\s*=\s*(\[.*?\])\s*,\s*weights\s*=\s*(\[.*?\])\s*\)',
+            response, re.DOTALL
+        )
+        if func_match:
+            try:
+                paths = eval(func_match.group(1))
+                weights = eval(func_match.group(2))
+                return {"paths": paths, "weights": weights}
+            except:
+                pass
+        
+        return {"paths": [], "weights": []}
+    
+    def get_ground_truth(self, example: Dict) -> Dict:
+        """Get ground truth from example"""
+        solution = example.get('solution', {})
+        if isinstance(solution, str):
+            try:
+                solution = json.loads(solution)
+            except:
+                solution = {}
+        
+        if not isinstance(solution, dict):
+            return {"paths": [], "weights": []}
+        
+        paths = []
+        weights = []
+        for path_obj in solution.get('paths', []):
+            if isinstance(path_obj, dict):
+                paths.append(path_obj.get('path', []))
+                weights.append(path_obj.get('weight', 0))
+        
+        return {"paths": paths, "weights": weights}
+    
+    def evaluate(self, parsed: Dict, ground_truth: Dict) -> float:
+        """Evaluate: |pred ∩ gold| / P"""
+        pred_paths = parsed.get("paths", [])
+        pred_weights = parsed.get("weights", [])
+        gold_paths = ground_truth.get("paths", [])
+        gold_weights = ground_truth.get("weights", [])
+        
+        P = len(gold_paths)
+        if P == 0:
+            return 0.0
+        
+        pred_pairs = set()
+        for i in range(min(len(pred_paths), len(pred_weights))):
+            pred_pairs.add((tuple(pred_paths[i]), pred_weights[i]))
+        
+        gold_pairs = set()
+        for i in range(min(len(gold_paths), len(gold_weights))):
+            gold_pairs.add((tuple(gold_paths[i]), gold_weights[i]))
+        
+        intersection = len(pred_pairs & gold_pairs)
+        return intersection / P
+
+
+class MMLUHandler:
+    """Handler for MMLU tasks"""
+    
+    def format_prompt(self, example: Dict) -> str:
+        question = example.get("question", "")
+        choices = example.get("choices", [])
+        subject = example.get("subject", "medicine")
+        
+        prompt = (
+            f"The following is a multiple choice question (with answers) about {subject}. "
+            f"Output the answer in the format of \"The answer is (X)\" at the end.\n\n"
+            f"Question: {question}\n Options:\n"
+        )
+        
+        for i, choice in enumerate(choices):
+            prompt += f"{chr(65+i)}. {choice}\n"
+        
+        prompt += "Answer:"
+        return prompt
+    
+    def parse_response(self, response: str) -> str:
+        if not response:
+            return ""
+        
+        answer_match = re.search(r'The answer is\s*\(?([A-Z])\)?', response, re.IGNORECASE)
+        if answer_match:
+            return answer_match.group(1).upper()
+        
+        letter_match = re.search(r'\b([A-D])\b', response)
+        if letter_match:
+            return letter_match.group(1)
+        
+        return ""
+    
+    def get_ground_truth(self, example: Dict) -> str:
+        answer_idx = example.get("answer")
+        if answer_idx is not None:
+            return chr(65 + answer_idx)
+        return ""
+    
+    def evaluate(self, parsed: str, ground_truth: str) -> float:
+        return 1.0 if parsed.upper() == ground_truth.upper() else 0.0
+
+
+class InfoBenchHandler:
+    """Handler for InfoBench tasks"""
+    
+    def format_prompt(self, example: Dict) -> str:
+        instruction = example.get("instruction", "")
+        input_text = example.get("input", "")
+        
+        if input_text:
+            return f"Instruction: {instruction}\nQuestion: {input_text}\nGeneration:"
+        return f"Instruction: {instruction}\nGeneration:"
+    
+    def parse_response(self, response: str) -> str:
+        return response if response else ""
+    
+    def get_ground_truth(self, example: Dict) -> None:
+        return None
+    
+    def evaluate(self, parsed: str, ground_truth: None) -> float:
+        # InfoBench requires GPT evaluation - return placeholder
+        return 0.5 if parsed else 0.0
+
+
+def get_handler(task: str):
+    """Get appropriate handler for task"""
     if task.lower() in ["graph", "graphdev"]:
-        raw_dataset = load_dataset("vashistht/11763_datasets", "graph_dev")
+        return GraphHandler()
     elif task.lower() in ["mmlu", "mmlu_med"]:
-        raw_dataset = load_dataset("vashistht/11763_datasets", "mmlu_med")
+        return MMLUHandler()
     elif task.lower() == "infobench":
-        raw_dataset = load_dataset("vashistht/11763_datasets", "infobench")
+        return InfoBenchHandler()
     else:
         raise ValueError(f"Unknown task: {task}")
-    
-    examples = list(raw_dataset[split])
-    
-    if limit:
-        examples = examples[:limit]
-    
-    print(f"Loaded {len(examples)} examples")
-    return examples
 
 
-def evaluate_system(
-    system: InferenceSystem,
-    examples: List[Dict[str, Any]],
-    handler,
-    batch_size: int = 4,
-    output_file: str = None
-) -> Dict[str, Any]:
-    """Evaluate the inference system on examples"""
+# ============================================================================
+# Local Testing (without full inference system)
+# ============================================================================
+
+def test_graph_solver(limit: int = 20):
+    """Test graph solver locally without loading models"""
+    print("Testing Graph Solver...")
     
-    import time
+    dataset = load_dataset("vashistht/11763_datasets", "graph_dev", split="dev_test")
+    examples = list(dataset)[:limit]
     
-    results = []
-    correct_count = 0
-    batch_times = []
+    handler = GraphHandler()
     
-    print(f"Evaluating {len(examples)} examples...")
+    correct = 0
+    total = 0
     
-    total_start = time.time()
-    
-    # Process in batches
-    for i in tqdm(range(0, len(examples), batch_size)):
-        batch = examples[i:i + batch_size]
+    for ex in tqdm(examples, desc="Graph"):
+        prompt = handler.format_prompt(ex)
+        response = solve_graph_problem(prompt)
         
-        # Format prompts
-        prompts = [handler.format_prompt(ex) for ex in batch]
+        parsed = handler.parse_response(response, ex)
+        ground_truth = handler.get_ground_truth(ex)
+        score = handler.evaluate(parsed, ground_truth)
         
-        # Generate responses with timing
-        batch_start = time.time()
-        responses = system.process_batch(
-            prompts, 
-            max_tokens=512, 
-            temperature=0.7
-        )
-        batch_time = time.time() - batch_start
-        batch_times.append(batch_time)
+        if score >= 0.99:
+            correct += 1
+        total += 1
         
-        # Evaluate each response
-        for ex, response in zip(batch, responses):
-            # Special handling for graph task
-            if isinstance(handler, dataset_handlers.GraphHandler):
-                # For graph task, LLM should make tool call, we extract params and compute
-                parsed = handler.parse_response(response, ex)  # Pass example for fallback
-                ground_truth = handler.get_ground_truth(ex)
-                score = handler.evaluate(parsed, ground_truth)
-            else:
-                # For other tasks, parse and evaluate normally
-                parsed = handler.parse_response(response)
-                ground_truth = handler.get_ground_truth(ex)
-                score = handler.evaluate(parsed, ground_truth)
-            
-            correct_count += score
-            
-            results.append({
-                "example": ex,
-                "prompt": handler.format_prompt(ex),
-                "response": response,
-                "parsed": parsed,
-                "ground_truth": ground_truth,
-                "score": score
-            })
+        if total <= 3:
+            print(f"\nExample {total}:")
+            print(f"  Response: {response[:100]}...")
+            print(f"  Parsed: {parsed}")
+            print(f"  Ground truth: {ground_truth}")
+            print(f"  Score: {score}")
     
-    total_time = time.time() - total_start
-    
-    # Compute metrics
-    accuracy = correct_count / len(examples) if examples else 0.0
-    avg_batch_time = sum(batch_times) / len(batch_times) if batch_times else 0.0
-    throughput = len(examples) / total_time if total_time > 0 else 0.0
-    
-    eval_results = {
-        "accuracy": accuracy,
-        "correct": correct_count,
-        "total": len(examples),
-        "total_time_seconds": total_time,
-        "avg_batch_time_seconds": avg_batch_time,
-        "throughput_examples_per_second": throughput,
-        "results": results,
-        "stats": system.get_stats()
-    }
-    
-    # Save results if output file specified
-    if output_file:
-        output_path = Path(output_file)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        # Save without individual results (too large)
-        summary = {
-            "accuracy": accuracy,
-            "correct": correct_count,
-            "total": len(examples),
-            "total_time_seconds": total_time,
-            "avg_batch_time_seconds": avg_batch_time,
-            "throughput_examples_per_second": throughput,
-            "stats": system.get_stats()
-        }
-        
-        with open(output_path, 'w') as f:
-            json.dump(summary, f, indent=2)
-        
-        print(f"Results saved to {output_file}")
-    
-    return eval_results
+    print(f"\nGraph Accuracy: {correct}/{total} = {correct/total:.4f}")
+    return correct / total
 
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate inference system locally")
-    parser.add_argument("--task", type=str, required=True, 
+    parser.add_argument("--task", type=str, default="graphdev",
                        choices=["graphdev", "mmlu_med", "infobench"],
                        help="Task to evaluate")
-    parser.add_argument("--split", type=str, default="dev_test",
-                       help="Dataset split to use")
-    parser.add_argument("--limit", type=int, default=None,
-                       help="Limit number of examples (for testing)")
-    parser.add_argument("--batch_size", type=int, default=4,
-                       help="Batch size for evaluation")
-    parser.add_argument("--output", type=str, default=None,
-                       help="Output file for results")
-    parser.add_argument("--large_model", type=str, default="Qwen/Qwen3-8B",
-                       help="Large model path")
-    parser.add_argument("--small_model", type=str, default="Qwen/Qwen3-1.7B",
-                       help="Small model path")
-    parser.add_argument("--use_8bit", action="store_true",
-                       help="Use 8-bit quantization")
-    parser.add_argument("--use_4bit", action="store_true",
-                       help="Use 4-bit quantization")
-    parser.add_argument("--use_enhanced", action="store_true",
-                       help="Use enhanced inference system with speculative decoding")
+    parser.add_argument("--limit", type=int, default=20,
+                       help="Limit number of examples")
+    parser.add_argument("--test-graph-only", action="store_true",
+                       help="Only test graph solver (no model loading)")
     
     args = parser.parse_args()
     
-    # Initialize system
-    print("Initializing inference system...")
-    
-    if args.use_enhanced:
-        from enhanced_inference import EnhancedInferenceSystem
-        system = EnhancedInferenceSystem(
-            large_model_path=args.large_model,
-            small_model_path=args.small_model,
-            device="cuda" if torch.cuda.is_available() else "cpu",
-            use_8bit=args.use_8bit,
-            use_4bit=args.use_4bit
-        )
+    if args.test_graph_only or args.task == "graphdev":
+        test_graph_solver(args.limit)
     else:
-        system = InferenceSystem(
-            large_model_path=args.large_model,
-            small_model_path=args.small_model,
-            device="cuda" if torch.cuda.is_available() else "cpu",
-            use_8bit=args.use_8bit,
-            use_4bit=args.use_4bit
-        )
-    
-    # Load data
-    examples = load_test_data(args.task, args.split, args.limit)
-    
-    # Get handler
-    handler = get_handler(args.task)
-    
-    # Evaluate
-    results = evaluate_system(
-        system, 
-        examples, 
-        handler,
-        batch_size=args.batch_size,
-        output_file=args.output
-    )
-    
-    # Print summary
-    print("\n" + "="*50)
-    print("EVALUATION SUMMARY")
-    print("="*50)
-    print(f"Task: {args.task}")
-    print(f"Examples: {results['total']}")
-    print(f"Correct: {results['correct']}")
-    print(f"Accuracy: {results['accuracy']:.4f}")
-    print(f"\nTiming Metrics:")
-    print(f"  Total Time: {results['total_time_seconds']:.2f}s")
-    print(f"  Avg Batch Time: {results['avg_batch_time_seconds']:.4f}s")
-    print(f"  Throughput: {results['throughput_examples_per_second']:.2f} examples/s")
-    print(f"\nSystem Stats:")
-    print(f"  Total Requests: {results['stats']['total_requests']}")
-    print(f"  Total Tokens: {results['stats']['total_tokens']}")
-    print(f"  Avg Tokens/Request: {results['stats']['avg_tokens_per_request']:.2f}")
-    print("="*50)
+        print(f"Use --test-graph-only for local testing without models")
 
 
 if __name__ == "__main__":

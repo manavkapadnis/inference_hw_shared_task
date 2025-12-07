@@ -54,8 +54,8 @@ def load_prompts() -> List[str]:
         prompts.append(ex["prompt"])
     
     # InfoBench prompts
-    # for ex in infobench_ds:
-    #     prompts.append(format_infobench_prompt(ex))
+    for ex in infobench_ds:
+        prompts.append(format_infobench_prompt(ex))
     
     # MMLU prompts
     for ex in mmlu_ds:
@@ -71,7 +71,7 @@ def simulate_batch_arrivals(
     mean_batch_size: float = 3.0,
     min_batch_size: int = 1,
     max_batch_size: int = 8,
-    random_seed: int = 42
+    random_seed: int = 3407
 ) -> List[Dict[str, Any]]:
     """Simulate Poisson batch arrivals ensuring all prompts are used"""
     

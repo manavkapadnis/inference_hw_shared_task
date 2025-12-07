@@ -5,12 +5,11 @@ Grading logic for MMLU, InfoBench, and Graph tasks.
 
 import json
 import re
-import asyncio
+import time
 from typing import Dict, Any, List, Optional, Tuple
 from dataclasses import dataclass
 from openai import AsyncOpenAI, OpenAI
 import math_verify
-import time
 
 # ============================================================================
 # CONSTANTS
@@ -38,30 +37,27 @@ class ResponseParser:
 
     @staticmethod
     def parse_mmlu(response: str) -> Optional[List[str]]:
-        """
-        Extract multiple choice answer from response using math_verify.
-        Returns parsed result or None if parsing fails.
-        """
+        """Extract multiple choice answer from response."""
         if not response:
             return None
         response = response.strip()
-        # parse the answer after "The answer is (X)"
+        
+        # Try "The answer is (X)"
         answer_match = re.search(r'The answer is\s*\(?([A-Z])\)?', response, re.IGNORECASE)
         if answer_match:
-            answer = answer_match.group(1).upper()
-            return [answer]
-        else:
-            # Fallback to math_verify parsing
-            parsed = math_verify.parse(response)
+            return [answer_match.group(1).upper()]
+        
+        # Fallback to math_verify parsing
+        parsed = math_verify.parse(response)
         return parsed if parsed else None
 
     @staticmethod
     def parse_graph(response: str) -> Optional[Dict[str, Any]]:
         """
-        Parse graph response. Supports two formats:
-        1. Gold-like format: {"paths": [{"path": [0,2,4], "weight": 25}]}
-        2. Function call: submit_paths(paths=[[0,2,4]], weights=[25])
-
+        Parse graph response - FIXED to handle submit_paths format.
+        
+        Expected format: submit_paths(paths=[[0,2,4]], weights=[25])
+        
         Returns dict with 'paths' (list of lists) and 'weights' (list of ints) or None.
         """
         if not response:
@@ -69,39 +65,56 @@ class ResponseParser:
 
         response = response.strip()
 
-        # === Format 1: Gold-like format {"paths": [{"path": [...], "weight": ...}]} ===
+        # ============================================
+        # PRIMARY: submit_paths(paths=[[...]], weights=[...])
+        # ============================================
+        
+        # Pattern 1: paths first
+        func_match = re.search(
+            r'submit_paths\s*\(\s*paths\s*=\s*(\[.*?\])\s*,\s*weights\s*=\s*(\[.*?\])\s*\)',
+            response, 
+            re.DOTALL
+        )
+        if func_match:
+            try:
+                paths = eval(func_match.group(1))
+                weights = eval(func_match.group(2))
+                return {"paths": paths, "weights": weights}
+            except Exception as e:
+                print(f"[GRAPH PARSE] eval error: {e}")
+        
+        # Pattern 2: weights first
+        func_match2 = re.search(
+            r'submit_paths\s*\(\s*weights\s*=\s*(\[.*?\])\s*,\s*paths\s*=\s*(\[.*?\])\s*\)',
+            response, 
+            re.DOTALL
+        )
+        if func_match2:
+            try:
+                weights = eval(func_match2.group(1))
+                paths = eval(func_match2.group(2))
+                return {"paths": paths, "weights": weights}
+            except Exception as e:
+                print(f"[GRAPH PARSE] eval error: {e}")
+
+        # ============================================
+        # FALLBACK: JSON format {"paths": [...]}
+        # ============================================
         try:
             json_match = re.search(r'\{.*\}', response, re.DOTALL)
             if json_match:
                 parsed = json.loads(json_match.group(0))
                 if "paths" in parsed and isinstance(parsed["paths"], list):
-                    # Check if it's gold-like format (list of dicts with path/weight)
+                    # Gold-like format: {"paths": [{"path": [...], "weight": ...}]}
                     if parsed["paths"] and isinstance(parsed["paths"][0], dict) and "path" in parsed["paths"][0]:
                         paths = [p["path"] for p in parsed["paths"]]
                         weights = [p["weight"] for p in parsed["paths"]]
                         return {"paths": paths, "weights": weights}
-        except (json.JSONDecodeError, KeyError, TypeError, IndexError):
+                    # Direct format: {"paths": [[...]], "weights": [...]}
+                    elif "weights" in parsed:
+                        return {"paths": parsed["paths"], "weights": parsed["weights"]}
+        except (json.JSONDecodeError, KeyError, TypeError, IndexError) as e:
             pass
-
-        # === Format 2: Function call submit_paths(paths=[[...]], weights=[...]) ===
-        func_patterns = [
-            r'submit_paths\s*\(\s*paths\s*=\s*(\[.*?\])\s*,\s*weights\s*=\s*(\[.*?\])\s*\)',
-            r'submit_paths\s*\(\s*weights\s*=\s*(\[.*?\])\s*,\s*paths\s*=\s*(\[.*?\])\s*\)',
-        ]
-
-        for i, pattern in enumerate(func_patterns):
-            match = re.search(pattern, response, re.DOTALL)
-            if match:
-                try:
-                    if i == 0:  # paths first
-                        paths = eval(match.group(1))
-                        weights = eval(match.group(2))
-                    else:  # weights first
-                        weights = eval(match.group(1))
-                        paths = eval(match.group(2))
-                    return {"paths": paths, "weights": weights}
-                except:
-                    continue
 
         return None
 
@@ -115,10 +128,7 @@ class MMLUEvaluator:
 
     @staticmethod
     def evaluate(response: str, gold_answer: str) -> Tuple[float, Dict[str, Any]]:
-        """
-        Evaluate MMLU response using math_verify.
-        Returns (score, details_dict)
-        """
+        """Evaluate MMLU response."""
         parsed_answer = ResponseParser.parse_mmlu(response)
         gold_parsed = gold_answer
         is_correct = math_verify.verify(gold_parsed, parsed_answer)
@@ -135,36 +145,45 @@ class MMLUEvaluator:
 
 
 class GraphEvaluator:
-    """Evaluator for graph shortest path problems"""
+    """Evaluator for graph shortest path problems - FIXED"""
 
     @staticmethod
     def evaluate(response: str, gold_answer: Dict[str, Any]) -> Tuple[float, Dict[str, Any]]:
         """
         Evaluate graph response.
-        Returns (score, details_dict)
-
+        Score = |pred ∩ gold| / P
+        
         Gold answer format: {"paths": [{"path": [...], "weight": ...}, ...]}
         """
         parsed = ResponseParser.parse_graph(response)
 
         if parsed is None:
+            # Try to get P from gold for proper scoring
+            gold_paths = gold_answer.get("paths", [])
+            P = len(gold_paths)
             return (
                 0.0,
                 {
                     "parsed_paths": None,
+                    "parsed_weights": None,
                     "gold_paths": gold_answer,
                     "parse_error": True,
                     "matches": 0,
-                    "total": len(gold_answer.get("paths", []))
+                    "total": P
                 }
             )
 
         # Convert gold answer to set of (path_tuple, weight)
         gold_paths_set = set()
-        for path_info in gold_answer.get("paths", []):
-            path_tuple = tuple(path_info["path"])
-            weight = path_info["weight"]
-            gold_paths_set.add((path_tuple, weight))
+        gold_paths_list = gold_answer.get("paths", [])
+        
+        for path_info in gold_paths_list:
+            if isinstance(path_info, dict):
+                path_tuple = tuple(path_info.get("path", []))
+                weight = path_info.get("weight", 0)
+                gold_paths_set.add((path_tuple, weight))
+
+        P = len(gold_paths_list)  # Use actual gold count for denominator
 
         # Convert parsed answer to same format
         parsed_paths_set = set()
@@ -173,23 +192,25 @@ class GraphEvaluator:
 
         for i, path in enumerate(parsed_paths):
             if i < len(parsed_weights):
-                path_tuple = tuple(path)
+                path_tuple = tuple(path) if isinstance(path, list) else path
                 weight = parsed_weights[i]
                 parsed_paths_set.add((path_tuple, weight))
 
-        # Calculate matches
+        # Calculate intersection
         matches = len(gold_paths_set.intersection(parsed_paths_set))
-        total = len(gold_paths_set)
-        score = matches / total if total > 0 else 0.0
+        score = matches / P if P > 0 else 0.0
 
         return (
             score,
             {
-                "parsed_paths": parsed,
+                "parsed_paths": parsed_paths,
+                "parsed_weights": parsed_weights,
                 "gold_paths": gold_answer,
                 "matches": matches,
-                "total": total,
-                "parse_error": False
+                "total": P,
+                "parse_error": False,
+                "gold_set": [list(x) for x in gold_paths_set],
+                "pred_set": [list(x) for x in parsed_paths_set]
             }
         )
 
@@ -235,10 +256,7 @@ class InfoBenchEvaluator:
         meta: Dict[str, Any],
         predicted_solution: str
     ) -> Tuple[int, float, Dict[str, Any]]:
-        """
-        Sequential evaluation - processes decomposed questions while maintaining
-        conversation context (message history) across all questions.
-        """
+        """Sequential evaluation - processes decomposed questions."""
         input_task = meta.get('input', '')
         decomposed_questions = meta.get("decomposed_questions", [])
 
@@ -260,7 +278,6 @@ class InfoBenchEvaluator:
             message.append({"role": "user", "content": content})
 
             max_retries = 3
-            success = False
             result = None
 
             for attempt in range(max_retries):
@@ -275,7 +292,6 @@ class InfoBenchEvaluator:
                     print(f"Q{i+1}: {question} => {generation.strip()}")
 
                     result = self._parse_yes_no(generation)
-                    success = True
                     break
 
                 except Exception as e:
@@ -312,9 +328,7 @@ class InfoBenchEvaluator:
         }
 
     def evaluate(self, request_i: int, meta: Dict[str, Any], predicted_solution: str) -> Tuple[float, Dict[str, Any]]:
-        """
-        Evaluate an InfoBench example.
-        """
+        """Evaluate an InfoBench example."""
         _, score, details = self._evaluate_sequential(request_i, meta, predicted_solution)
         return score, details
 

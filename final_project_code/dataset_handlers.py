@@ -43,116 +43,6 @@ def bool_ratio(bool_results: List[bool]) -> float:
     return count['true'] / sum(count.values()) if sum(count.values()) > 0 else 0.0
 
 
-
-
-# def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, Any]]:
-#     """
-#     Find the top P shortest paths from node 0 to node N-1 using Yen's algorithm.
-#     Adapted from HW1 graph_path_finder.py
-#     """
-#     # Build adjacency list
-#     graph = {i: [] for i in range(N)}
-#     for src, dst, weight in edges:
-#         graph[src].append((dst, weight))
-    
-#     # Helper function: Dijkstra with edge blocking
-#     def dijkstra(source, target, blocked_edges=set()):
-#         dist = {i: float('inf') for i in range(N)}
-#         dist[source] = 0.0
-#         parent = {i: None for i in range(N)}
-#         pq = [(0.0, source)]
-#         visited = set()
-        
-#         while pq:
-#             d, u = heapq.heappop(pq)
-            
-#             if u in visited:
-#                 continue
-#             visited.add(u)
-            
-#             if u == target:
-#                 break
-            
-#             for v, edge_weight in graph[u]:
-#                 if (u, v) in blocked_edges:
-#                     continue
-#                 if dist[u] + edge_weight < dist[v]:
-#                     dist[v] = dist[u] + edge_weight
-#                     parent[v] = u
-#                     heapq.heappush(pq, (dist[v], v))
-        
-#         if dist[target] == float('inf'):
-#             return None, float('inf')
-        
-#         # Reconstruct path
-#         path = []
-#         node = target
-#         while node is not None:
-#             path.append(node)
-#             node = parent[node]
-#         path.reverse()
-        
-#         return path, int(dist[target])
-    
-#     # Find P shortest paths using Yen's algorithm
-#     paths_found = []
-    
-#     # First shortest path
-#     path, weight = dijkstra(0, N - 1)
-#     if path:
-#         paths_found.append({"path": path, "weight": weight})
-    
-#     # Find P-1 more paths
-#     candidates = []
-    
-#     for k in range(1, P):
-#         if not paths_found:
-#             break
-        
-#         prev_path = paths_found[-1]["path"]
-        
-#         # For each node in previous path (except last)
-#         for i in range(len(prev_path) - 1):
-#             spur_node = prev_path[i]
-#             root_path = prev_path[:i+1]
-            
-#             # Block edges that would create duplicate paths
-#             blocked = set()
-#             for p in paths_found:
-#                 p_path = p["path"]
-#                 if len(p_path) > i and p_path[:i+1] == root_path:
-#                     if len(p_path) > i + 1:
-#                         blocked.add((p_path[i], p_path[i+1]))
-            
-#             # Find spur path from spur_node to target
-#             spur_path, spur_dist = dijkstra(spur_node, N - 1, blocked)
-            
-#             if spur_path:
-#                 # Combine root + spur (excluding duplicate spur_node)
-#                 total_path = root_path[:-1] + spur_path
-                
-#                 # Calculate total weight
-#                 total_weight = 0
-#                 for j in range(len(total_path) - 1):
-#                     u, v = total_path[j], total_path[j+1]
-#                     for dst, w in graph[u]:
-#                         if dst == v:
-#                             total_weight += w
-#                             break
-                
-#                 # Add to candidates if not already present
-#                 candidate = {"path": total_path, "weight": total_weight}
-#                 if candidate not in candidates:
-#                     candidates.append(candidate)
-        
-#         # Pick shortest candidate
-#         if candidates:
-#             candidates.sort(key=lambda x: x["weight"])
-#             next_path = candidates.pop(0)
-#             paths_found.append(next_path)
-    
-#     return paths_found[:P]
-
 def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, Any]]:
     """
     Find the top P shortest paths from node 0 to node N-1 using optimized Yen's algorithm.
@@ -281,8 +171,6 @@ def find_top_p_paths(edges: List[List[int]], N: int, P: int) -> List[Dict[str, A
     return paths_found
 
 
-
-
 class DatasetHandler(ABC):
     """Abstract base class for dataset handlers"""
     
@@ -353,60 +241,76 @@ class GraphHandler(DatasetHandler):
     
     def parse_response(self, response: str, example: Dict[str, Any] = None) -> List[Dict[str, Any]]:
         """
-        Parse graph response - extract tool call parameters from LLM output using regex
-        The LLM should output a function call with edges, N, P parameters
-        We extract those parameters and call the actual pathfinding function
+        IMPROVED: Parse graph response with robust regex
         """
         edges = None
         N = None
         P = None
         
-        # Pattern 1: Most flexible - look for edges=[[...]], N=X, P=Y anywhere
-        # Handle with or without spaces, with or without commas
-        edges_pattern = r'edges\s*=\s*(\[\s*\[[\d,\s\[\]]+\]\s*\])'
-        edges_match = re.search(edges_pattern, response, re.DOTALL)
-        
-        if edges_match:
-            try:
-                edges_str = edges_match.group(1)
-                # Clean up string
-                edges_str = edges_str.replace(' ', '')
-                edges = eval(edges_str)
-            except Exception as e:
-                pass
-        
         # Extract N
-        n_match = re.search(r'N\s*=\s*(\d+)', response)
-        if n_match:
-            N = int(n_match.group(1))
+        n_patterns = [
+            r'N\s*=\s*(\d+)',
+            r'graph\s+with\s+(\d+)\s+nodes?',
+            r'(\d+)\s+nodes?\s+\(numbered',
+        ]
+        for pattern in n_patterns:
+            match = re.search(pattern, response, re.IGNORECASE)
+            if match:
+                N = int(match.group(1))
+                break
         
         # Extract P
-        p_match = re.search(r'P\s*=\s*(\d+)', response)
-        if p_match:
-            P = int(p_match.group(1))
+        p_patterns = [
+            r'P\s*=\s*(\d+)',
+            r'top\s+(\d+)',
+            r'(\d+)\s+shortest',
+        ]
+        for pattern in p_patterns:
+            match = re.search(pattern, response, re.IGNORECASE)
+            if match:
+                P = int(match.group(1))
+                break
         
-        # Pattern 2: Try finding complete function call
-        if edges is None or N is None or P is None:
-            func_match = re.search(
-                r'find_shortest_paths\s*\(\s*edges\s*=\s*(\[\[.*?\]\])\s*,\s*N\s*=\s*(\d+)\s*,\s*P\s*=\s*(\d+)',
-                response,
-                re.DOTALL
-            )
-            
+        # Extract edges - IMPROVED
+        edges_list = []
+        
+        # Pattern 1: "X -> Y, weight: Z"
+        pattern1 = r'(\d+)\s*-+>\s*(\d+),?\s*weight:?\s*(\d+)'
+        for match in re.finditer(pattern1, response, re.IGNORECASE):
+            try:
+                s, d, w = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                edges_list.append([s, d, w])
+            except:
+                continue
+        
+        # Pattern 2: edges=[[...]] array format
+        if not edges_list:
+            pattern2 = r'edges\s*=\s*(\[\s*\[[\d,\s\[\]]+\]\s*\])'
+            edges_match = re.search(pattern2, response, re.DOTALL)
+            if edges_match:
+                try:
+                    edges_str = edges_match.group(1).replace(' ', '')
+                    edges_list = eval(edges_str)
+                except:
+                    pass
+        
+        # Pattern 3: Function call format
+        if not edges_list:
+            func_pattern = r'find_shortest_paths\s*\(\s*edges\s*=\s*(\[.*?\])\s*,\s*N\s*=\s*(\d+)\s*,\s*P\s*=\s*(\d+)'
+            func_match = re.search(func_pattern, response, re.DOTALL)
             if func_match:
                 try:
-                    if edges is None:
-                        edges_str = func_match.group(1).replace(' ', '')
-                        edges = eval(edges_str)
                     if N is None:
                         N = int(func_match.group(2))
                     if P is None:
                         P = int(func_match.group(3))
+                    edges_str = func_match.group(1).replace(' ', '')
+                    edges_list = eval(edges_str)
                 except:
                     pass
         
-        # If extraction failed, fall back to using original problem parameters
-        if example and (edges is None or N is None or P is None):
+        # Fallback to original parameters if extraction failed
+        if example and (not edges_list or N is None or P is None):
             params = example.get("graph_params", {})
             orig_edges = example.get("edges", [])
             
@@ -414,22 +318,22 @@ class GraphHandler(DatasetHandler):
                 N = int(params.get("N", 0))
             if P is None:
                 P = int(params.get("P", 1))
-            if edges is None:
-                edges = []
+            if not edges_list:
+                edges_list = []
                 for e in orig_edges:
                     try:
                         s, d, w = int(e[0]), int(e[1]), int(e[2])
-                        edges.append([s, d, w])
+                        edges_list.append([s, d, w])
                     except:
                         continue
         
-        # Validate parameters
-        if not edges or N is None or P is None or N <= 0 or P <= 0:
+        # Validate
+        if not edges_list or N is None or P is None or N <= 0 or P <= 0:
             return []
         
-        # Normalize edges to correct format [[src, dst, weight], ...]
+        # Normalize edges
         norm_edges = []
-        for e in edges:
+        for e in edges_list:
             if isinstance(e, (list, tuple)) and len(e) >= 3:
                 try:
                     s, d, w = int(e[0]), int(e[1]), int(e[2])
@@ -440,7 +344,7 @@ class GraphHandler(DatasetHandler):
         if not norm_edges:
             return []
         
-        # Call the actual pathfinding function with extracted parameters
+        # Call pathfinding
         try:
             computed_paths = find_top_p_paths(norm_edges, N, P)
             return computed_paths
@@ -738,3 +642,10 @@ def get_handler(task_name: str) -> DatasetHandler:
         raise ValueError(f"Unknown task: {task_name}")
     
     return handler_class()
+
+
+
+
+
+
+

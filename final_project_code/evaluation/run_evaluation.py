@@ -2,7 +2,7 @@
 """
 Complete evaluation pipeline:
 1. Load batch_arrivals.json
-2. Send requests to Modal API
+2. Send requests to Modal API with proper timeout handling
 3. Generate simulation_summary.json
 4. Transform to student_outputs.jsonl
 5. Generate combined_dataset.jsonl (if needed)
@@ -22,12 +22,11 @@ from typing import List, Dict, Any
 from grader import InfoBenchEvaluator, evaluate_single
 from dotenv import load_dotenv
 
-# Load .env
 load_dotenv()
 
 
 # ============================================================================
-# STEP 1: Send Requests to API
+# STEP 1: Send Requests to API with improved timeout handling
 # ============================================================================
 
 async def send_batch_request(
@@ -35,9 +34,10 @@ async def send_batch_request(
     batch: Dict[str, Any],
     url: str,
     start_time: float,
-    semaphore: asyncio.Semaphore
+    semaphore: asyncio.Semaphore,
+    max_retries: int = 2
 ) -> Dict[str, Any]:
-    """Send a single batch request at its scheduled arrival time"""
+    """Send a single batch request with retry logic"""
     current_elapsed = time.time() - start_time
     wait_time = max(0, batch['arrival_time'] - current_elapsed)
     
@@ -50,53 +50,109 @@ async def send_batch_request(
         print(f"[t={actual_send_time:.2f}s] Sending batch {batch['batch_id']} "
               f"(size: {batch['batch_size']})")
         
-        request_start = time.time()
-        try:
-            async with session.post(
-                url,
-                json={
-                    "prompt": batch['prompts'],
-                    "max_tokens": batch.get('max_length', 2048),
-                },
-                timeout=aiohttp.ClientTimeout(total=600)
-            ) as response:
-                response_data = await response.json()
+        for attempt in range(max_retries + 1):
+            request_start = time.time()
+            try:
+                async with session.post(
+                    url,
+                    json={
+                        "prompt": batch['prompts'],
+                        "max_tokens": batch.get('max_length', 256),
+                    },
+                    timeout=aiohttp.ClientTimeout(
+                        total=580,      # Total timeout
+                        connect=30,     # Connection timeout
+                        sock_read=580,  # Socket read timeout
+                        sock_connect=30
+                    )
+                ) as response:
+                    request_duration = time.time() - request_start
+                    
+                    if response.status == 200:
+                        response_data = await response.json()
+                        result = {
+                            "batch_id": batch['batch_id'],
+                            "batch_size": batch['batch_size'],
+                            "scheduled_arrival_time": batch['arrival_time'],
+                            "actual_send_time": actual_send_time,
+                            "request_duration": request_duration,
+                            "completion_time": time.time() - start_time,
+                            "status_code": response.status,
+                            "prompt_idxs": batch.get('prompt_idxs', []),
+                            "response": response_data,
+                            "error": None
+                        }
+                        print(f"[t={result['completion_time']:.2f}s] Completed batch {batch['batch_id']} "
+                              f"(duration: {request_duration:.2f}s)")
+                        return result
+                    elif response.status == 408:
+                        # Timeout - retry
+                        print(f"[t={time.time()-start_time:.2f}s] Batch {batch['batch_id']} got 408, "
+                              f"attempt {attempt+1}/{max_retries+1}")
+                        if attempt < max_retries:
+                            await asyncio.sleep(1.0 * (attempt + 1))
+                            continue
+                    else:
+                        # Other error
+                        error_text = await response.text()
+                        return {
+                            "batch_id": batch['batch_id'],
+                            "batch_size": batch['batch_size'],
+                            "scheduled_arrival_time": batch['arrival_time'],
+                            "actual_send_time": actual_send_time,
+                            "request_duration": request_duration,
+                            "completion_time": time.time() - start_time,
+                            "status_code": response.status,
+                            "prompt_idxs": batch.get('prompt_idxs', []),
+                            "response": None,
+                            "error": f"HTTP {response.status}: {error_text[:200]}"
+                        }
+                        
+            except asyncio.TimeoutError:
                 request_duration = time.time() - request_start
-                
-                result = {
+                print(f"[t={time.time()-start_time:.2f}s] Batch {batch['batch_id']} timeout, "
+                      f"attempt {attempt+1}/{max_retries+1}")
+                if attempt < max_retries:
+                    await asyncio.sleep(2.0 * (attempt + 1))
+                    continue
+                return {
                     "batch_id": batch['batch_id'],
                     "batch_size": batch['batch_size'],
                     "scheduled_arrival_time": batch['arrival_time'],
                     "actual_send_time": actual_send_time,
                     "request_duration": request_duration,
                     "completion_time": time.time() - start_time,
-                    "status_code": response.status,
+                    "status_code": None,
                     "prompt_idxs": batch.get('prompt_idxs', []),
-                    "response": response_data if response.status == 200 else None,
-                    "error": None if response.status == 200 else f"HTTP {response.status}"
+                    "response": None,
+                    "error": "Request timeout after retries"
                 }
-                
-                print(f"[t={result['completion_time']:.2f}s] Completed batch {batch['batch_id']} "
-                      f"(duration: {request_duration:.2f}s)")
-                
-                return result
-                
-        except Exception as e:
-            request_duration = time.time() - request_start
-            result = {
-                "batch_id": batch['batch_id'],
-                "batch_size": batch['batch_size'],
-                "scheduled_arrival_time": batch['arrival_time'],
-                "actual_send_time": actual_send_time,
-                "request_duration": request_duration,
-                "completion_time": time.time() - start_time,
-                "status_code": None,
-                "prompt_idxs": batch.get('prompt_idxs', []),
-                "response": None,
-                "error": str(e)
-            }
-            print(f"[t={result['completion_time']:.2f}s] ERROR batch {batch['batch_id']}: {e}")
-            return result
+                    
+            except Exception as e:
+                request_duration = time.time() - request_start
+                if attempt < max_retries:
+                    print(f"[t={time.time()-start_time:.2f}s] Batch {batch['batch_id']} error: {e}, "
+                          f"retrying...")
+                    await asyncio.sleep(1.0 * (attempt + 1))
+                    continue
+                return {
+                    "batch_id": batch['batch_id'],
+                    "batch_size": batch['batch_size'],
+                    "scheduled_arrival_time": batch['arrival_time'],
+                    "actual_send_time": actual_send_time,
+                    "request_duration": request_duration,
+                    "completion_time": time.time() - start_time,
+                    "status_code": None,
+                    "prompt_idxs": batch.get('prompt_idxs', []),
+                    "response": None,
+                    "error": str(e)
+                }
+        
+        # Should not reach here
+        return {
+            "batch_id": batch['batch_id'],
+            "error": "Unknown error after retries"
+        }
 
 
 async def run_api_simulation(batches: List[Dict[str, Any]], url: str, max_concurrent: int = 300) -> List[Dict[str, Any]]:
@@ -106,20 +162,16 @@ async def run_api_simulation(batches: List[Dict[str, Any]], url: str, max_concur
     
     start_time = time.time()
     semaphore = asyncio.Semaphore(max_concurrent)
-    connector = aiohttp.TCPConnector(limit=max_concurrent * 10)
+    connector = aiohttp.TCPConnector(limit=max_concurrent * 2, limit_per_host=max_concurrent)
     
-    # ✅ Set timeout at session level with all components
     timeout = aiohttp.ClientTimeout(
-        total=600,      # Total request timeout
-        connect=60,     # Connection timeout
-        sock_read=600,  # Socket read timeout - THIS IS KEY!
-        sock_connect=60 # Socket connect timeout
+        total=600,
+        connect=60,
+        sock_read=580,
+        sock_connect=60
     )
     
-    async with aiohttp.ClientSession(
-        connector=connector,
-        timeout=timeout  # Apply to all requests from this session
-    ) as session:
+    async with aiohttp.ClientSession(connector=connector, timeout=timeout) as session:
         tasks = [send_batch_request(session, batch, url, start_time, semaphore) 
                  for batch in batches]
         results = await asyncio.gather(*tasks, return_exceptions=True)
@@ -132,15 +184,21 @@ async def run_api_simulation(batches: List[Dict[str, Any]], url: str, max_concur
             print(f"Exception in batch {i}: {result}")
             processed_results.append({
                 "batch_id": batches[i]['batch_id'],
+                "prompt_idxs": batches[i].get('prompt_idxs', []),
                 "error": str(result)
             })
         else:
             processed_results.append(result)
     
+    # Stats
+    successful = sum(1 for r in processed_results if r.get('status_code') == 200)
+    failed = len(processed_results) - successful
+    
     print(f"\n{'='*60}")
     print(f"API simulation complete!")
     print(f"Total time: {total_time:.2f}s")
-    print(f"Successful: {sum(1 for r in processed_results if r.get('status_code') == 200)}/{len(batches)}")
+    print(f"Successful: {successful}/{len(batches)}")
+    print(f"Failed: {failed}/{len(batches)}")
     print(f"{'='*60}\n")
     
     return processed_results
@@ -158,14 +216,14 @@ def transform_to_student_outputs(simulation_results: List[Dict[str, Any]]) -> Li
     
     for batch in simulation_results:
         if batch.get("status_code") != 200 or not batch.get("response"):
-            print(f"Skipping failed batch ID: {batch.get('batch_id')}")
+            print(f"Skipping failed batch ID: {batch.get('batch_id')} - {batch.get('error', 'unknown')}")
             continue
         
         prompt_idxs = batch.get("prompt_idxs", [])
         choices = batch.get("response", {}).get("choices", [])
         
         if len(prompt_idxs) != len(choices):
-            print(f"Warning: Mismatch in batch {batch['batch_id']}")
+            print(f"Warning: Mismatch in batch {batch['batch_id']}: {len(prompt_idxs)} prompts vs {len(choices)} choices")
             continue
         
         for idx, choice in zip(prompt_idxs, choices):
@@ -308,25 +366,36 @@ def main():
     metrics, results = run_evaluation(student_outputs_dict, combined_dataset, infobench_evaluator)
     
     def sanitize_for_json(obj):
-        """Recursively replace ellipsis with None"""
-        if isinstance(obj, dict):
-            return {k: sanitize_for_json(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [sanitize_for_json(item) for item in obj]
-        elif obj is ...:
+        """Recursively convert objects to JSON-serializable format"""
+        if obj is ... or obj is Ellipsis:
             return None
-        return obj
-
-# Use it like:
+        elif isinstance(obj, dict):
+            return {str(k): sanitize_for_json(v) for k, v in obj.items()}
+        elif isinstance(obj, (list, tuple)):
+            return [sanitize_for_json(item) for item in obj]
+        elif isinstance(obj, set):
+            return [sanitize_for_json(item) for item in obj]
+        elif isinstance(obj, (int, float, str, bool, type(None))):
+            return obj
+        else:
+            # Convert anything else to string
+            return str(obj)
+    
+    # Print final summary
+    print("\n" + "="*60)
+    print("FINAL RESULTS")
+    print("="*60)
+    print(f"Total examples: {metrics['total_examples']}")
+    for task, task_metrics in metrics["task_metrics"].items():
+        print(f"{task:12s}: {task_metrics['accuracy']:.4f} ({task_metrics['count']} examples)")
+    print(f"{'Overall':12s}: {metrics['overall_accuracy']:.4f}")
+    print("="*60)
+    
+    
     with open("test_student_results.jsonl", "w") as f:
         for result in results:
             clean_result = sanitize_for_json(result)
             f.write(json.dumps(clean_result) + "\n")
-
-    # Save results
-    # with open("test_student_results.jsonl", "w") as f:
-    #     for result in results:
-    #         f.write(json.dumps(result) + "\n")
     print(f"  ✓ Saved test_student_results.jsonl")
     
     with open("test_student_metrics.json", "w") as f:
